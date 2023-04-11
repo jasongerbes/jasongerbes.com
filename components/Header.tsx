@@ -7,7 +7,7 @@ import { ReactNode } from 'react'
 
 export function Header() {
   return (
-    <header className="sticky top-0 bg-teal-400 px-8 py-6">
+    <header className="sticky top-0 bg-teal-100 px-8 py-6 dark:bg-teal-950">
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 sm:flex-row">
         <Link href="/">Home</Link>
         <nav className="flex gap-6">

@@ -5,7 +5,7 @@ export function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="bg-pink-400 px-6 pb-20 pt-16 sm:px-8">
+    <footer className="bg-teal-100 px-6 pb-20 pt-16 dark:bg-teal-950/30 sm:px-8">
       <div className="mx-auto flex max-w-7xl flex-col justify-between gap-10 sm:flex-row">
         <nav>
           <ul className="flex flex-col gap-8 text-sm font-medium sm:flex-row">
@@ -15,7 +15,7 @@ export function Footer() {
             <NavLink href="/contact">Contact</NavLink>
           </ul>
         </nav>
-        <p className="text-center text-xs">
+        <p className="text-center text-sm">
           &copy; {year} Jason Gerbes. All rights reserved.
         </p>
       </div>

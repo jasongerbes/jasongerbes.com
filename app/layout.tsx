@@ -19,7 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="flex min-h-[100svh] flex-col">
+      <body className="flex min-h-[100svh] flex-col bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-50">
         <Header />
         <main className="grow">{children}</main>
         <Footer />
