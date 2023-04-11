@@ -2,5 +2,6 @@
   "cSpell.language": "en-GB",
   "typescript.tsdk": "node_modules/typescript/lib",
   "typescript.enablePromptUseWorkspaceTsdk": true,
-  "editor.tabSize": 2
+  "editor.tabSize": 2,
+  "cSpell.words": ["contentlayer", "Gerbes"]
 }

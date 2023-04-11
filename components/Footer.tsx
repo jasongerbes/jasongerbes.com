@@ -5,8 +5,8 @@ export function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="bg-teal-100 px-8 pb-20 pt-16 dark:bg-teal-950/30 sm:px-8">
-      <div className="mx-auto flex max-w-7xl flex-col justify-between gap-12 sm:flex-row">
+    <footer className="bg-teal-100 px-8 pb-20 pt-12 dark:bg-teal-950/30 sm:px-8">
+      <div className="mx-auto flex max-w-7xl flex-col justify-between gap-16 sm:flex-row">
         <nav>
           <ul className="flex flex-col gap-6 text-sm font-medium sm:flex-row">
             <NavLink href="/">Home</NavLink>
