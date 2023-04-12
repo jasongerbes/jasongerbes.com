@@ -4,7 +4,7 @@ import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 import { mdxComponents } from '../mdx-components'
-import { format } from 'date-fns'
+import { formatDate } from '@/utils/format-date'
 
 function getPost(id: string[]): Post {
   const postId = id.join('/')
@@ -46,10 +46,10 @@ export default function BlogPost({ params }: { params: Params }) {
         <header className="flex flex-col">
           <Title>{post.title}</Title>
           <time
-            className="order-first mb-3 text-base text-gray-600 dark:text-gray-300"
+            className="order-first mb-6 text-base text-gray-600 dark:text-gray-300"
             dateTime={post.date}
           >
-            {format(new Date(post.date), 'd LLLL yyyy')}
+            {formatDate(post.date)}
           </time>
         </header>
         <div className="prose prose-gray mt-10 dark:prose-invert">

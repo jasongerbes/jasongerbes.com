@@ -1,6 +1,7 @@
 import { Post, allPosts } from '@/.contentlayer/generated'
 import { Title } from '@/components/Title'
-import { format } from 'date-fns'
+import { formatDate } from '@/utils/format-date'
+import { sortPostsDescending } from '@/utils/sort-posts'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -36,12 +37,12 @@ export default function Home() {
             Latest Posts
           </h2>
 
-          <ul className="mt-4">
-            <li>
-              {latestPosts.map((post) => (
-                <BlogPost key={post.id} post={post} />
-              ))}
-            </li>
+          <ul className="mt-6 flex flex-col gap-4">
+            {latestPosts.map((post) => (
+              <li key={post.id}>
+                <BlogPost post={post} />
+              </li>
+            ))}
           </ul>
         </div>
       </div>
@@ -49,21 +50,11 @@ export default function Home() {
   )
 }
 
-function sortPostsDescending(posts: Post[], limit?: number): Post[] {
-  const sortedPosts = posts
-    .filter((post) => post.isPublished)
-    .sort((a, b) => {
-      return new Date(b.date).getTime() - new Date(a.date).getTime()
-    })
-
-  return limit ? sortedPosts.slice(0, limit) : sortedPosts
-}
-
 function BlogPost({ post }: { post: Post }) {
   return (
-    <article className="py-6">
+    <article>
       <Link
-        className="flex flex-col hover:bg-teal-50/80 dark:hover:bg-teal-900/20"
+        className="-mx-4 flex flex-col px-4 py-4 hover:bg-teal-100/50 dark:hover:bg-teal-900/20 sm:rounded-xl"
         href={post.url}
       >
         <h3 className="text-xl font-semibold">{post.title}</h3>
@@ -71,7 +62,7 @@ function BlogPost({ post }: { post: Post }) {
           className="order-first mb-3 text-sm text-gray-600 dark:text-gray-400"
           dateTime={post.date}
         >
-          {format(new Date(post.date), 'd LLLL yyyy')}
+          {formatDate(post.date)}
         </time>
         <p className="mt-3 text-base">{post.description}</p>
         <div
