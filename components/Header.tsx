@@ -57,10 +57,8 @@ function NavLink({ href, Icon, children }: NavLinkProps) {
     <li className="relative">
       <Link
         className={clsx(
-          'flex items-center gap-2 rounded-2xl px-3 py-2 transition-colors',
-          isActive
-            ? 'text-primary-800 dark:text-primary-200'
-            : 'text-primary-950 hover:bg-primary-300/30 dark:text-primary-100 dark:hover:bg-primary-800/30'
+          'flex items-center gap-2 rounded-2xl px-3 py-2 text-primary-800 transition-colors dark:text-primary-200',
+          isActive ? '' : 'hover:bg-primary-300/30 dark:hover:bg-primary-800/30'
         )}
         aria-current={isActive ? 'page' : undefined}
         href={href}
