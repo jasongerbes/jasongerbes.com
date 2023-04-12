@@ -42,7 +42,7 @@ export default function BlogPost({ params }: { params: Params }) {
 
   return (
     <div className="px-4 py-16 sm:px-8 sm:py-20">
-      <article className="mx-auto max-w-4xl">
+      <article className="mx-auto max-w-3xl">
         <header className="flex flex-col">
           <Title>{post.title}</Title>
           <time
@@ -52,7 +52,7 @@ export default function BlogPost({ params }: { params: Params }) {
             {formatDate(post.date)}
           </time>
         </header>
-        <div className="prose prose-gray mt-10 dark:prose-invert">
+        <div className="prose prose-lg prose-gray mt-10 max-w-none dark:prose-invert">
           <MDXContent components={mdxComponents} />
         </div>
       </article>
