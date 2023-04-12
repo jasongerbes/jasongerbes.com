@@ -33,7 +33,7 @@ export default function Home() {
         </div>
 
         <div className="mt-16 max-w-2xl">
-          <h2 className="text-md font-semibold uppercase tracking-tight text-teal-800 dark:text-teal-600">
+          <h2 className="text-md font-semibold uppercase tracking-tight text-primary-800 dark:text-primary-600">
             Latest Posts
           </h2>
 
@@ -54,7 +54,7 @@ function BlogPost({ post }: { post: Post }) {
   return (
     <article>
       <Link
-        className="-mx-4 flex flex-col px-4 py-4 hover:bg-teal-100/50 dark:hover:bg-teal-900/20 sm:rounded-xl"
+        className="-mx-4 flex flex-col px-4 py-4 hover:bg-primary-100/50 dark:hover:bg-primary-900/20 sm:rounded-xl"
         href={post.url}
       >
         <h3 className="text-xl font-semibold">{post.title}</h3>
@@ -67,7 +67,7 @@ function BlogPost({ post }: { post: Post }) {
         <p className="mt-3 text-base">{post.description}</p>
         <div
           aria-hidden="true"
-          className="mt-3 flex items-center text-base font-medium text-teal-600 dark:text-teal-400"
+          className="mt-3 flex items-center text-base font-medium text-primary-600 dark:text-primary-400"
         >
           Read post →
         </div>
