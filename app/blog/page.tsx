@@ -2,7 +2,13 @@ import { Post, allPosts } from '@/.contentlayer/generated'
 import { Title } from '@/components/Title'
 import { formatDate } from '@/utils/format-date'
 import { sortPostsDescending } from '@/utils/sort-posts'
+import { Metadata } from 'next'
 import Link from 'next/link'
+
+export const metadata: Metadata = {
+  title: 'Blog',
+  description: 'TODO',
+}
 
 export default function Blog() {
   const posts = sortPostsDescending(allPosts)
