@@ -1,9 +1,8 @@
 import clsx from 'clsx'
-import { ReactNode } from 'react'
 
 export interface TitleProps {
   className?: string
-  children: ReactNode
+  children: React.ReactNode
 }
 
 export function Title({ className, children }: TitleProps) {
