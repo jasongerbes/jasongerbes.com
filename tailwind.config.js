@@ -17,6 +17,9 @@ module.exports = {
         base: ['1rem', { lineHeight: '1.75rem' }],
         '5xl': ['3rem', { lineHeight: '3.5rem' }],
       },
+      transitionDuration: {
+        DEFAULT: '200ms'
+      }
     },
   },
 }
