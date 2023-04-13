@@ -17,7 +17,7 @@ export function Header() {
   const toggleNav = () => setShowNav(!showNav)
 
   return (
-    <header className="sticky top-0 border-b border-gray-200/30 bg-gray-50 dark:border-gray-800 dark:bg-gray-950 lg:static lg:row-span-2 lg:border-b-0 lg:border-r">
+    <header className="sticky top-0 border-b border-gray-200/50 bg-white dark:border-gray-800 dark:bg-gray-900 lg:static lg:row-span-2 lg:border-b-0 lg:border-r lg:bg-gray-50 lg:dark:bg-gray-950">
       <div className="mx-auto flex max-h-[100dvh] items-center justify-between px-4 py-5 lg:sticky lg:top-0 lg:flex-col lg:overflow-y-auto lg:py-12">
         <Link
           className="rounded-lg border px-8 py-2 text-center lg:w-full"
@@ -28,7 +28,7 @@ export function Header() {
 
         <nav className="lg:mt-16 lg:w-full" aria-label="Main menu">
           <button
-            className="rounded-full border border-gray-200 bg-white px-5 py-2 dark:border-gray-950 dark:bg-gray-800 lg:hidden"
+            className="rounded-full border border-gray-200 bg-white px-5 py-2 dark:border-gray-700 dark:bg-gray-800 lg:hidden"
             onClick={toggleNav}
             aria-expanded={showNav}
             aria-controls="main-menu"
@@ -38,7 +38,7 @@ export function Header() {
 
           <ul
             className={clsx(
-              'fixed inset-x-4 top-24 flex-col gap-2 rounded-xl border bg-white px-4 py-8 text-base font-semibold shadow-2xl dark:border-gray-800 dark:bg-gray-950 lg:static lg:flex lg:border-none lg:bg-transparent lg:p-0 lg:shadow-none',
+              'fixed inset-x-4 top-24 flex-col gap-2 rounded-xl border bg-white px-4 py-8 text-base font-semibold shadow-2xl dark:border-gray-800 dark:bg-gray-900 lg:static lg:flex lg:border-none lg:bg-transparent lg:p-0 lg:shadow-none',
               showNav ? 'flex' : 'hidden'
             )}
             id="main-menu"
