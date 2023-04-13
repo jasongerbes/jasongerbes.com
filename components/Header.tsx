@@ -15,7 +15,9 @@ export function Header() {
   return (
     <header className="sticky top-0 px-8 py-8">
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 sm:flex-row">
-        <Link href="/">Logo Here</Link>
+        <Link className="rounded-lg border px-8 py-3 text-center" href="/">
+          Logo Here
+        </Link>
         <nav className="relative z-0 rounded-2xl bg-white/60 p-1 shadow-xl shadow-gray-700/10 ring-1 ring-gray-900/5 backdrop-blur-xl dark:bg-gray-900/60 dark:ring-gray-500/10">
           <ul className="flex gap-1 text-base font-semibold">
             <NavLink href="/" Icon={HomeIcon}>
