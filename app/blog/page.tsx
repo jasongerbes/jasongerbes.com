@@ -15,7 +15,7 @@ export default function Blog() {
 
   return (
     <div className="px-4 py-16 sm:px-8 sm:py-20">
-      <div className="mx-auto max-w-4xl">
+      <div className="mx-auto max-w-3xl">
         <Title>Blog</Title>
 
         <ul className="mt-12 flex flex-col gap-4">

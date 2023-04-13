@@ -11,7 +11,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        gray: colors.neutral,
+        gray: colors.zinc,
         primary: colors.teal
       },
       fontSize: {
@@ -20,7 +20,7 @@ module.exports = {
       },
       transitionDuration: {
         DEFAULT: '200ms'
-      }
+      },
     },
   },
 }
