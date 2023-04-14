@@ -1,16 +1,17 @@
 'use client'
 
-import {
-  HomeIcon,
-  EnvelopeIcon,
-  IdentificationIcon,
-  NewspaperIcon,
-} from '@heroicons/react/24/outline'
 import clsx from 'clsx'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
+import {
+  type IconProps,
+  House,
+  IdentificationCard,
+  Newspaper,
+  ChatText,
+} from '@phosphor-icons/react'
 
 export function Header() {
   const [showNav, setShowNav] = useState(false)
@@ -43,16 +44,16 @@ export function Header() {
             )}
             id="main-menu"
           >
-            <NavLink href="/" Icon={HomeIcon}>
+            <NavLink href="/" Icon={House}>
               Home
             </NavLink>
-            <NavLink href="/about" Icon={IdentificationIcon}>
+            <NavLink href="/about" Icon={IdentificationCard}>
               About
             </NavLink>
-            <NavLink href="/blog" Icon={NewspaperIcon}>
+            <NavLink href="/blog" Icon={Newspaper}>
               Blog
             </NavLink>
-            <NavLink href="/contact" Icon={EnvelopeIcon}>
+            <NavLink href="/contact" Icon={ChatText}>
               Contact
             </NavLink>
           </ul>
@@ -61,12 +62,6 @@ export function Header() {
     </header>
   )
 }
-
-// Icon props type, inferred from @heroicons/react
-type IconProps = React.PropsWithoutRef<React.SVGProps<SVGSVGElement>> & {
-  title?: string
-  titleId?: string
-} & React.RefAttributes<SVGSVGElement>
 
 interface NavLinkProps {
   href: string
@@ -82,18 +77,18 @@ function NavLink({ href, Icon, children }: NavLinkProps) {
     <li className="relative">
       <Link
         className={clsx(
-          'flex items-center gap-3 rounded-xl px-3 py-3 text-lg text-primary-800 transition-colors dark:text-primary-200',
-          isActive ? '' : 'hover:bg-primary-300/30 dark:hover:bg-primary-800/30'
+          'flex items-center gap-3 rounded-xl px-3 py-3 text-lg text-primary-800 transition-colors dark:text-primary-500',
+          isActive ? '' : 'hover:bg-primary-700/10 dark:hover:bg-primary-950/50'
         )}
         aria-current={isActive ? 'page' : undefined}
         href={href}
       >
-        <Icon className="h-6 w-6" />
+        <Icon className="h-6 w-6" weight="regular" />
         {children}
       </Link>
       {isActive ? (
         <motion.div
-          className="absolute inset-0 -z-10 rounded-xl bg-primary-200 dark:bg-primary-900"
+          className="absolute inset-0 -z-10 rounded-xl bg-primary-600/30 dark:bg-primary-950"
           layoutId="header-nav-active-bg"
           transition={{
             type: 'spring',
