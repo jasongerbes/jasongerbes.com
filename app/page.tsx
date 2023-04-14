@@ -1,13 +1,8 @@
-import { Post, allPosts } from '@/.contentlayer/generated'
+import { BlogPostList } from '@/components/BlogPostList'
 import { Title } from '@/components/Title'
-import { formatDate } from '@/utils/format-date'
-import { sortPostsDescending } from '@/utils/sort-posts'
 import Image from 'next/image'
-import Link from 'next/link'
 
 export default function Home() {
-  const latestPosts = sortPostsDescending(allPosts, 5)
-
   return (
     <div className="px-4 py-16 sm:px-8 sm:py-20">
       <div className="mx-auto max-w-3xl">
@@ -34,40 +29,8 @@ export default function Home() {
           Latest Posts
         </h2>
 
-        <ul className="mt-6 flex flex-col gap-4">
-          {latestPosts.map((post) => (
-            <li key={post.id}>
-              <BlogPost post={post} />
-            </li>
-          ))}
-        </ul>
+        <BlogPostList className="mt-6" limit={5} headingLevel="h3" />
       </div>
     </div>
-  )
-}
-
-function BlogPost({ post }: { post: Post }) {
-  return (
-    <article>
-      <Link
-        className="-mx-4 flex flex-col px-4 py-4 hover:bg-primary-100/50 dark:hover:bg-primary-900/20 sm:rounded-xl"
-        href={post.url}
-      >
-        <h3 className="text-xl font-semibold">{post.title}</h3>
-        <time
-          className="order-first mb-3 text-sm text-gray-600 dark:text-gray-400"
-          dateTime={post.date}
-        >
-          {formatDate(post.date)}
-        </time>
-        <p className="mt-3 text-base">{post.description}</p>
-        <div
-          aria-hidden="true"
-          className="mt-3 flex items-center text-base font-medium text-primary-600 dark:text-primary-400"
-        >
-          Read post →
-        </div>
-      </Link>
-    </article>
   )
 }

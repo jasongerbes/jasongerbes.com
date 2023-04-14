@@ -88,7 +88,7 @@ function NavLink({ href, Icon, children }: NavLinkProps) {
       </Link>
       {isActive ? (
         <motion.div
-          className="absolute inset-0 -z-10 rounded-xl bg-primary-600/30 dark:bg-primary-950"
+          className="absolute inset-0 -z-10 rounded-xl bg-primary-600/30 dark:bg-primary-950/80"
           layoutId="header-nav-active-bg"
           transition={{
             type: 'spring',
