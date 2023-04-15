@@ -14,7 +14,7 @@ module.exports = {
     extend: {
       colors: ({ colors }) => ({
         gray: colors.neutral,
-        primary: colors.teal
+        primary: colors.cyan
       }),
       fontSize: {
         base: ['1rem', { lineHeight: '1.75rem' }],
