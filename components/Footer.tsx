@@ -14,8 +14,8 @@ const links = [
     label: 'Blog',
   },
   {
-    href: '/cool-tech',
-    label: 'Cool Tech',
+    href: '/cool-stuff',
+    label: 'Cool Stuff',
   },
   {
     href: '/contact',
