@@ -39,7 +39,7 @@ function BlogPost({ post, headingLevel }: BlogPostProps) {
   return (
     <article>
       <Link
-        className="-mx-4 flex flex-col px-4 py-4 transition-colors hover:bg-primary-700/10 dark:hover:bg-primary-950/30 sm:rounded-xl"
+        className="-mx-4 flex flex-col px-4 py-4 transition-colors hover:bg-primary-500/10 dark:hover:bg-primary-950/30 sm:rounded-xl"
         href={post.url}
       >
         <Heading level={headingLevel} className="text-xl font-semibold">
