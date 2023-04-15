@@ -8,8 +8,39 @@ export const metadata: Metadata = {
     default: 'Jason Gerbes',
     template: '%s - Jason Gerbes',
   },
-  description:
-    'My personal website and blog, where I share interesting content and thoughts on various topics.',
+  description: 'Software architect, technology enthusiast, and cat dad.',
+  metadataBase: new URL('https://jasongerbes.com'),
+  openGraph: {
+    title: 'Jason Gerbes',
+    description: 'Software architect, technology enthusiast, and cat dad.',
+    type: 'website',
+    url: '/',
+    siteName: 'Jason Gerbes',
+    locale: 'en-UK',
+  },
+  twitter: {
+    title: 'Jason Gerbes',
+    card: 'summary_large_image',
+    creator: '@jasongerbes',
+  },
+  authors: [{ name: 'Jason Gerbes' }],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  icons: {
+    shortcut: '/favicon.ico',
+  },
+  verification: {
+    google: '-STVopLRbXMC9iyGNCf_t59pSSK8dhhyWXlijHsanvU',
+  },
 }
 
 export default function RootLayout({

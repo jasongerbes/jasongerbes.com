@@ -29,10 +29,22 @@ export function generateStaticParams() {
 
 export function generateMetadata({ params }: { params: Params }): Metadata {
   const post = getPost(params.id)
+  const { title, date, description, url } = post
 
   return {
-    title: post.title,
-    description: post.description,
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      type: 'article',
+      url,
+      publishedTime: date,
+    },
+    twitter: {
+      title,
+      description,
+    },
   }
 }
 
