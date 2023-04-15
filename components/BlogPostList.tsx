@@ -42,7 +42,10 @@ function BlogPost({ post, headingLevel }: BlogPostProps) {
         className="-mx-4 flex flex-col px-4 py-4 transition-colors hover:bg-primary-500/10 dark:hover:bg-primary-950/30 sm:rounded-xl"
         href={post.url}
       >
-        <Heading level={headingLevel} className="text-xl font-semibold">
+        <Heading
+          level={headingLevel}
+          className="text-lg font-semibold sm:text-xl"
+        >
           {post.title}
         </Heading>
         <time
@@ -51,7 +54,9 @@ function BlogPost({ post, headingLevel }: BlogPostProps) {
         >
           {formatDate(post.date)}
         </time>
-        <p className="mt-3 text-base">{post.description}</p>
+        <p className="mt-3 text-base text-gray-600 dark:text-gray-400">
+          {post.description}
+        </p>
         <div
           aria-hidden="true"
           className="mt-3 text-base font-semibold text-primary-800 dark:text-primary-500"

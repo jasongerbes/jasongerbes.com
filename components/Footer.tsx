@@ -14,8 +14,8 @@ const links = [
     label: 'Blog',
   },
   {
-    href: '/cool-stuff',
-    label: 'Cool Stuff',
+    href: '/cool-tech',
+    label: 'Cool Tech',
   },
   {
     href: '/contact',
@@ -28,9 +28,9 @@ export function Footer() {
 
   return (
     <footer className="px-8 pb-16 pt-16 sm:px-8">
-      <div className="mx-auto flex max-w-7xl flex-col justify-between gap-16 sm:items-center lg:justify-center">
+      <div className="mx-auto flex max-w-7xl flex-col justify-between gap-12 sm:items-center lg:justify-center">
         <nav className="lg:hidden">
-          <ul className="flex flex-col gap-8 text-base font-semibold sm:flex-row sm:gap-16">
+          <ul className="flex flex-col gap-8 text-base font-semibold sm:flex-row">
             {links.map((link) => (
               <NavLink key={link.href} href={link.href}>
                 {link.label}

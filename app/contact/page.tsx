@@ -11,7 +11,7 @@ export default function Contact() {
   return (
     <div className="px-4 py-16 sm:px-8 sm:py-20">
       <div className="mx-auto max-w-3xl">
-        <Title>Looking to connect? I’d be happy to hear from you</Title>
+        <Title>Want to connect? I’d be happy to hear from you</Title>
         <Subtitle>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a velit
           convallis, pharetra justo sed, porttitor lectus. Vestibulum cursus,

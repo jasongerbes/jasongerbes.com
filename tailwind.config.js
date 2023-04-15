@@ -18,6 +18,7 @@ module.exports = {
       }),
       fontSize: {
         base: ['1rem', { lineHeight: '1.75rem' }],
+        '4xl': ['2rem', { lineHeight: '2.5rem' }],
         '5xl': ['3rem', { lineHeight: '3.5rem' }],
       },
       transitionDuration: {

@@ -31,8 +31,8 @@ const links = [
     icon: Newspaper,
   },
   {
-    href: '/cool-stuff',
-    label: 'Cool Stuff',
+    href: '/cool-tech',
+    label: 'Cool Tech',
     icon: Code,
   },
   {
