@@ -50,7 +50,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="flex min-h-[100svh] flex-col bg-white text-gray-800 antialiased dark:bg-gray-900 dark:text-gray-50 lg:grid lg:grid-cols-[300px_1fr] lg:grid-rows-[1fr_auto]">
+      <body className="flex min-h-[100svh] flex-col bg-white text-gray-800 antialiased dark:bg-gray-900 dark:text-gray-100 lg:grid lg:grid-cols-[300px_1fr] lg:grid-rows-[1fr_auto]">
         <Header />
         <main className="min-w-0 grow">{children}</main>
         <Footer />

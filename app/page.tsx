@@ -1,4 +1,5 @@
 import { BlogPostList } from '@/components/BlogPostList'
+import { Subtitle } from '@/components/Subtitle'
 import { Title } from '@/components/Title'
 import Image from 'next/image'
 
@@ -15,14 +16,14 @@ export default function Home() {
         />
 
         <Title className="mt-8">
-          Software architect, technology enthusiast, and cat dad.
+          Software architect, technology enthusiast, and cat dad
         </Title>
 
-        <p className="mt-6 text-base text-gray-600 dark:text-gray-300">
+        <Subtitle>
           I’m Jason, a front-end software architect based in the beautiful city
           of Auckland, New Zealand. I have a passion for technology, design, and
           sustainability. Follow my journey by checking out my recent posts.
-        </p>
+        </Subtitle>
 
         <h2 className="text-md mt-16 font-semibold uppercase tracking-tight text-primary-800 dark:text-primary-600">
           Latest Posts

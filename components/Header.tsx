@@ -10,8 +10,37 @@ import {
   House,
   IdentificationCard,
   Newspaper,
-  ChatText,
+  Code,
+  ChatDots,
 } from '@/assets/phosphor-icons'
+
+const links = [
+  {
+    href: '/',
+    label: 'Home',
+    icon: House,
+  },
+  {
+    href: '/about',
+    label: 'About',
+    icon: IdentificationCard,
+  },
+  {
+    href: '/blog',
+    label: 'Blog',
+    icon: Newspaper,
+  },
+  {
+    href: '/cool-stuff',
+    label: 'Cool Stuff',
+    icon: Code,
+  },
+  {
+    href: '/contact',
+    label: 'Contact',
+    icon: ChatDots,
+  },
+]
 
 export function Header() {
   const [showNav, setShowNav] = useState(false)
@@ -44,18 +73,11 @@ export function Header() {
             )}
             id="main-menu"
           >
-            <NavLink href="/" Icon={House}>
-              Home
-            </NavLink>
-            <NavLink href="/about" Icon={IdentificationCard}>
-              About
-            </NavLink>
-            <NavLink href="/blog" Icon={Newspaper}>
-              Blog
-            </NavLink>
-            <NavLink href="/contact" Icon={ChatText}>
-              Contact
-            </NavLink>
+            {links.map((link) => (
+              <NavLink key={link.href} href={link.href} Icon={link.icon}>
+                {link.label}
+              </NavLink>
+            ))}
           </ul>
         </nav>
       </div>

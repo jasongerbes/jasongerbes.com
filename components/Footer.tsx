@@ -1,5 +1,28 @@
 import Link from 'next/link'
 
+const links = [
+  {
+    href: '/',
+    label: 'Home',
+  },
+  {
+    href: '/about',
+    label: 'About',
+  },
+  {
+    href: '/blog',
+    label: 'Blog',
+  },
+  {
+    href: '/cool-stuff',
+    label: 'Cool Stuff',
+  },
+  {
+    href: '/contact',
+    label: 'Contact',
+  },
+]
+
 export function Footer() {
   const year = new Date().getFullYear()
 
@@ -8,10 +31,11 @@ export function Footer() {
       <div className="mx-auto flex max-w-7xl flex-col justify-between gap-16 sm:items-center lg:justify-center">
         <nav className="lg:hidden">
           <ul className="flex flex-col gap-8 text-base font-semibold sm:flex-row sm:gap-16">
-            <NavLink href="/">Home</NavLink>
-            <NavLink href="/about">About</NavLink>
-            <NavLink href="/blog">Blog</NavLink>
-            <NavLink href="/contact">Contact</NavLink>
+            {links.map((link) => (
+              <NavLink key={link.href} href={link.href}>
+                {link.label}
+              </NavLink>
+            ))}
           </ul>
         </nav>
         <p className="text-center text-sm text-gray-400 dark:text-gray-500">
