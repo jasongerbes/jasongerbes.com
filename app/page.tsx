@@ -21,8 +21,7 @@ export default function Home() {
         <p className="mt-6 text-base text-gray-600 dark:text-gray-300">
           I’m Jason, a front-end software architect based in the beautiful city
           of Auckland, New Zealand. I have a passion for technology, design, and
-          sustainability. Follow my journey by checking out my recent blog
-          posts. Welcome!
+          sustainability. Follow my journey by checking out my recent posts.
         </p>
 
         <h2 className="text-md mt-16 font-semibold uppercase tracking-tight text-primary-800 dark:text-primary-600">

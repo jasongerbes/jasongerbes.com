@@ -11,25 +11,29 @@ export interface MdxProps {
 }
 
 function MdxLink(props: React.AnchorHTMLAttributes<HTMLAnchorElement>) {
-  const { href } = props
+  const { href, children } = props
 
   if (!href) {
-    return <>{props.children}</>
+    return <>{children}</>
   }
 
   if (href.startsWith('/')) {
     return (
       <Link {...props} href={href} ref={undefined}>
-        {props.children}
+        {children}
       </Link>
     )
   }
 
   if (href.startsWith('#')) {
-    return <a {...props} />
+    return <a {...props}>{children}</a>
   }
 
-  return <a target="_blank" rel="noopener noreferrer" {...props} />
+  return (
+    <a target="_blank" rel="noopener noreferrer" {...props}>
+      {children}
+    </a>
+  )
 }
 
 const mdxComponents: MDXComponents = {
