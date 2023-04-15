@@ -83,8 +83,10 @@ function HeaderNavLink(props: HeaderNavLinkProps) {
     <li className={clsx('relative', className)}>
       <Link
         className={clsx(
-          'flex items-center gap-3 rounded-xl px-3 py-3 text-lg font-medium text-primary-800 transition-colors dark:text-primary-500',
-          isActive ? '' : 'hover:bg-primary-500/10 dark:hover:bg-primary-950/50'
+          'flex items-center gap-3 rounded-xl px-3 py-3 text-lg font-medium text-primary-800 transition-colors [-webkit-tap-highlight-color:transparent] dark:text-primary-500',
+          isActive
+            ? '[-webkit-tap-highlight-color:transparent]'
+            : 'hover:bg-primary-500/10 dark:hover:bg-primary-950/50'
         )}
         aria-current={isCurrent ? 'page' : undefined}
         aria-label={label}
