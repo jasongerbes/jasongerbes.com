@@ -4,17 +4,17 @@ module.exports = {
     './pages/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',
     './app/**/*.{js,ts,jsx,tsx}',
-    './posts/**/*.mdx'
+    './posts/**/*.mdx',
   ],
   plugins: [
     require('@tailwindcss/forms'),
-    require('@tailwindcss/typography')
+    require('@tailwindcss/typography'),
   ],
   theme: {
     extend: {
       colors: ({ colors }) => ({
         gray: colors.neutral,
-        primary: colors.cyan
+        primary: colors.cyan,
       }),
       fontSize: {
         base: ['1rem', { lineHeight: '1.75rem' }],
@@ -22,7 +22,7 @@ module.exports = {
         '5xl': ['3rem', { lineHeight: '3.5rem' }],
       },
       transitionDuration: {
-        DEFAULT: '200ms'
+        DEFAULT: '200ms',
       },
     },
   },

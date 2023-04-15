@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-const links = [
+const links: FooterNavLinkProps[] = [
   {
     href: '/',
     label: 'Home',
@@ -32,9 +32,7 @@ export function Footer() {
         <nav className="lg:hidden">
           <ul className="flex flex-col gap-8 text-base font-semibold sm:flex-row">
             {links.map((link) => (
-              <NavLink key={link.href} href={link.href}>
-                {link.label}
-              </NavLink>
+              <FooterNavLink key={link.href} {...link} />
             ))}
           </ul>
         </nav>
@@ -46,19 +44,19 @@ export function Footer() {
   )
 }
 
-interface NavLinkProps {
+interface FooterNavLinkProps {
   href: string
-  children: React.ReactNode
+  label: string
 }
 
-function NavLink({ href, children }: NavLinkProps) {
+function FooterNavLink({ href, label }: FooterNavLinkProps) {
   return (
     <li>
       <Link
         className="text-primary-800 transition-colors hover:text-primary-600 dark:text-primary-600 dark:hover:text-primary-700"
         href={href}
       >
-        {children}
+        {label}
       </Link>
     </li>
   )
