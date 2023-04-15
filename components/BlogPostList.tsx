@@ -4,7 +4,6 @@ import { sortPostsDescending } from '@/utils/sort-posts'
 import clsx from 'clsx'
 import Link from 'next/link'
 import { formatDate } from '@/utils/format-date'
-import { ArrowRight } from '@/assets/phosphor-icons'
 
 export interface BlogPostListProps
   extends React.HTMLAttributes<HTMLUListElement> {
@@ -55,9 +54,9 @@ function BlogPost({ post, headingLevel }: BlogPostProps) {
         <p className="mt-3 text-base">{post.description}</p>
         <div
           aria-hidden="true"
-          className="mt-3 flex items-center gap-1 text-base font-semibold text-primary-800 dark:text-primary-500"
+          className="mt-3 text-base font-semibold text-primary-800 dark:text-primary-500"
         >
-          Read post <ArrowRight weight="bold" />
+          Read post →
         </div>
       </Link>
     </article>
