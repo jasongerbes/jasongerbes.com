@@ -18,7 +18,7 @@ export function Header() {
   const toggleNav = () => setShowNav(!showNav)
 
   return (
-    <header className="sticky top-0 z-50 border-b border-primary-600/10 bg-primary-50/50 backdrop-blur-xl dark:border-gray-800 dark:bg-primary-900/10 lg:static lg:row-span-2 lg:border-b-0 lg:border-r lg:backdrop-blur-none">
+    <header className="sticky top-0 z-50 border-b border-primary-600/10 bg-primary-50/70 backdrop-blur-xl dark:border-primary-900/30 dark:bg-primary-900/20 lg:static lg:row-span-2 lg:border-b-0 lg:border-r lg:backdrop-blur-none">
       <div className="mx-auto flex max-h-[100dvh] items-center justify-between px-4 py-5 lg:sticky lg:top-0 lg:flex-col lg:overflow-y-auto lg:py-12">
         <Link
           className="rounded-lg border px-8 py-2 text-center lg:w-full"
