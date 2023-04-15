@@ -2,9 +2,8 @@ import { Post, allPosts } from '@/.contentlayer/generated'
 import { Title } from '@/components/Title'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { useMDXComponent } from 'next-contentlayer/hooks'
-import { mdxComponents } from '../mdx-components'
 import { formatDate } from '@/utils/format-date'
+import { Mdx } from '@/components/Mdx'
 
 function getPost(id: string[]): Post {
   const postId = id.join('/')
@@ -50,7 +49,6 @@ export function generateMetadata({ params }: { params: Params }): Metadata {
 
 export default function BlogPost({ params }: { params: Params }) {
   const post = getPost(params.id)
-  const MDXContent = useMDXComponent(post.body.code)
 
   return (
     <div className="px-4 py-16 sm:px-8 sm:py-20">
@@ -58,15 +56,13 @@ export default function BlogPost({ params }: { params: Params }) {
         <header className="flex flex-col">
           <Title>{post.title}</Title>
           <time
-            className="order-first mb-6 text-base text-gray-600 dark:text-gray-300"
+            className="order-first mb-4 text-base font-medium text-gray-400 dark:text-gray-500"
             dateTime={post.date}
           >
             {formatDate(post.date)}
           </time>
         </header>
-        <div className="prose prose-lg prose-gray mt-10 max-w-none dark:prose-invert">
-          <MDXContent components={mdxComponents} />
-        </div>
+        <Mdx className="mt-10" code={post.body.code} />
       </article>
     </div>
   )

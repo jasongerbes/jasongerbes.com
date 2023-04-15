@@ -39,14 +39,14 @@ function BlogPost({ post, headingLevel }: BlogPostProps) {
   return (
     <article>
       <Link
-        className="-mx-4 flex flex-col px-4 py-4 transition-colors hover:bg-primary-700/5 dark:hover:bg-primary-950/30 sm:rounded-xl"
+        className="-mx-4 flex flex-col px-4 py-4 transition-colors hover:bg-primary-700/10 dark:hover:bg-primary-950/30 sm:rounded-xl"
         href={post.url}
       >
         <Heading level={headingLevel} className="text-xl font-semibold">
           {post.title}
         </Heading>
         <time
-          className="order-first mb-3 text-sm text-gray-600 dark:text-gray-400"
+          className="order-first mb-3 text-sm font-medium text-gray-400 dark:text-gray-500"
           dateTime={post.date}
         >
           {formatDate(post.date)}

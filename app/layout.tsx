@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     type: 'website',
     url: '/',
     siteName: 'Jason Gerbes',
-    locale: 'en-UK',
+    locale: 'en-NZ',
   },
   twitter: {
     title: 'Jason Gerbes',
