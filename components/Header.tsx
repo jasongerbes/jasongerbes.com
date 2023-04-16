@@ -2,6 +2,7 @@
 
 import clsx from 'clsx'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import {
@@ -10,7 +11,7 @@ import {
   Rocket,
   FileCode,
   Book,
-  ChatDots,
+  ChatText,
 } from '@/assets/phosphor-icons'
 
 const links: HeaderNavLinkProps[] = [
@@ -37,22 +38,29 @@ const links: HeaderNavLinkProps[] = [
   {
     href: '/contact',
     label: 'Contact',
-    icon: ChatDots,
+    icon: ChatText,
   },
 ]
 
 export function Header() {
   return (
     <header className="sticky top-0 z-50 select-none border-b border-primary-600/10 bg-primary-50/70 backdrop-blur-xl dark:border-primary-900/30 dark:bg-primary-900/20 lg:static lg:row-span-2 lg:border-b-0 lg:border-r lg:backdrop-blur-none">
-      <div className="mx-auto flex max-h-[100dvh] items-center justify-between p-4 lg:sticky lg:top-0 lg:flex-col lg:overflow-y-auto lg:py-12">
+      <div className="mx-auto flex max-h-[100dvh] items-center justify-between p-4 max-xs:justify-center lg:sticky lg:top-0 lg:flex-col lg:overflow-y-auto lg:px-0 lg:py-12">
         <Link
-          className="rounded-lg border px-4 py-2 text-center lg:w-full"
+          className="lg:dark:border-primary-900/300 text-center max-xs:hidden lg:w-full lg:border-b-2 lg:border-primary-600/10"
           href="/"
+          aria-hidden="true"
         >
-          Logo
+          <Image
+            className="mx-auto h-12 w-12 lg:h-28 lg:w-28"
+            src="/images/site-logo.png"
+            width={120}
+            height={120}
+            alt=""
+          />
         </Link>
 
-        <nav className="lg:mt-16 lg:w-full" aria-label="Main menu">
+        <nav className="lg:mt-12 lg:w-full lg:px-4" aria-label="Main menu">
           <ul className="flex gap-1 md:gap-2 lg:flex-col">
             {links.map((link) => (
               <HeaderNavLink key={link.href} {...link} />
@@ -83,7 +91,7 @@ function HeaderNavLink(props: HeaderNavLinkProps) {
     <li className={clsx('relative', className)}>
       <Link
         className={clsx(
-          'flex items-center gap-3 rounded-xl px-3 py-3 text-lg font-medium text-primary-800 transition-colors [-webkit-tap-highlight-color:transparent] dark:text-primary-500',
+          'flex items-center gap-3 rounded-xl px-3 py-3 text-lg/none font-medium text-primary-800 transition-colors [-webkit-tap-highlight-color:transparent] dark:text-primary-500',
           isActive
             ? '[-webkit-tap-highlight-color:transparent]'
             : 'hover:bg-primary-500/10 dark:hover:bg-primary-950/50'

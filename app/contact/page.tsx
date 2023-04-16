@@ -39,7 +39,7 @@ const contactLinks: ContactLinkProps[] = [
 
 export default function Contact() {
   return (
-    <div className="px-4 py-16 sm:px-8 sm:py-20">
+    <div className="px-4 py-16 sm:px-8 sm:py-20 xl:py-24">
       <div className="mx-auto max-w-3xl">
         <Title>Want to connect with me? You’ve come to the right place</Title>
 
