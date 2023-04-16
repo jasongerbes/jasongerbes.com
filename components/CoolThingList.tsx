@@ -76,7 +76,7 @@ function CoolThing({ thing, headingLevel }: CoolThingProps) {
       </p>
 
       <p className="mt-4 text-primary-800 dark:text-primary-500">
-        {hostname} ↗
+        {hostname} <span aria-hidden="true">↗</span>
       </p>
     </a>
   )

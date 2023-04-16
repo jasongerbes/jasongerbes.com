@@ -15,8 +15,8 @@ export default function CoolStuff() {
         <Title>Some cool things I want to share with you</Title>
         <Subtitle>
           I’m known for my love of cool stuff and for making lists. Here I’ll
-          document some of the noteworthy things I’ve found and/or used - for
-          both my own reference and yours.
+          document some noteworthy things I’ve found and used, for both my own
+          reference and yours.
         </Subtitle>
 
         <CoolThingList className="mt-12" headingLevel="h2" />
