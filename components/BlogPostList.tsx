@@ -1,6 +1,5 @@
-import { Post, allPosts } from '@/.contentlayer/generated'
+import { BlogPost, allBlogPosts } from '@/.contentlayer/generated'
 import { Heading, HeadingLevel } from './Heading'
-import { sortPostsDescending } from '@/utils/sort-posts'
 import clsx from 'clsx'
 import Link from 'next/link'
 import { formatDate } from '@/utils/format-date'
@@ -17,7 +16,7 @@ export function BlogPostList({
   headingLevel,
   ...props
 }: BlogPostListProps) {
-  const posts = sortPostsDescending(allPosts, limit)
+  const posts = sortPostsDescending(allBlogPosts, limit)
 
   return (
     <ul className={clsx('flex flex-col gap-4', className)} {...props}>
@@ -31,7 +30,7 @@ export function BlogPostList({
 }
 
 export interface BlogPostProps {
-  post: Post
+  post: BlogPost
   headingLevel: HeadingLevel
 }
 
@@ -50,9 +49,9 @@ function BlogPost({ post, headingLevel }: BlogPostProps) {
         </Heading>
         <time
           className="order-first mb-3 text-sm font-medium text-gray-400 dark:text-gray-500"
-          dateTime={post.date}
+          dateTime={post.publishDate}
         >
-          {formatDate(post.date)}
+          {formatDate(post.publishDate)}
         </time>
         <p className="mt-3 text-base text-gray-600 dark:text-gray-400">
           {post.description}
@@ -66,4 +65,21 @@ function BlogPost({ post, headingLevel }: BlogPostProps) {
       </Link>
     </article>
   )
+}
+
+function sortPostsDescending(posts: BlogPost[], limit?: number): BlogPost[] {
+  const sortedPosts = posts
+    .filter((post) => post.isPublished)
+    .sort((a, b) => {
+      const dateA = new Date(a.publishDate).getTime()
+      const dateB = new Date(b.publishDate).getTime()
+
+      if (dateA !== dateB) {
+        return dateB - dateA
+      }
+
+      return a.title.localeCompare(b.title)
+    })
+
+  return limit ? sortedPosts.slice(0, limit) : sortedPosts
 }

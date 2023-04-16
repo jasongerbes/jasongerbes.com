@@ -21,6 +21,9 @@ module.exports = {
         '4xl': ['2rem', { lineHeight: '2.5rem' }],
         '5xl': ['3rem', { lineHeight: '3.5rem' }],
       },
+      screens: {
+        xs: '350px',
+      },
       transitionDuration: {
         DEFAULT: '200ms',
       },

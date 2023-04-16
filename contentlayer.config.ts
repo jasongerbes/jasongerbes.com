@@ -5,49 +5,132 @@ import rehypeSlug from 'rehype-slug'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import { s } from 'hastscript'
 
-export const Post = defineDocumentType(() => ({
-  name: 'Post',
-  filePathPattern: `**/*.mdx`,
+export const BlogPost = defineDocumentType(() => ({
+  name: 'BlogPost',
+  filePathPattern: `blog-posts/**/*.mdx`,
   contentType: 'mdx',
   fields: {
     title: {
       type: 'string',
-      description: 'The title of the post',
+      description: 'The title of the blog post',
       required: true,
     },
     description: {
       type: 'string',
-      description: 'The description of the post',
+      description: 'A description of the blog post',
       required: true,
     },
-    date: {
+    publishDate: {
       type: 'date',
-      description: 'The date of the post',
+      description: 'The date the blog post was published',
       required: true,
     },
     isPublished: {
       type: 'boolean',
-      description: 'Indicates whether the post has been published',
+      description: 'Indicates whether the blog post has been published',
       required: true,
     },
   },
   computedFields: {
     id: {
       type: 'string',
-      desciption: 'The unique identifier of the post, aka slug',
-      resolve: (post) => post._raw.flattenedPath,
+      desciption: 'The unique identifier of the blog post, aka slug',
+      resolve: (post) => post._raw.flattenedPath.replace(/^blog-posts\//, ''),
     },
     url: {
       type: 'string',
-      description: 'The URL of the post',
-      resolve: (post) => `/blog/${post._raw.flattenedPath}`,
+      description: 'The URL of the blog post',
+      resolve: (post) =>
+        post._raw.flattenedPath.replace(/^blog-posts/, '/blog'),
+    },
+  },
+}))
+
+export const CoolThing = defineDocumentType(() => ({
+  name: 'CoolThing',
+  filePathPattern: `cool-things/**/*.mdx`,
+  contentType: 'mdx',
+  fields: {
+    title: {
+      type: 'string',
+      description: 'The title of the thing',
+      required: true,
+    },
+    description: {
+      type: 'string',
+      description: 'A description of the thing',
+      required: true,
+    },
+    logoImgSrc: {
+      type: 'string',
+      description: 'The logo image src for the thing',
+      required: true,
+    },
+    logoImgTheme: {
+      type: 'enum',
+      description: 'The color theme for the logo image',
+      options: ['auto', 'light', 'dark'],
+      default: 'auto',
+    },
+    websiteUrl: {
+      type: 'string',
+      description: 'Website URL of the thing',
+      required: true,
+    },
+    categories: {
+      type: 'list',
+      description: 'The categories of the thing',
+      required: true,
+      of: {
+        type: 'enum',
+        options: [
+          'React',
+          'JavaScript',
+          'TypeScript',
+          'CSS',
+          'Icons',
+          'Accessibility',
+          'Animations',
+          'Product',
+          'Website',
+          'Learning',
+        ],
+      },
+    },
+    coolFactor: {
+      type: 'number',
+      description: 'A rating of how cool the thing is',
+      required: true,
+    },
+    addedDate: {
+      type: 'date',
+      description: 'The date the thing was added',
+      required: true,
+    },
+    isArchived: {
+      type: 'boolean',
+      description: 'Indicates whether the thing is no longer cool :(',
+      required: true,
+    },
+  },
+  computedFields: {
+    id: {
+      type: 'string',
+      desciption: 'The unique identifier of the thing, aka slug',
+      resolve: (post) => post._raw.flattenedPath.replace(/^cool-stuff\//, ''),
+    },
+    url: {
+      type: 'string',
+      description: 'The URL of the thing',
+      resolve: (post) =>
+        post._raw.flattenedPath.replace(/^cool-stuff/, '/cool-things'),
     },
   },
 }))
 
 export default makeSource({
-  contentDirPath: 'posts',
-  documentTypes: [Post],
+  contentDirPath: 'content',
+  documentTypes: [BlogPost, CoolThing],
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [

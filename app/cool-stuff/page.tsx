@@ -1,8 +1,7 @@
+import { CoolThingList } from '@/components/CoolThingList'
 import { Subtitle } from '@/components/Subtitle'
 import { Title } from '@/components/Title'
 import { Metadata } from 'next'
-import Image from 'next/image'
-import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Cool Stuff',
@@ -19,8 +18,9 @@ export default function CoolStuff() {
           document some of the noteworthy things I’ve discovered and used - for
           both my own reference and yours.
         </Subtitle>
+
+        <CoolThingList className="mt-12" headingLevel="h2" />
       </div>
     </div>
   )
 }
-
