@@ -116,6 +116,7 @@ export const CoolThing = defineDocumentType(() => ({
           'Product',
           'Website',
           'Learning',
+          'AI',
           'On This Site',
         ],
       },
