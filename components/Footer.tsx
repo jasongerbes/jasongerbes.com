@@ -36,7 +36,7 @@ export function Footer() {
             ))}
           </ul>
         </nav>
-        <p className="text-center text-sm text-primary-700/70 lg:text-gray-400 lg:dark:text-gray-500">
+        <p className="text-center text-sm text-primary-700/70 lg:text-gray-500">
           &copy; {year} Jason Gerbes. All rights reserved.
         </p>
       </div>

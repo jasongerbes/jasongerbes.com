@@ -71,7 +71,7 @@ function CoolThing({ thing, headingLevel }: CoolThingProps) {
         {thing.title}
       </Heading>
 
-      <p className="mt-3 text-base text-gray-600 dark:text-gray-400">
+      <p className="mt-3 text-base text-gray-700 dark:text-gray-300">
         {thing.description}
       </p>
 

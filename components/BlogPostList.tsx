@@ -48,12 +48,12 @@ function BlogPost({ post, headingLevel }: BlogPostProps) {
           {post.title}
         </Heading>
         <time
-          className="order-first mb-3 text-sm font-medium text-gray-400 dark:text-gray-500"
+          className="order-first mb-3 text-sm font-medium text-gray-500"
           dateTime={post.publishDate}
         >
           {formatDate(post.publishDate)}
         </time>
-        <p className="mt-3 text-base text-gray-600 dark:text-gray-400">
+        <p className="mt-3 text-base text-gray-700 dark:text-gray-300">
           {post.description}
         </p>
         <div
