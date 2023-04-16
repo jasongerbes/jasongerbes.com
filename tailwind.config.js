@@ -4,15 +4,29 @@ module.exports = {
     './pages/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',
     './app/**/*.{js,ts,jsx,tsx}',
+    './posts/**/*.mdx',
+  ],
+  plugins: [
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/typography'),
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      colors: ({ colors }) => ({
+        gray: colors.neutral,
+        primary: colors.teal,
+      }),
+      fontSize: {
+        base: ['1rem', { lineHeight: '1.75rem' }],
+        '4xl': ['2rem', { lineHeight: '2.5rem' }],
+        '5xl': ['3rem', { lineHeight: '3.5rem' }],
+      },
+      screens: {
+        xs: '350px',
+      },
+      transitionDuration: {
+        DEFAULT: '200ms',
       },
     },
   },
-  plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
-};
+}
