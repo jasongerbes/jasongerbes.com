@@ -39,6 +39,7 @@ export interface CoolThingProps {
 
 function CoolThing({ thing, headingLevel }: CoolThingProps) {
   const { hostname } = new URL(thing.websiteUrl)
+  const { logoImg } = thing
 
   return (
     <a
@@ -49,17 +50,17 @@ function CoolThing({ thing, headingLevel }: CoolThingProps) {
     >
       <div
         className={clsx(
-          'flex items-center justify-center rounded-lg border border-primary-900/20 p-1.5 dark:border-gray-700/50',
+          'flex items-center justify-center rounded-lg border border-primary-900/20 p-2 dark:border-gray-700/50',
           {
-            'bg-white dark:bg-gray-800': thing.logoImgTheme === 'auto',
-            'bg-white dark:bg-gray-200': thing.logoImgTheme === 'light',
-            'bg-gray-700 dark:bg-gray-800': thing.logoImgTheme === 'dark',
+            'bg-white dark:bg-gray-800': logoImg.theme === 'auto',
+            'bg-white dark:bg-gray-200': logoImg.theme === 'light',
+            'bg-gray-800': logoImg.theme === 'dark',
           }
         )}
       >
         <Image
           className="h-9 w-9"
-          src={thing.logoImgSrc}
+          src={logoImg.src}
           alt={`The logo image for ${thing.title}`}
           width={36}
           height={36}

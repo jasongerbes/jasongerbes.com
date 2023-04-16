@@ -1,4 +1,8 @@
-import { defineDocumentType, makeSource } from 'contentlayer/source-files'
+import {
+  defineDocumentType,
+  defineNestedType,
+  makeSource,
+} from 'contentlayer/source-files'
 import remarkGfm from 'remark-gfm'
 import rehypePrettyCode from 'rehype-pretty-code'
 import rehypeSlug from 'rehype-slug'
@@ -46,6 +50,29 @@ export const BlogPost = defineDocumentType(() => ({
   },
 }))
 
+const Image = defineNestedType(() => ({
+  name: 'Image',
+  fields: {
+    src: {
+      type: 'string',
+      description: 'The src URL of the image',
+      required: true,
+    },
+    darkSrc: {
+      type: 'string',
+      description: 'The src URL of the dark variation of the image (optional)',
+      required: false,
+    },
+    theme: {
+      type: 'enum',
+      description:
+        'The preferred color theme for displaying the image (optional)',
+      options: ['auto', 'light', 'dark'],
+      default: 'auto',
+    },
+  },
+}))
+
 export const CoolThing = defineDocumentType(() => ({
   name: 'CoolThing',
   filePathPattern: `cool-things/**/*.mdx`,
@@ -61,16 +88,11 @@ export const CoolThing = defineDocumentType(() => ({
       description: 'A description of the thing',
       required: true,
     },
-    logoImgSrc: {
-      type: 'string',
-      description: 'The logo image src for the thing',
+    logoImg: {
+      type: 'nested',
+      description: 'The logo image for the thing',
       required: true,
-    },
-    logoImgTheme: {
-      type: 'enum',
-      description: 'The color theme for the logo image',
-      options: ['auto', 'light', 'dark'],
-      default: 'auto',
+      of: Image,
     },
     websiteUrl: {
       type: 'string',
