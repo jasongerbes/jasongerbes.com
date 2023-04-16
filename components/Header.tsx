@@ -45,9 +45,9 @@ const links: HeaderNavLinkProps[] = [
 export function Header() {
   return (
     <header className="sticky top-0 z-50 select-none border-b border-primary-600/10 bg-primary-50/70 backdrop-blur-xl dark:border-primary-900/30 dark:bg-primary-900/20 lg:static lg:row-span-2 lg:border-b-0 lg:border-r lg:backdrop-blur-none">
-      <div className="mx-auto flex max-h-[100dvh] items-center justify-between p-4 max-xs:justify-center lg:sticky lg:top-0 lg:flex-col lg:overflow-y-auto lg:px-0 lg:py-12">
+      <div className="mx-auto flex max-h-[100dvh] items-center justify-center p-4 xs:justify-between lg:sticky lg:top-0 lg:flex-col lg:overflow-y-auto lg:px-0 lg:py-12">
         <Link
-          className="lg:dark:border-primary-900/300 text-center max-xs:hidden lg:w-full lg:border-b-2 lg:border-primary-600/10"
+          className="lg:dark:border-primary-900/300 hidden text-center xs:block lg:w-full lg:border-b-2 lg:border-primary-600/10"
           href="/"
           aria-hidden="true"
         >
