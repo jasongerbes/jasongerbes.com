@@ -2,6 +2,7 @@ import { BlogPostList } from '@/components/BlogPostList'
 import { Subtitle } from '@/components/Subtitle'
 import { Title } from '@/components/Title'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function Home() {
   return (
@@ -22,7 +23,7 @@ export default function Home() {
         <Subtitle>
           I’m Jason, a front-end software architect based in the beautiful city
           of Auckland, New Zealand. I have a passion for technology, design, and
-          sustainability. Follow my journey by checking out my recent posts.
+          sustainability. <Link href="/about">Read more</Link>
         </Subtitle>
 
         <h2 className="text-md mt-16 font-semibold uppercase tracking-tight text-primary-800 dark:text-primary-600">

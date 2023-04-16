@@ -2,8 +2,8 @@ import { MDXComponents } from 'mdx/types'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 import Image from 'next/image'
 import Link from 'next/link'
-import clsx from 'clsx'
 import './Mdx.css'
+import { Prose } from './Prose'
 
 export interface MdxProps {
   className?: string
@@ -46,15 +46,8 @@ export function Mdx({ className, code }: MdxProps) {
   const MDXContent = useMDXComponent(code)
 
   return (
-    <div
-      className={clsx(
-        'prose prose-lg prose-gray max-w-none dark:prose-invert',
-        'prose-headings:relative prose-headings:scroll-mt-28 lg:prose-headings:scroll-mt-12',
-        'prose-a:text-primary-800 prose-a:underline-offset-2 prose-a:transition-colors hover:prose-a:text-primary-600 dark:prose-a:text-primary-500 dark:hover:prose-a:text-primary-700',
-        className
-      )}
-    >
+    <Prose className={className} size="lg">
       <MDXContent components={mdxComponents} />
-    </div>
+    </Prose>
   )
 }

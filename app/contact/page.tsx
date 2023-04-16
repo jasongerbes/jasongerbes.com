@@ -1,22 +1,17 @@
-import {
-  At,
-  Envelope,
-  Paperclip,
-  type IconProps,
-} from '@/assets/phosphor-icons'
 import { Subtitle } from '@/components/Subtitle'
 import { Title } from '@/components/Title'
 import {
   EmailIcon,
   GitHubIcon,
   LinkedInIcon,
+  SocialIconProps,
   TwitterIcon,
 } from '@/components/social-icons'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Contact',
-  description: 'Want to chat? I’d be happy to hear from you.',
+  description: 'Want to connect with me? You’ve come to the right place.',
 }
 
 const contactLinks: ContactLinkProps[] = [
@@ -46,11 +41,12 @@ export default function Contact() {
   return (
     <div className="px-4 py-16 sm:px-8 sm:py-20">
       <div className="mx-auto max-w-3xl">
-        <Title>Want to connect? I’d be happy to hear from you</Title>
+        <Title>Want to connect with me? You’ve come to the right place</Title>
+
         <Subtitle>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a velit
-          convallis, pharetra justo sed, porttitor lectus. Vestibulum cursus,
-          libero non laoreet fermentum.
+          You can reach me on your preferred platform below. I’m open to hearing
+          about exciting opportunities and interesting projects. Send me a
+          message and I’ll get back to you soon.
         </Subtitle>
 
         <ul className="mt-16 grid gap-4 md:grid-cols-2">
@@ -68,7 +64,7 @@ export default function Contact() {
 interface ContactLinkProps {
   href: string
   label: string
-  icon: React.ComponentType<IconProps>
+  icon: React.ComponentType<SocialIconProps>
 }
 
 function ContactLink({ href, label, icon: Icon }: ContactLinkProps) {
@@ -80,7 +76,7 @@ function ContactLink({ href, label, icon: Icon }: ContactLinkProps) {
       rel="noopener noreferrer"
     >
       <span className="flex items-center gap-4">
-        <Icon width={24} height={24} weight="duotone" />
+        <Icon width={24} height={24} />
         <span>{label}</span>
       </span>
       <span aria-hidden="true">↗</span>

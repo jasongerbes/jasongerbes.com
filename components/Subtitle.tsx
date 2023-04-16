@@ -1,4 +1,5 @@
 import clsx from 'clsx'
+import { Prose } from './Prose'
 
 export interface SubtitleProps {
   className?: string
@@ -7,13 +8,8 @@ export interface SubtitleProps {
 
 export function Subtitle({ className, children }: SubtitleProps) {
   return (
-    <p
-      className={clsx(
-        'mt-6 text-base text-gray-600 dark:text-gray-400',
-        className
-      )}
-    >
-      {children}
-    </p>
+    <Prose className={clsx('mt-6', className)}>
+      <p>{children}</p>
+    </Prose>
   )
 }
