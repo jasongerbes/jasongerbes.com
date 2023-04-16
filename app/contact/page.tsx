@@ -1,4 +1,4 @@
-import { Subtitle } from '@/components/Subtitle'
+import { Prose } from '@/components/Prose'
 import { Title } from '@/components/Title'
 import {
   EmailIcon,
@@ -43,11 +43,13 @@ export default function Contact() {
       <div className="mx-auto max-w-3xl">
         <Title>Want to connect with me? You’ve come to the right place</Title>
 
-        <Subtitle>
-          You can reach me on your preferred platform below. I’m open to hearing
-          about exciting opportunities and interesting projects. Send me a
-          message and I’ll get back to you soon.
-        </Subtitle>
+        <Prose className="mt-6">
+          <p>
+            You can reach me on your preferred platform below. I’m open to
+            hearing about exciting opportunities and interesting projects. Send
+            me a message and I’ll get back to you soon.
+          </p>
+        </Prose>
 
         <ul className="mt-16 grid gap-4 md:grid-cols-2">
           {contactLinks.map((link) => (

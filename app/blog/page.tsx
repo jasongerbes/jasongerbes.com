@@ -1,5 +1,5 @@
 import { BlogPostList } from '@/components/BlogPostList'
-import { Subtitle } from '@/components/Subtitle'
+import { Prose } from '@/components/Prose'
 import { Title } from '@/components/Title'
 import { Metadata } from 'next'
 
@@ -14,11 +14,13 @@ export default function Blog() {
       <div className="mx-auto max-w-3xl">
         <Title>My thoughts on software engineering and other topics</Title>
 
-        <Subtitle>
-          Follow my blog for a glimpse into my experiences with technology,
-          covering topics such as front-end development, engaging projects, and
-          the latest tech trends.
-        </Subtitle>
+        <Prose className="mt-6">
+          <p>
+            I’m known for my love of cool stuff and for making lists. Here I’ll
+            document some noteworthy things I’ve found and used, for both my own
+            reference and yours.
+          </p>
+        </Prose>
 
         <BlogPostList className="mt-12" headingLevel="h2" />
       </div>
