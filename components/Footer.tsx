@@ -27,10 +27,10 @@ export function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="px-8 pb-16 pt-16 sm:px-8">
-      <div className="mx-auto flex max-w-7xl flex-col justify-between gap-12 sm:items-center lg:justify-center">
+    <footer className="border-t border-primary-600/10 bg-primary-50/70 px-8 pb-16 pt-16 dark:border-primary-900/30 dark:bg-primary-900/20 sm:px-8 lg:border-none lg:bg-transparent">
+      <div className="mx-auto flex max-w-7xl flex-col justify-between gap-16 sm:items-center lg:justify-center">
         <nav className="lg:hidden">
-          <ul className="flex flex-col gap-8 text-base font-semibold sm:flex-row">
+          <ul className="flex flex-col gap-6 text-base font-semibold sm:flex-row sm:gap-8">
             {links.map((link) => (
               <FooterNavLink key={link.href} {...link} />
             ))}
