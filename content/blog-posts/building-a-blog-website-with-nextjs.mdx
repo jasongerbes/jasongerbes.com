@@ -1,0 +1,368 @@
+---
+title: 'One Week Challenge: Building a Blog Website with Next.js'
+description: Learn how I replaced my five-year-old static website with a sleek, modern Next.js and Tailwind CSS replacement during a week-long break from work.
+publishDate: 2023-04-16
+isPublished: true
+---
+
+<p className="lead">
+  During a week-long break from my role as a software architect, I embarked on a
+  personal project: replacing my outdated Jekyll website with a modern blog. In
+  this post, I'll guide you through building a feature-rich blog using Next.js,
+  Contentlayer, MDX, Tailwind CSS, and TypeScript, in under a week.
+</p>
+
+## Why Next.js?
+
+I recently completed a months-long work project to convert a multi-tenanted web application from Create React App to Next.js 13.
+We're excited to adopt the `app` directory once it's out of beta, but in the meantime I wanted to gain some personal experience with the new app router by creating a personal blog website.
+
+[Next.js](https://nextjs.org) is known for its versatility, ease of use, powerful features, and with tight integration into Vercel's services. Next.js offers server-side rendering, static site generation, and API route handlers, making it an ideal choice for a modern blog website.
+
+## Why Tailwind CSS?
+
+Initially, as someone with a background in using [Sass](https://sass-lang.com) for writing CSS, I was hesitant to adopt [Tailwind CSS](https://tailwindcss.com) due to its seemingly never-ending `class` attributes and lack of semantic class names.
+
+I recently decided to see what all the fuss was about by using Tailwind to recreate some design I'd previously implemented in Sass. The benefits Tailwind CSS offers quickly became apparent:
+
+1. **Utility-first approach:** Tailwind CSS provides a utility-first approach with a comprehensive set of classes. It's easy to look past long `class` attributes when you're able build this quickly.
+
+2. **Effortless variations:** Built-in media query utilities in Tailwind CSS enable easy adjustments for different screen sizes and colour themes.
+
+3. **Design system:** The included colour palette, spacing options, and screen size media queries promote consistent and considered designs.
+
+4. **Tooling:** Tailwind CSS offers an ecosystem of powerful plugins and extensions, such as the [@tailwindcss/typography](https://tailwindcss.com/docs/typography-plugin) plugin, the [Prettier plugin](https://github.com/tailwindlabs/prettier-plugin-tailwindcss), and the [VSCode extension](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss).
+
+5. **Performance:** Tailwind CSS optimises stylesheets file sizes by generating only the necessary CSS based on the classes you actually use.
+
+Overall, Tailwind CSS proved to be an excellent choice for building a modern, responsive, and performant blog website, while also streamlining the development process.
+
+## Why Contentlayer?
+
+I chose [Contentlayer](https://www.contentlayer.dev) for managing static content in my Next.js project for several reasons:
+
+1. **Ease of integration:** Contentlayer integrates seamlessly with Next.js, making it easy to fetch and manage content from various sources like Markdown, YAML, or JSON files.
+
+2. **MDX support:** Contentlayer works well with MDX, enabling me to write my blog posts in Markdown while leveraging the power of React components, [rehype plugins](https://github.com/rehypejs/rehype), and [remark plugins](https://github.com/remarkjs/remark).
+
+3. **Type safety:** Contentlayer generates TypeScript types based on your content schema, providing type safety for your content. This feature helps catch potential errors early in the development process, improving code quality and maintainability.
+
+4. **Hot Module Replacement (HMR):** Contentlayer supports Hot Module Replacement, allowing for real-time updates to your content without needing to refresh the page. This feature enhances the developer experience by providing instant feedback during content creation and editing.
+
+5. **Flexible content modelling:** Contentlayer allows for flexible content modelling through its configuration file. You can define custom content types, fields, and relationships, making it suitable for various use cases and content structures.
+
+By using Contentlayer, I was able to efficiently manage my static content, optimise the build process, and create more engaging and dynamic blog posts with MDX support.
+
+## Setting Up the Project
+
+To get started, create a new Next.js project using the following command:
+
+```bash
+npx create-next-app@latest --experimental-app --typescript --tailwind
+```
+
+This command set up a new Next.js project using the experimental `app` directory, TypeScript, and Tailwind CSS.
+
+Now's a great time to set up deployments with [Vercel](https://vercel.com). Simply sign in using via GitHub and follow the instructions.
+
+## Install `@tailwind/typography`
+
+At this stage, Tailwind CSS will have already been installed by the `create-next-app` command via the `--tailwind` option.
+
+Add the [@tailwind/typography](https://tailwindcss.com/docs/typography-plugin) plugin for access to a set of `prose` classes that are ideal for formatting your blog posts.
+
+First, install the plugin from npm:
+
+```bash
+npm install @tailwindcss/typography
+```
+
+Then, add it to your `tailwind.config.js` file:
+
+```js
+module.exports = {
+  theme: {
+    // ...
+  },
+  plugins: [
+    require('@tailwindcss/typography'),
+    // ...
+  ],
+}
+```
+
+## Integrating Contentlayer and MDX with Next.js
+
+To integrate Contentlayer and MDX, follow these steps:
+
+### 1. Installing Contentlayer
+
+Install Contentlayer, the `next-contentlayer` plugin, and the MDX TypeScript types.
+
+```bash
+npm install contentlayer next-contentlayer @types/mdx
+```
+
+**Note:** At the time of writing, the latest version of Contentlayer has a peer dependency conflict with the latest version of Next.js - see the [GitHub pull request](https://github.com/contentlayerdev/contentlayer/pull/407).
+
+As a workaround, add the following dependency to your `package.json` to override the conflicting dependency version:
+
+```json
+{
+  "dependencies": {
+    "@opentelemetry/api": "^1.4.0"
+  }
+}
+```
+
+### 2. Update the Next.js Configuration
+
+Your Next.js configuration file needs to be updated to use the `withContentlayer` wrapper function. Here's an example `next.config.js` file with Contentlayer configured:
+
+```js
+const { withContentlayer } = require('next-contentlayer')
+
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  experimental: {
+    appDir: true,
+  },
+}
+
+module.exports = withContentlayer(nextConfig)
+```
+
+**Note:** At the time of writing, the latest version of Contentlayer is not fully compatible with the latest version of Next.js - see the [GitHub issue](https://github.com/contentlayerdev/contentlayer/issues/415).
+
+As a workaround, install [concurrently](https://github.com/open-cli-tools/concurrently) and update the `dev` and `build` scripts in your `package.json` file to use the Contentlayer CLI to generate the `.contentlayer` folder:
+
+```json
+{
+  "scripts": {
+    "dev": "concurrently \"contentlayer dev\" \"next dev\"",
+    "build": "contentlayer build && next build"
+  }
+}
+```
+
+### 3. Update the TypeScript Configuration
+
+Update your `tsconfig.json` file to include the following lines.
+
+```jsonc
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    // ^^^^^^^^^^^
+    "paths": {
+      "contentlayer/generated": ["./.contentlayer/generated"]
+      // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    }
+  },
+  "include": ["next-env.d.ts", "**/*.tsx", "**/*.ts", ".contentlayer/generated"]
+  //                                                   ^^^^^^^^^^^^^^^^^^^^^^^^
+}
+```
+
+### 4. Configure Contentlayer
+
+Add the root of your project, add a `contentlayer.config.ts` file with the following starter configuration:
+
+```ts
+import { defineDocumentType, makeSource } from 'contentlayer/source-files'
+
+export const Post = defineDocumentType(() => ({
+  name: 'Post',
+  filePathPattern: `**/*.mdx`,
+  contentType: 'mdx',
+  fields: {
+    title: {
+      type: 'string',
+      description: 'The title of the post',
+      required: true,
+    },
+    date: {
+      type: 'date',
+      description: 'The date of the post',
+      required: true,
+    },
+  },
+  computedFields: {
+    slug: {
+      type: 'string',
+      resolve: (post) => post._raw.flattenedPath,
+    },
+    url: {
+      type: 'string',
+      resolve: (post) => `/posts/${post._raw.flattenedPath}`,
+    },
+  },
+}))
+
+export default makeSource({
+  contentDirPath: 'posts',
+  documentTypes: [Post],
+  mdx: {
+    remarkPlugins: [],
+    rehypePlugins: [],
+  },
+})
+```
+
+### 5. Add Some Content
+
+The above Contentlayer configuration looks for `.mdx` files located within the root `posts` directory.
+
+Create a `posts` folder, and add the following to `posts/post-01.mdx`:
+
+```mdx
+---
+title: Lorem Ipsum
+date: 2021-12-24
+---
+
+Ullamco et nostrud magna commodo nostrud occaecat quis pariatur id ipsum. Ipsum
+consequat enim id excepteur consequat nostrud esse esse fugiat dolore.
+Reprehenderit occaecat exercitation non cupidatat in eiusmod laborum ex eu
+fugiat aute culpa pariatur. Irure elit proident consequat veniam minim ipsum ex
+pariatur.
+
+Mollit nisi cillum exercitation minim officia velit laborum non Lorem
+adipisicing dolore. Labore commodo consectetur commodo velit adipisicing irure
+dolore dolor reprehenderit aliquip. Reprehenderit cillum mollit eiusmod
+excepteur elit ipsum aute pariatur in. Cupidatat ex culpa velit culpa ad non
+labore exercitation irure laborum.
+```
+
+### 6. Add the Posts Page
+
+Add a post list page by creating a file named `/app/posts/page.tsx` and adding the following contents:
+
+```tsx
+import Link from 'next/link'
+import { Post, allPosts } from 'contentlayer/generated'
+
+export default function Posts() {
+  const posts = allPosts.sort((a, b) => {
+    const dateA = new Date(a.date)
+    const dateB = new Date(b.date)
+    return dateB.getTime() - dateA.getTime()
+  })
+
+  return (
+    <main className="mx-auto max-w-2xl py-16 text-center">
+      <h1 className="text-3xl font-bold">Posts</h1>
+
+      <ul className="mt-16 flex flex-col gap-8">
+        {posts.map((post) => (
+          <li key={post.slug}>
+            <PostCard post={post} />
+          </li>
+        ))}
+      </ul>
+    </main>
+  )
+}
+
+function PostCard({ post }: { post: Post }) {
+  return (
+    <div className="mb-6">
+      <time dateTime={post.date} className="block text-sm text-slate-600">
+        {new Date(post.date).toLocaleDateString()}
+      </time>
+      <h2 className="text-lg">
+        <Link className="text-blue-700 hover:text-blue-900" href={post.url}>
+          {post.title}
+        </Link>
+      </h2>
+    </div>
+  )
+}
+```
+
+### 7. Add the Post Details Page
+
+Add a post details page by creating a file named `/app/posts/[slug]/page.tsx` and adding the following contents:
+
+```tsx
+import { Post, allPosts } from '@/.contentlayer/generated'
+import { Metadata } from 'next'
+import { notFound } from 'next/navigation'
+import { useMDXComponent } from 'next-contentlayer/hooks'
+import { MDXComponents } from 'mdx/types'
+
+// Gets the post for the current page slug
+// Renders the 404 page if the post does not exist. See https://beta.nextjs.org/docs/api-reference/notfound
+function getPost(slug: string): Post {
+  const post = allPosts.find((p) => p.slug === slug)
+  if (!post) notFound()
+  return post
+}
+
+// Statically generates all post pages
+// See https://beta.nextjs.org/docs/api-reference/generate-static-params
+export function generateStaticParams() {
+  return allPosts.map((post) => ({ slug: post.slug }))
+}
+
+// Generates page metadata for the current post
+// See https://beta.nextjs.org/docs/api-reference/metadata#generatemetadata-function
+export function generateMetadata({
+  params,
+}: {
+  params: { slug: string }
+}): Metadata {
+  const post = getPost(params.slug)
+  return { title: post.title }
+}
+
+// Add your custom React components here to use them in your MDX files
+const mdxComponents: MDXComponents = {}
+
+export default function Post({ params }: { params: { slug: string } }) {
+  const post = getPost(params.slug)
+  const MDXContent = useMDXComponent(post.body.code)
+
+  return (
+    <main className="mx-auto max-w-2xl py-16 text-center">
+      <article className="mx-auto max-w-3xl">
+        <header className="flex flex-col">
+          <h1 className="text-3xl">{post.title}</h1>
+          <time
+            className="order-first mb-4 text-sm text-slate-600"
+            dateTime={post.date}
+          >
+            {new Date(post.date).toLocaleDateString()}
+          </time>
+        </header>
+
+        <div className="prose mt-16">
+          <MDXContent components={mdxComponents} />
+        </div>
+      </article>
+    </main>
+  )
+}
+```
+
+## Ready to Go!
+
+You're now ready to run your new blog application! Simply run the following command:
+
+```bash
+npm run dev
+```
+
+And navigate to http://localhost:3000/posts to see your posts.
+
+## Next Steps
+
+You've created a modern Next.js application with Tailwind CSS, Contentlayer, MDX, and TypeScript. This is a great starting point for your new blog website.
+
+Some next steps you may want to consider:
+
+- Create a custom [root layout](https://beta.nextjs.org/docs/routing/pages-and-layouts#root-layout-required) for your site.
+- Update the home page (`app/page.tsx`) to include a link to your blog posts.
+- Add a link to your GitHub profile.
+
+Happy coding!
