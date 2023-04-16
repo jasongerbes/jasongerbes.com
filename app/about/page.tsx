@@ -1,4 +1,4 @@
-import { Subtitle } from '@/components/Subtitle'
+import { Prose } from '@/components/Prose'
 import { Title } from '@/components/Title'
 import { Metadata } from 'next'
 import Link from 'next/link'
@@ -14,7 +14,7 @@ export default function About() {
       <div className="mx-auto max-w-3xl">
         <Title>Everything you need to know about Jason Gerbes</Title>
 
-        <Subtitle>
+        <Prose className="mt-6">
           <p>
             Welcome to my website. I built this site in 2023 using Next.js,
             Tailwind CSS, Contentlayer, and TypeScript. You can find out more
@@ -59,7 +59,7 @@ export default function About() {
             Want to get in touch? Visit my{' '}
             <Link href="/contact">contact page</Link> for details.
           </p>
-        </Subtitle>
+        </Prose>
       </div>
     </div>
   )

@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/react'
 import { Metadata } from 'next'
 import './globals.css'
 import { Header } from '@/components/Header'
@@ -51,6 +52,7 @@ export default function RootLayout({
         <Header />
         <main className="min-w-0 grow">{children}</main>
         <Footer />
+        <Analytics />
       </body>
     </html>
   )
