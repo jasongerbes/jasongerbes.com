@@ -15,9 +15,9 @@ export default function Blog() {
         <Title>My thoughts on software engineering and other topics</Title>
 
         <Subtitle>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a velit
-          convallis, pharetra justo sed, porttitor lectus. Vestibulum cursus,
-          libero non laoreet fermentum.
+          Follow my blog for a glimpse into my experiences with technology,
+          covering topics such as front-end development, engaging projects, and
+          the latest tech trends.
         </Subtitle>
 
         <BlogPostList className="mt-12" headingLevel="h2" />

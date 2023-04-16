@@ -70,7 +70,7 @@ interface ContactLinkProps {
 function ContactLink({ href, label, icon: Icon }: ContactLinkProps) {
   return (
     <a
-      className="flex justify-between gap-4 rounded-xl border border-gray-200 px-4 py-4 text-base font-medium text-gray-700 transition-colors hover:border-primary-600/50 hover:bg-primary-500/10 hover:text-primary-800 dark:border-gray-700 dark:text-gray-300 dark:hover:border-primary-500/20 dark:hover:bg-primary-950/30 dark:hover:text-primary-500"
+      className="flex justify-between gap-4 rounded-xl border border-gray-200 px-4 py-5 text-base font-medium text-gray-700 transition-colors hover:border-primary-600/50 hover:bg-primary-500/10 hover:text-primary-800 dark:border-gray-700 dark:text-gray-300 dark:hover:border-primary-500/20 dark:hover:bg-primary-950/30 dark:hover:text-primary-500"
       href={href}
       target="_blank"
       rel="noopener noreferrer"
