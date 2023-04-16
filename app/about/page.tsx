@@ -19,7 +19,7 @@ export default function About() {
             Welcome to my website. I built this site in 2023 using Next.js,
             Tailwind CSS, Contentlayer, and TypeScript. You can find out more
             about the tools I used in my{' '}
-            <Link href="/blog/building-blog-website-nextjs">
+            <Link href="/blog/building-a-blog-website-with-nextjs">
               first blog post
             </Link>
             , and you can find other cool things on my{' '}
