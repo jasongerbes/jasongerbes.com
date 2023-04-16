@@ -43,7 +43,7 @@ function CoolThing({ thing, headingLevel }: CoolThingProps) {
 
   return (
     <a
-      className="-mx-4 flex flex-col items-start p-4 transition-colors hover:bg-primary-500/10 dark:hover:bg-primary-950/30 sm:rounded-xl"
+      className="-mx-4 flex h-full flex-col items-start p-4 transition-colors hover:bg-primary-500/10 dark:hover:bg-primary-950/30 sm:rounded-xl"
       href={thing.websiteUrl}
       target="_blank"
       rel="noopener noreferrer"
