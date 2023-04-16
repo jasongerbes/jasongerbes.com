@@ -94,8 +94,14 @@ export const CoolThing = defineDocumentType(() => ({
           'Product',
           'Website',
           'Learning',
+          'On This Site',
         ],
       },
+    },
+    onThisSite: {
+      type: 'boolean',
+      description: 'Indicates whether this thing is used on this site',
+      required: false,
     },
     coolFactor: {
       type: 'number',
