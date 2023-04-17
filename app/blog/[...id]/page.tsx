@@ -56,7 +56,7 @@ export default function BlogPost({ params }: { params: Params }) {
         <header className="flex flex-col">
           <Title>{post.title}</Title>
           <time
-            className="order-first mb-4 text-base font-medium text-gray-500"
+            className="order-first mb-4 text-base font-medium text-gray-400"
             dateTime={post.publishDate}
           >
             {formatDate(post.publishDate)}

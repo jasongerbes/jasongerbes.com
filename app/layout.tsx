@@ -47,7 +47,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en-NZ">
       <body className="flex min-h-[100svh] flex-col bg-white text-gray-800 antialiased selection:bg-primary-500/30 dark:bg-gray-900 dark:text-gray-50 lg:grid lg:grid-cols-[270px_1fr] lg:grid-rows-[1fr_auto] xl:grid-cols-[320px_1fr]">
         <Header />
         <main className="min-w-0 grow">{children}</main>

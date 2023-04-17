@@ -48,7 +48,7 @@ function BlogPost({ post, headingLevel }: BlogPostProps) {
           {post.title}
         </Heading>
         <time
-          className="order-first mb-3 text-sm font-medium text-gray-500"
+          className="order-first mb-3 text-sm font-medium text-gray-400"
           dateTime={post.publishDate}
         >
           {formatDate(post.publishDate)}
