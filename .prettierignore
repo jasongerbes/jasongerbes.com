@@ -1,0 +1,2 @@
+# Ignore all MDX files to prevent unwanted codeblock wrapping
+*.mdx

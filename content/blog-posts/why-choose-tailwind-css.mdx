@@ -1,0 +1,131 @@
+---
+title: 'Tailwind CSS: A Game Changer for Developer Experience'
+description: Discover how Tailwind CSS's utility-first approach to styling and responsive design transforms the way you write CSS through, allowing you to focus on building great things.
+publishDate: 2023-04-17
+isPublished: true
+---
+
+<p className="lead">
+  There are two groups of people: those who adore Tailwind CSS, and those who
+  haven't tried it yet. Coming from a background of CSS pre-processing and
+  semantic naming, I was initially hesitant. But after embracing Tailwind CSS in
+  my latest project, I'm convinced that it's the most efficient way to write CSS.
+</p>
+
+## What is Tailwind CSS?
+
+[Tailwind CSS](https://tailwindcss.com) is a highly versatile, utility-first CSS framework, designed to streamline and simplify the process of building modern, responsive web designs.
+
+Unlike other CSS frameworks, such as Bootstrap or Foundation, Tailwind doesn't include any pre-built components or design assumptions.
+
+The designs you can create with Tailwind CSS are limited only by your imagination.
+
+## An Example of Tailwind CSS
+
+Tailwind CSS styles are applied directly to elements by combining relevant classes. Here's an example of a responsive grid layout using Tailwind CSS:
+
+```html
+<div class="grid grid-cols-1 gap-4 font-bold md:grid-cols-2 lg:grid-cols-3">
+  <div class="rounded bg-red-500 p-4 text-red-100 dark:bg-red-700/70 dark:text-red-200">Column 1</div>
+  <div class="rounded bg-orange-500 p-4 text-orange-100 dark:bg-orange-700/70 dark:text-orange-200">Column 2</div>
+  <div class="rounded bg-yellow-500 p-4 text-yellow-100 dark:bg-yellow-700/70 dark:text-yellow-200">Column 3</div>
+  <div class="rounded bg-green-500 p-4 text-green-100 dark:bg-green-700/70 dark:text-green-200">Column 4</div>
+  <div class="rounded bg-blue-500 p-4 text-blue-100 dark:bg-blue-700/70 dark:text-blue-200">Column 5</div>
+  <div class="rounded bg-purple-500 p-4 text-purple-100 dark:bg-purple-700/70 dark:text-purple-200">Column 6</div>
+</div>
+```
+
+<div className="grid grid-cols-1 gap-4 font-bold md:grid-cols-2 lg:grid-cols-3">
+  <div className="rounded bg-red-500 p-4 text-red-100 dark:bg-red-700/70 dark:text-red-200">Column 1</div>
+  <div className="rounded bg-orange-500 p-4 text-orange-100 dark:bg-orange-700/70 dark:text-orange-200">Column 2</div>
+  <div className="rounded bg-yellow-500 p-4 text-yellow-100 dark:bg-yellow-700/70 dark:text-yellow-200">Column 3</div>
+  <div className="rounded bg-green-500 p-4 text-green-100 dark:bg-green-700/70 dark:text-green-200">Column 4</div>
+  <div className="rounded bg-blue-500 p-4 text-blue-100 dark:bg-blue-700/70 dark:text-blue-200">Column 5</div>
+  <div className="rounded bg-purple-500 p-4 text-purple-100 dark:bg-purple-700/70 dark:text-purple-200">Column 6</div>
+</div>
+
+This example showcases several features offered by Tailwind CSS:
+
+- **Grid layout utilities:** Create simple grid layouts with the grid utility classes, such as `grid`, `gap-4`, and `grid-cols-1`.
+- **Responsive design utilities:** Apply breakpoint-specific styling effortlessly using screen modifier classes, like `md:[class]`.
+- **Extensive color palette:** Gain quick access to a carefully curated palette of stunning colours, featuring shades and opacity variations for all design needs.
+- **Dark mode support:** Incorporate dark mode into your design with ease by utilising the `dark:` modifier classes.
+
+For comparison, here's the eqivellent responsive grid layout written in plain HTML using the [BEM naming convention](https://getbem.com):
+
+```html
+<div class="grid">
+  <div class="grid__item grid__item--red">Column 1</div>
+  <div class="grid__item grid__item--orange">Column 2</div>
+  <div class="grid__item grid__item--yellow">Column 3</div>
+  <div class="grid__item grid__item--green">Column 4</div>
+  <div class="grid__item grid__item--blue">Column 5</div>
+  <div class="grid__item grid__item--purple">Column 6</div>
+</div>
+```
+
+Sure, this markup _seems_ like it should be better because every element has a 'meaningful' semantic name, but how about the CSS?
+
+```css
+.grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+{/* other breakpoints here */}
+
+.grid__item {
+  color: white;
+  padding: 1rem;
+  border-radius: 0.25rem;
+}
+
+.grid__item--red {
+  background-color: rgb(239, 68, 68);
+  color: rgb(254, 226, 226);
+}
+
+{/* other colours here */}
+
+@media (prefers-color-scheme: dark) {
+  .grid__item--red {
+    background-color: rgba(185, 28, 28, 0.7);
+    color: rgb(254, 202, 202);
+  }
+
+  {/* other colours here */}
+}
+```
+
+Your CSS rapidly accumulates a myriad of 'special values.' Why opt for a border radius of `0.25rem` rather than `0.3rem`? What's the origin of the `768px` breakpoint? What does the color `rgb(254, 226, 226)` truly represent?
+
+As your stylesheet expands, you'll soon turn to CSS variables to assign meaningful names to these values and need to use tooling like [Sass](https://sass-lang.com) to reuse common logic, such as breakpoint and dark mode media queries.
+
+## Embrace the Ease of Tailwind CSS
+
+Tailwind CSS offers a broad collection of pre-built, easy-to-combine utility classes, empowering developers to create unique designs without the burden of repetitive or cumbersome CSS code. Gone are the days of devising semantic names for simple flexbox containers or wrestling with CSS specificity issues.
+
+The utility-based approach of Tailwind CSS promotes swift prototyping and provides a more intuitive design workflow. By reducing the cognitive overhead associated with creating custom class names and managing complex CSS structures, Tailwind CSS frees up developers to focus on the essential aspects of their designs. Its responsive and extensible nature allows for seamless adaptation to various project requirements.
+
+## Streamline Your Stylesheet
+
+Numerous techniques can help reduce your CSS bundle size, such as splitting your CSS into per-page files to include only the necessary styles.
+
+Tailwind CSS considerably reduces the average stylesheet size to under 10kB. This optimisation is achieved through Tailwind's intelligent generation of CSS based on the specific classes used in your project, resulting in the smallest possible stylesheet.
+
+Achieving such compact CSS files for advanced web applications with semantic naming would be near impossible, even with the most advanced code splitting or CSS tricks.
+
+## Leverage Powerful Plugins
+
+Tailwind CSS offers an ecosystem of powerful plugins and extensions, such as the [@tailwindcss/typography](https://tailwindcss.com/docs/typography-plugin) plugin, the [Prettier plugin](https://github.com/tailwindlabs/prettier-plugin-tailwindcss), and the [VSCode extension](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss).
+
+These plugins enhance your experience with Tailwind CSS, and allow you to build your next project even quicker.
+
+With an active community, [comprehensive documentation](https://tailwindcss.com/docs), and a growing ecosystem of [plugins](https://tailwindcss.com/docs/plugins) and [editor extensions](https://tailwindcss.com/docs/editor-setup), Tailwind CSS is a popular choice among web developers looking to elevate their overall developer experience.
