@@ -2,7 +2,6 @@ import { MDXComponents } from 'mdx/types'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 import Image from 'next/image'
 import Link from 'next/link'
-import clsx from 'clsx'
 import './Mdx.css'
 import { Prose } from './Prose'
 
@@ -47,7 +46,7 @@ export function Mdx({ className, code }: MdxProps) {
   const MDXContent = useMDXComponent(code)
 
   return (
-    <Prose className={clsx('prose-lg', className)}>
+    <Prose className={className}>
       <MDXContent components={mdxComponents} />
     </Prose>
   )

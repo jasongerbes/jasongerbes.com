@@ -13,7 +13,7 @@ export default function Home() {
           <p>
             I’m Jason, a front-end software architect based in the beautiful
             city of Auckland, New Zealand. I have a passion for technology,
-            design, and sustainability. <Link href="/about">Read more</Link>
+            design, and sustainability. <Link href="/about">About Jason</Link>
           </p>
         </Prose>
 

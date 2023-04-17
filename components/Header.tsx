@@ -56,7 +56,7 @@ export function Header() {
             src="/images/site-logo.png"
             width={120}
             height={120}
-            alt=""
+            alt="Animated portrait of the website's author, Jason Gerbes"
           />
         </Link>
 
