@@ -8,26 +8,23 @@ export type HeadingProps = React.HTMLAttributes<HTMLHeadingElement> & {
 }
 
 export function Heading({ level: Tag, children, ...props }: HeadingProps) {
-  if (!props.id) {
-    return <Tag {...props}>{children}</Tag>
-  }
-
   return (
-    <Tag {...props} className={clsx('group', props.className)}>
-      <span className="align-middle">{children}</span>
-      <a
-        className="inline px-1.5 no-underline opacity-0 transition-all group-hover:opacity-100"
-        href={`#${props.id}`}
-        aria-hidden="true"
-        tabIndex={-1}
-      >
-        <LinkIcon
-          className="inline"
-          width={24}
-          height={24}
-          aria-hidden="true"
-        />
-      </a>
+    <Tag {...props} className={clsx(props.className, props.id && 'group')}>
+      {props.id && <HeadingAnchorLink id={props.id} />}
+      {children}
     </Tag>
+  )
+}
+
+function HeadingAnchorLink({ id }: { id: string }) {
+  return (
+    <a
+      className="absolute inset-y-0 left-0 hidden translate-x-[-100%] flex-col justify-center px-1 no-underline opacity-0 transition-all group-hover:opacity-100 sm:flex xl:px-2"
+      href={`#${id}`}
+      aria-hidden="true"
+      tabIndex={-1}
+    >
+      <LinkIcon width={24} height={24} aria-hidden="true" />
+    </a>
   )
 }
