@@ -16,9 +16,9 @@ export default function Blog() {
 
         <Prose className="mt-6">
           <p>
-            I’m known for my love of cool stuff and for making lists. Here I’ll
-            document some noteworthy things I’ve found and used, for both my own
-            reference and yours.
+            Follow my blog for a glimpse into my experiences with technology,
+            covering topics such as front-end development, engaging projects,
+            and the latest tech trends.
           </p>
         </Prose>
 
