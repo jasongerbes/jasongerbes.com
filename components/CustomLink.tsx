@@ -4,29 +4,36 @@ type CustomLinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
   showHostnameIfExternal?: boolean
 }
 
-export function CustomLink(props: CustomLinkProps) {
-  const { href, children, showHostnameIfExternal } = props
-
+export function CustomLink({
+  href,
+  children,
+  showHostnameIfExternal,
+  ...props
+}: CustomLinkProps) {
   if (!href) {
     return <span {...props}>{children}</span>
   }
 
   if (href.startsWith('/')) {
     return (
-      <Link {...props} href={href} ref={undefined}>
+      <Link href={href} ref={undefined} {...props}>
         {children}
       </Link>
     )
   }
 
   if (href.startsWith('#')) {
-    return <a {...props}>{children}</a>
+    return (
+      <a href={href} {...props}>
+        {children}
+      </a>
+    )
   }
 
   const { hostname } = new URL(href)
 
   return (
-    <a {...props} target="_blank" rel="noopener noreferrer">
+    <a href={href} target="_blank" rel="noopener noreferrer" {...props}>
       {showHostnameIfExternal ? hostname : children}{' '}
       <span aria-hidden="true">↗</span>
     </a>
