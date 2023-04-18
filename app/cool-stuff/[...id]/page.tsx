@@ -78,37 +78,34 @@ export default function CoolThing({ params }: { params: Params }) {
         </header>
 
         <Prose className="mt-10">
-          <table>
+          <table className="table-fixed">
             <tbody>
-              <tr>
-                <th scope="row">Date Added</th>
-                <td>
-                  <time dateTime={thing.addedDate}>
-                    {formatDate(thing.addedDate)}
-                  </time>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">Category</th>
-                <td>{thing.categories.join(', ')}</td>
-              </tr>
-              <tr>
-                <th scope="row">Cool Factor</th>
-                <td>{numberFormat.format(thing.coolFactor)}</td>
-              </tr>
-              <tr>
-                <th scope="row">On This Site</th>
-                <td>{thing.onThisSite ? 'Yes' : 'No'}</td>
-              </tr>
-              <tr>
-                <th scope="row">Website</th>
-                <td>
+              <TableRow header="Date Added">
+                <time dateTime={thing.addedDate}>
+                  {formatDate(thing.addedDate)}
+                </time>
+              </TableRow>
+
+              <TableRow header="Category">
+                {thing.categories.join(', ')}
+              </TableRow>
+
+              <TableRow header="Cool Factor">
+                {numberFormat.format(thing.coolFactor)}
+              </TableRow>
+
+              <TableRow header="On This Site">
+                {thing.onThisSite ? 'Yes' : 'No'}
+              </TableRow>
+
+              <TableRow header="Website">
+                <div className="truncate">
                   <CustomLink
                     href={thing.websiteUrl}
                     showHostnameIfExternal={true}
                   />
-                </td>
-              </tr>
+                </div>
+              </TableRow>
             </tbody>
           </table>
         </Prose>
@@ -116,5 +113,22 @@ export default function CoolThing({ params }: { params: Params }) {
         <Mdx className="mt-10" code={thing.body.code} />
       </article>
     </div>
+  )
+}
+
+function TableRow({
+  header,
+  children,
+}: {
+  header: string
+  children: React.ReactNode
+}) {
+  return (
+    <tr>
+      <th className="w-28 whitespace-nowrap md:w-1/2" scope="row">
+        {header}
+      </th>
+      <td className="text-right md:w-1/2 md:text-left">{children}</td>
+    </tr>
   )
 }
