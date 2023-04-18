@@ -2,6 +2,8 @@
   "name": "jasongerbes.com",
   "version": "0.1.0",
   "private": true,
+  "author": "Jason Gerbes",
+  "license": "SEE LICENSE IN LICENSE.md",
   "scripts": {
     "dev": "concurrently \"contentlayer dev\" \"next dev\"",
     "build": "contentlayer build && next build",
