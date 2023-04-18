@@ -59,7 +59,7 @@ export default function CoolThing({ params }: { params: Params }) {
   return (
     <div className="px-4 py-16 sm:px-8 sm:py-20 xl:py-24">
       <article className="mx-auto max-w-3xl">
-        <div className="flex flex-col gap-8 sm:flex-row lg:gap-12">
+        <header className="flex flex-col gap-8 sm:flex-row lg:gap-12">
           <div className="shrink grow">
             <Title>{thing.title}</Title>
 
@@ -75,7 +75,7 @@ export default function CoolThing({ params }: { params: Params }) {
               size="large"
             />
           </div>
-        </div>
+        </header>
 
         <Prose className="mt-10">
           <table>
