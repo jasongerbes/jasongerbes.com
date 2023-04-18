@@ -146,13 +146,13 @@ export const CoolThing = defineDocumentType(() => ({
     id: {
       type: 'string',
       desciption: 'The unique identifier of the thing, aka slug',
-      resolve: (post) => post._raw.flattenedPath.replace(/^cool-stuff\//, ''),
+      resolve: (post) => post._raw.flattenedPath.replace(/^cool-things\//, ''),
     },
     url: {
       type: 'string',
       description: 'The URL of the thing',
       resolve: (post) =>
-        post._raw.flattenedPath.replace(/^cool-stuff/, '/cool-things'),
+        post._raw.flattenedPath.replace(/^cool-things/, '/cool-stuff'),
     },
   },
 }))

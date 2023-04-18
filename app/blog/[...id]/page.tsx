@@ -21,9 +21,9 @@ interface Params {
 }
 
 export function generateStaticParams() {
-  return allBlogPosts.map((post) => ({
-    id: post.id.split('/'),
-  }))
+  return allBlogPosts
+    .filter((post) => post.isPublished)
+    .map((post) => ({ id: post.id.split('/') }))
 }
 
 export function generateMetadata({ params }: { params: Params }): Metadata {

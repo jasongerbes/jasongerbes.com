@@ -2,6 +2,7 @@ import { MDXComponents } from 'mdx/types'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 import Image from 'next/image'
 import Link from 'next/link'
+import { CustomLink } from './CustomLink'
 import { Heading } from './Heading'
 import { Prose } from './Prose'
 
@@ -10,34 +11,8 @@ export interface MdxProps {
   code: string
 }
 
-function MdxLink(props: React.AnchorHTMLAttributes<HTMLAnchorElement>) {
-  const { href, children } = props
-
-  if (!href) {
-    return <>{children}</>
-  }
-
-  if (href.startsWith('/')) {
-    return (
-      <Link {...props} href={href} ref={undefined}>
-        {children}
-      </Link>
-    )
-  }
-
-  if (href.startsWith('#')) {
-    return <a {...props}>{children}</a>
-  }
-
-  return (
-    <a target="_blank" rel="noopener noreferrer" {...props}>
-      {children} <span aria-hidden="true">↗</span>
-    </a>
-  )
-}
-
 const mdxComponents: MDXComponents = {
-  a: MdxLink,
+  a: CustomLink,
   Image,
   Link,
   h1: (props) => <Heading level="h1" {...props} />,
