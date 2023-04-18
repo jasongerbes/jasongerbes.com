@@ -84,8 +84,11 @@ function HeaderNavLink(props: HeaderNavLinkProps) {
   const pathname = usePathname()
 
   const isCurrent = pathname === href
+
   const isActive =
-    isCurrent || (pathname.startsWith('/blog') && href === '/blog')
+    isCurrent ||
+    (href === '/blog' && pathname.startsWith('/blog')) ||
+    (href === '/cool-stuff' && pathname.startsWith('/cool-stuff'))
 
   return (
     <li className={clsx('relative', className)}>
