@@ -23,7 +23,7 @@ const mdxComponents: MDXComponents = {
   h6: (props) => <Heading level="h6" {...props} />,
 }
 
-export function Mdx({ className, code }: MdxProps) {
+export function Markdown({ className, code }: MdxProps) {
   const MDXContent = useMDXComponent(code)
 
   return (

@@ -2,7 +2,7 @@ import { CoolThing, allCoolThings } from '@/.contentlayer/generated'
 import { Title } from '@/components/Title'
 import { Metadata } from 'next'
 import { formatDate } from '@/utils/format-date'
-import { Mdx } from '@/components/Mdx'
+import { Markdown } from '@/components/Markdown'
 import { CoolThingIcon } from '@/components/CoolThingIcon'
 import { Prose } from '@/components/Prose'
 import { CustomLink } from '@/components/CustomLink'
@@ -99,7 +99,7 @@ export default function CoolThing({ params }: { params: Params }) {
           </table>
         </Prose>
 
-        <Mdx className="mt-10" code={thing.body.code} />
+        <Markdown className="mt-10" code={thing.body.code} />
       </article>
     </div>
   )

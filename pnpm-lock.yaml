@@ -5,6 +5,7 @@ specifiers:
   '@phosphor-icons/react': ^2.0.8
   '@tailwindcss/forms': ^0.5.3
   '@tailwindcss/typography': ^0.5.9
+  '@types/mdx': ^2.0.4
   '@types/node': 18.15.11
   '@types/react': 18.0.33
   '@types/react-dom': 18.0.11
@@ -38,6 +39,7 @@ dependencies:
   '@phosphor-icons/react': 2.0.8_biqbaboplfbrettd7655fr4n2y
   '@tailwindcss/forms': 0.5.3_tailwindcss@3.3.1
   '@tailwindcss/typography': 0.5.9_tailwindcss@3.3.1
+  '@types/mdx': 2.0.4
   '@types/node': 18.15.11
   '@types/react': 18.0.33
   '@types/react-dom': 18.0.11
