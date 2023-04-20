@@ -1,10 +1,10 @@
 import { ImageResponse } from 'next/server'
 import { getCoolThing } from '../utils'
 import clsx from 'clsx'
+import { NextConfig } from 'next'
 
-// This doesn't seem to currently support dynamic values
-// export const alt = 'TODO'
-
+export const config: NextConfig = { runtime: 'edge' }
+export const alt = 'Cool Stuff - Jason Gerbes'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
