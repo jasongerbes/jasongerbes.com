@@ -46,7 +46,7 @@ export default function og({ params }: { params: { id: string } }) {
           {title}
         </p>
 
-        <p tw="text-neutral-400 text-[28px] mt-6">jasongerbes.com/cool-stuff</p>
+        <p tw="text-neutral-400 text-[28px] mt-4">jasongerbes.com/cool-stuff</p>
       </div>
     ),
     { ...size, debug: false }
