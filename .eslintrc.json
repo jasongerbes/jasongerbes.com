@@ -9,5 +9,14 @@
         "message": "Use '@/assets/phosphor-icons' instead until RSC support has been added."
       }
     ]
-  }
+  },
+  "overrides": [
+    {
+      "files": ["**/opengraph-image.tsx"],
+      "rules": {
+        "@next/next/no-img-element": "off",
+        "jsx-a11y/alt-text": "off"
+      }
+    }
+  ]
 }

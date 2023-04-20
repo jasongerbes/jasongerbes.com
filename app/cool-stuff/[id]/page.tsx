@@ -1,32 +1,21 @@
 import { CoolThing, allCoolThings } from '@/.contentlayer/generated'
 import { Title } from '@/components/Title'
 import { Metadata } from 'next'
-import { notFound } from 'next/navigation'
 import { formatDate } from '@/utils/format-date'
 import { Mdx } from '@/components/Mdx'
 import { CoolThingIcon } from '@/components/CoolThingIcon'
 import { Prose } from '@/components/Prose'
 import { CustomLink } from '@/components/CustomLink'
-
-function getCoolThing(id: string[]): CoolThing {
-  const thingId = id.join('/')
-  const thing = allCoolThings.find((p) => p.id === thingId)
-
-  if (!thing || (process.env.NODE_ENV === 'production' && thing.isArchived)) {
-    notFound()
-  }
-
-  return thing
-}
+import { getCoolThing } from '../utils'
 
 interface Params {
-  id: string[]
+  id: string
 }
 
 export function generateStaticParams() {
   return allCoolThings
     .filter((thing) => !thing.isArchived)
-    .map((thing) => ({ id: thing.id.split('/') }))
+    .map((thing) => ({ id: thing.id }))
 }
 
 export function generateMetadata({ params }: { params: Params }): Metadata {
