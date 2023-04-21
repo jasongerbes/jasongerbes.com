@@ -1,9 +1,7 @@
 import { ImageResponse } from 'next/server'
 import { getCoolThing } from '../utils'
 import clsx from 'clsx'
-import { NextConfig } from 'next'
 
-export const config: NextConfig = { runtime: 'edge' }
 export const alt = 'Cool Stuff - Jason Gerbes'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
