@@ -6,7 +6,7 @@ export const alt = 'Cool Stuff - Jason Gerbes'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
-export default function ogImage({ params }: { params: { id: string } }) {
+export default function twitterImage({ params }: { params: { id: string } }) {
   const thing = getCoolThing(params.id)
   return new ImageResponse(<CoolThingMetadataImage thing={thing} />, size)
 }

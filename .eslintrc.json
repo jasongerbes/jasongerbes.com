@@ -12,7 +12,7 @@
   },
   "overrides": [
     {
-      "files": ["**/opengraph-image.tsx"],
+      "files": ["components/metadata-images/**/*.tsx"],
       "rules": {
         "@next/next/no-img-element": "off",
         "jsx-a11y/alt-text": "off"
