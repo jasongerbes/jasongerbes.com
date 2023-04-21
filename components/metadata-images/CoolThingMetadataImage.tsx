@@ -47,14 +47,14 @@ export function CoolThingMetadataImage({ thing }: { thing: CoolThing }) {
             borderColor: logoImg.theme === 'light' ? '#929292' : '#333333',
             borderRadius: 24,
             backgroundColor: logoImg.theme === 'light' ? 'white' : '#262626',
-            width: 170,
-            height: 170,
+            width: 160,
+            height: 160,
           }}
         >
           <img
             src={logoImgSrc}
-            width={120}
-            height={120}
+            width={110}
+            height={110}
             style={{ objectFit: 'contain' }}
           />
         </div>
@@ -77,7 +77,7 @@ export function CoolThingMetadataImage({ thing }: { thing: CoolThing }) {
         style={{
           display: 'flex',
           justifyContent: 'flex-end',
-          alignItems: 'center',
+          alignItems: 'flex-start',
           marginRight: -60,
         }}
       >
@@ -95,7 +95,7 @@ export function CoolThingMetadataImage({ thing }: { thing: CoolThing }) {
           src={siteLogoImageSrc}
           width={90}
           height={90}
-          style={{ objectFit: 'contain', marginLeft: 16 }}
+          style={{ objectFit: 'contain', marginLeft: 24 }}
         />
       </div>
     </div>
