@@ -11,10 +11,11 @@ export function CoolThingMetadataImage({ thing }: { thing: CoolThing }) {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
-        padding: '96px 96px 0',
+        padding: '90px 80px 45px',
         width: '100%',
         height: '100%',
-        backgroundColor: '#171717',
+        background:
+          'linear-gradient(150deg, rgba(10,10,10,1) 0%, rgba(23,23,23,1) 43%, rgba(38,38,38,1) 100%)',
       }}
     >
       <div
@@ -36,7 +37,14 @@ export function CoolThingMetadataImage({ thing }: { thing: CoolThing }) {
         Cool Stuff
       </div>
 
-      <div style={{ display: 'flex', flexDirection: 'column' }}>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          flexGrow: 1,
+          justifyContent: 'center',
+        }}
+      >
         <div
           style={{
             display: 'flex',
@@ -62,8 +70,8 @@ export function CoolThingMetadataImage({ thing }: { thing: CoolThing }) {
         <p
           style={{
             fontSize: 75,
-            lineHeight: 1.1,
-            marginTop: 32,
+            lineHeight: 1.025,
+            marginTop: 42,
             fontWeight: 400,
             color: '#f5f5f5',
             maxWidth: '80%',
@@ -73,31 +81,29 @@ export function CoolThingMetadataImage({ thing }: { thing: CoolThing }) {
         </p>
       </div>
 
-      <div
+      <p
         style={{
-          display: 'flex',
-          justifyContent: 'flex-end',
-          alignItems: 'flex-start',
-          marginRight: -60,
+          fontSize: 22,
+          color: '#a3a3a3',
+          textTransform: 'uppercase',
+          letterSpacing: '0.1em',
         }}
       >
-        <p
-          style={{
-            fontSize: 24,
-            color: '#a3a3a3',
-            textTransform: 'uppercase',
-            letterSpacing: '0.1em',
-          }}
-        >
-          jasongerbes.com/cool-stuff
-        </p>
-        <img
-          src={siteLogoImageSrc}
-          width={90}
-          height={90}
-          style={{ objectFit: 'contain', marginLeft: 24 }}
-        />
-      </div>
+        jasongerbes.com/cool-stuff
+      </p>
+
+      <img
+        src={siteLogoImageSrc}
+        width={160}
+        height={160}
+        style={{
+          objectFit: 'contain',
+          marginLeft: 24,
+          position: 'absolute',
+          bottom: 0,
+          right: 45,
+        }}
+      />
     </div>
   )
 }
