@@ -86,7 +86,7 @@ export const CoolThing = defineDocumentType(() => ({
       description: 'A description of the thing',
       required: true,
     },
-    logoImg: {
+    logoImage: {
       type: 'nested',
       description: 'The logo image for the thing',
       required: true,

@@ -8,6 +8,7 @@ export const contentType = 'image/png'
 
 export default function ogImage({ params }: { params: { id: string } }) {
   const thing = getCoolThing(params.id)
+
   return new ImageResponse(<CoolThingMetadataImage thing={thing} />, {
     ...size,
     debug: false,
