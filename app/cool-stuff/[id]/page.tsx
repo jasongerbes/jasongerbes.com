@@ -36,6 +36,7 @@ export function generateMetadata({ params }: { params: Params }): Metadata {
     twitter: {
       title,
       description,
+      card: 'summary_large_image',
     },
   }
 }

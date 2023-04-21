@@ -1,29 +1,18 @@
 import { BlogPost, allBlogPosts } from '@/.contentlayer/generated'
 import { Title } from '@/components/Title'
 import { Metadata } from 'next'
-import { notFound } from 'next/navigation'
 import { formatDate } from '@/utils/format-date'
 import { Markdown } from '@/components/Markdown'
-
-function getBlogPost(id: string[]): BlogPost {
-  const postId = id.join('/')
-  const post = allBlogPosts.find((p) => p.id === postId)
-
-  if (!post || (process.env.NODE_ENV === 'production' && !post.isPublished)) {
-    notFound()
-  }
-
-  return post
-}
+import { getBlogPost } from '../utils'
 
 interface Params {
-  id: string[]
+  id: string
 }
 
 export function generateStaticParams() {
   return allBlogPosts
     .filter((post) => post.isPublished)
-    .map((post) => ({ id: post.id.split('/') }))
+    .map((post) => ({ id: post.id }))
 }
 
 export function generateMetadata({ params }: { params: Params }): Metadata {
@@ -43,6 +32,7 @@ export function generateMetadata({ params }: { params: Params }): Metadata {
     twitter: {
       title,
       description,
+      card: 'summary_large_image',
     },
   }
 }
