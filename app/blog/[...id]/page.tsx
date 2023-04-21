@@ -3,7 +3,7 @@ import { Title } from '@/components/Title'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { formatDate } from '@/utils/format-date'
-import { Mdx } from '@/components/Mdx'
+import { Markdown } from '@/components/Markdown'
 
 function getBlogPost(id: string[]): BlogPost {
   const postId = id.join('/')
@@ -62,7 +62,7 @@ export default function BlogPost({ params }: { params: Params }) {
             {formatDate(post.publishDate)}
           </time>
         </header>
-        <Mdx className="mt-10" code={post.body.code} />
+        <Markdown className="mt-10" code={post.body.code} />
       </article>
     </div>
   )

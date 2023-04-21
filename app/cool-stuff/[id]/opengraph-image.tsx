@@ -2,9 +2,7 @@ import { ImageResponse } from 'next/server'
 import { getCoolThing } from '../utils'
 import clsx from 'clsx'
 
-// This doesn't seem to currently support dynamic values
-// export const alt = 'TODO'
-
+export const alt = 'Cool Stuff - Jason Gerbes'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
