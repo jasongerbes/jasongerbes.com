@@ -75,7 +75,7 @@ export function MetadataImage({
 
       <p
         style={{
-          fontSize: 22,
+          fontSize: 26,
           color: '#a3a3a3',
           textTransform: 'uppercase',
           letterSpacing: '0.1em',
