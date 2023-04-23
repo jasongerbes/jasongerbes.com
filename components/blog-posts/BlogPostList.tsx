@@ -1,5 +1,5 @@
 import { BlogPost, allBlogPosts } from '@/.contentlayer/generated'
-import { Heading, HeadingLevel } from './Heading'
+import { Heading, HeadingLevel } from '../Heading'
 import clsx from 'clsx'
 import Link from 'next/link'
 import { BlogPostTags } from './BlogPostTags'

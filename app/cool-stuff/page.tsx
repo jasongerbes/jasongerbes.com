@@ -1,4 +1,4 @@
-import { CoolThingList } from '@/components/CoolThingList'
+import { CoolThingList } from '@/components/cool-things/CoolThingList'
 import { Prose } from '@/components/Prose'
 import { Title } from '@/components/Title'
 import { Metadata } from 'next'

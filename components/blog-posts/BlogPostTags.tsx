@@ -1,5 +1,5 @@
 import { formatDate } from '@/utils/format-date'
-import { Tag } from './Tag'
+import { Tag } from '../Tag'
 import { CalendarBlank, ClockCountdown } from '@/assets/phosphor-icons'
 import { BlogPost } from '@/.contentlayer/generated'
 import clsx from 'clsx'
