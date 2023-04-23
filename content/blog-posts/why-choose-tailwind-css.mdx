@@ -26,22 +26,22 @@ Tailwind CSS styles are applied directly to elements by combining relevant class
 
 ```html
 <div class="grid grid-cols-1 gap-4 font-bold md:grid-cols-2 lg:grid-cols-3">
-  <div class="rounded bg-red-500 p-4 text-red-100 dark:bg-red-700/70 dark:text-red-200">Column 1</div>
-  <div class="rounded bg-orange-500 p-4 text-orange-100 dark:bg-orange-700/70 dark:text-orange-200">Column 2</div>
-  <div class="rounded bg-yellow-500 p-4 text-yellow-100 dark:bg-yellow-700/70 dark:text-yellow-200">Column 3</div>
-  <div class="rounded bg-green-500 p-4 text-green-100 dark:bg-green-700/70 dark:text-green-200">Column 4</div>
-  <div class="rounded bg-blue-500 p-4 text-blue-100 dark:bg-blue-700/70 dark:text-blue-200">Column 5</div>
-  <div class="rounded bg-purple-500 p-4 text-purple-100 dark:bg-purple-700/70 dark:text-purple-200">Column 6</div>
+  <div class="rounded bg-red-100 p-4 text-red-700 dark:bg-red-800/50 dark:text-red-100">Column 1</div>
+  <div class="rounded bg-orange-100 p-4 text-orange-700 dark:bg-orange-800/50 dark:text-orange-100">Column 2</div>
+  <div class="rounded bg-yellow-100 p-4 text-yellow-700 dark:bg-yellow-800/50 dark:text-yellow-100">Column 3</div>
+  <div class="rounded bg-green-100 p-4 text-green-700 dark:bg-green-800/50 dark:text-green-100">Column 4</div>
+  <div class="rounded bg-blue-100 p-4 text-blue-700 dark:bg-blue-800/50 dark:text-blue-100">Column 5</div>
+  <div class="rounded bg-purple-100 p-4 text-purple-700 dark:bg-purple-800/50 dark:text-purple-100">Column 6</div>
 </div>
 ```
 
 <div className="grid grid-cols-1 gap-4 font-bold md:grid-cols-2 lg:grid-cols-3">
-  <div className="rounded bg-red-500 p-4 text-red-100 dark:bg-red-700/70 dark:text-red-200">Column 1</div>
-  <div className="rounded bg-orange-500 p-4 text-orange-100 dark:bg-orange-700/70 dark:text-orange-200">Column 2</div>
-  <div className="rounded bg-yellow-500 p-4 text-yellow-100 dark:bg-yellow-700/70 dark:text-yellow-200">Column 3</div>
-  <div className="rounded bg-green-500 p-4 text-green-100 dark:bg-green-700/70 dark:text-green-200">Column 4</div>
-  <div className="rounded bg-blue-500 p-4 text-blue-100 dark:bg-blue-700/70 dark:text-blue-200">Column 5</div>
-  <div className="rounded bg-purple-500 p-4 text-purple-100 dark:bg-purple-700/70 dark:text-purple-200">Column 6</div>
+  <div className="rounded bg-red-100 p-4 text-red-700 dark:bg-red-800/50 dark:text-red-100">Column 1</div>
+  <div className="rounded bg-orange-100 p-4 text-orange-700 dark:bg-orange-800/50 dark:text-orange-100">Column 2</div>
+  <div className="rounded bg-yellow-100 p-4 text-yellow-700 dark:bg-yellow-800/50 dark:text-yellow-100">Column 3</div>
+  <div className="rounded bg-green-100 p-4 text-green-700 dark:bg-green-800/50 dark:text-green-100">Column 4</div>
+  <div className="rounded bg-blue-100 p-4 text-blue-700 dark:bg-blue-800/50 dark:text-blue-100">Column 5</div>
+  <div className="rounded bg-purple-100 p-4 text-purple-700 dark:bg-purple-800/50 dark:text-purple-100">Column 6</div>
 </div>
 
 This example showcases several features offered by Tailwind CSS:
@@ -82,22 +82,21 @@ Sure, this markup _seems_ like it should be better because every element has a '
 {/* other breakpoints here */}
 
 .grid__item {
-  color: white;
   padding: 1rem;
   border-radius: 0.25rem;
 }
 
 .grid__item--red {
-  background-color: rgb(239, 68, 68);
-  color: rgb(254, 226, 226);
+  background-color: rgb(254 226 226);
+  color: rgb(185 28 28);
 }
 
 {/* other colours here */}
 
 @media (prefers-color-scheme: dark) {
   .grid__item--red {
-    background-color: rgba(185, 28, 28, 0.7);
-    color: rgb(254, 202, 202);
+    background-color: rgb(153 27 27 / 0.5);
+    color: rgb(254 226 226);
   }
 
   {/* other colours here */}
