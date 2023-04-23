@@ -1,8 +1,8 @@
 import { BlogPost, allBlogPosts } from '@/.contentlayer/generated'
-import { Heading, HeadingLevel } from './Heading'
+import { Heading, HeadingLevel } from '../Heading'
 import clsx from 'clsx'
 import Link from 'next/link'
-import { formatDate } from '@/utils/format-date'
+import { BlogPostTags } from './BlogPostTags'
 
 export interface BlogPostListProps
   extends React.HTMLAttributes<HTMLUListElement> {
@@ -47,15 +47,13 @@ function BlogPost({ post, headingLevel }: BlogPostProps) {
         >
           {post.title}
         </Heading>
-        <time
-          className="order-first mb-3 text-sm font-medium text-gray-500 dark:text-gray-400"
-          dateTime={post.publishDate}
-        >
-          {formatDate(post.publishDate)}
-        </time>
+
+        <BlogPostTags className="mt-3" post={post} />
+
         <p className="mt-3 text-base text-gray-700 dark:text-gray-300">
           {post.description}
         </p>
+
         <div
           aria-hidden="true"
           className="mt-3 text-base font-semibold text-primary-800 dark:text-primary-500"

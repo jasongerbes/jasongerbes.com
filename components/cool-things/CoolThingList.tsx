@@ -1,5 +1,5 @@
 import { CoolThing, allCoolThings } from '@/.contentlayer/generated'
-import { Heading, HeadingLevel } from './Heading'
+import { Heading, HeadingLevel } from '../Heading'
 import clsx from 'clsx'
 import { CoolThingIcon } from './CoolThingIcon'
 import Link from 'next/link'

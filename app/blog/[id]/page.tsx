@@ -1,9 +1,12 @@
 import { BlogPost, allBlogPosts } from '@/.contentlayer/generated'
 import { Title } from '@/components/Title'
 import { Metadata } from 'next'
-import { formatDate } from '@/utils/format-date'
 import { Markdown } from '@/components/Markdown'
 import { getBlogPost } from '../utils'
+import { BlogPostTags } from '@/components/blog-posts/BlogPostTags'
+import { formatDate } from '@/utils/format-date'
+import { PencilSimple } from '@/assets/phosphor-icons'
+import { isSameDay } from 'date-fns'
 
 interface Params {
   id: string
@@ -39,20 +42,28 @@ export function generateMetadata({ params }: { params: Params }): Metadata {
 
 export default function BlogPost({ params }: { params: Params }) {
   const post = getBlogPost(params.id)
+  const hasBeenUpdated = !isSameDay(
+    new Date(post.publishDate),
+    new Date(post.lastUpdatedDate)
+  )
 
   return (
     <div className="px-4 py-16 sm:px-8 sm:py-20 xl:py-24">
       <article className="mx-auto max-w-3xl">
         <header className="flex flex-col">
           <Title>{post.title}</Title>
-          <time
-            className="order-first mb-4 text-base font-medium text-gray-500 dark:text-gray-400"
-            dateTime={post.publishDate}
-          >
-            {formatDate(post.publishDate)}
-          </time>
+          <BlogPostTags className="mt-6" post={post} />
         </header>
-        <Markdown className="mt-10" code={post.body.code} />
+        <Markdown className="mt-8" code={post.body.code} />
+
+        <footer className="mt-16 empty:hidden">
+          {hasBeenUpdated && (
+            <p className="inline-flex items-center gap-1.5 text-base font-medium text-gray-500 dark:text-gray-400">
+              <PencilSimple aria-hidden={true} weight="bold" />
+              <span>Updated on {formatDate(post.lastUpdatedDate)}</span>
+            </p>
+          )}
+        </footer>
       </article>
     </div>
   )

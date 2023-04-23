@@ -1,4 +1,4 @@
-import { BlogPostList } from '@/components/BlogPostList'
+import { BlogPostList } from '@/components/blog-posts/BlogPostList'
 import { Prose } from '@/components/Prose'
 import { Title } from '@/components/Title'
 import Link from 'next/link'
