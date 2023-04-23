@@ -3,17 +3,25 @@ import clsx from 'clsx'
 
 export interface TagProps {
   className?: string
+  accessibleLabel: string
   icon?: React.ComponentType<IconProps>
   children: React.ReactNode
 }
 
-export function Tag({ className, icon: Icon, children }: TagProps) {
+export function Tag({
+  className,
+  accessibleLabel,
+  icon: Icon,
+  children,
+}: TagProps) {
   return (
     <div
       className={clsx(
-        'inline-flex items-center gap-1 rounded-md bg-gray-300/20 px-2 py-1.5 text-sm font-medium text-gray-500 dark:bg-gray-700/30 dark:text-gray-400',
+        'inline-flex items-center gap-1 rounded-md bg-gray-200/30 px-2 py-1.5 text-sm font-medium text-gray-600 dark:bg-gray-700/30 dark:text-gray-400',
         className
       )}
+      title={accessibleLabel}
+      aria-label={accessibleLabel}
     >
       {Icon && <Icon weight="bold" aria-hidden="true" />}
       <span>{children}</span>

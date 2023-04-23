@@ -50,6 +50,7 @@ export function Header() {
           className="lg:dark:border-primary-900/300 hidden text-center xs:block lg:w-full lg:border-b-2 lg:border-primary-600/10"
           href="/"
           aria-hidden="true"
+          tabIndex={-1}
         >
           <Image
             className="mx-auto h-12 w-12 lg:h-28 lg:w-28"
