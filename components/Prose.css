@@ -1,0 +1,15 @@
+.prose [data-theme='dark'] {
+  @apply hidden dark:block;
+}
+
+.prose [data-theme='light'] {
+  @apply dark:hidden;
+}
+
+[data-rehype-pretty-code-title] + pre {
+  @apply mt-0 rounded-t-none border-t-0;
+}
+
+[data-rehype-pretty-code-title] {
+  @apply rounded-t-lg border border-b-0 border-gray-100 bg-gray-200/50 px-6 py-2.5 font-mono text-sm text-gray-700 dark:border-gray-800 dark:bg-gray-950/20 dark:text-gray-300;
+}

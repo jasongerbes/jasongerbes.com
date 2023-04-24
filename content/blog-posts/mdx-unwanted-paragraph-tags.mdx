@@ -1,5 +1,5 @@
 ---
-title: 'MDX & JSX: Remove Unwanted Paragraph Tags From Your JSX'
+title: 'MDX & JSX: Removing Unwanted Paragraph Tags From Your JSX'
 description: Avoid invalid HTML markup by eliminating extra <p> tags in your multi-line JSX elements. Learn how to fully leveraging the power of MDX and JSX.
 publishDate: 2023-04-24
 isPublished: true
@@ -15,7 +15,7 @@ isPublished: true
 
 [MDX](https://mdxjs.com) is a powerful syntax that enables you to incorporate JSX elements, including standard HTML and custom components, within your markdown content. For instance, this MDX input:
 
-```mdx
+```mdx title="hello-world.mdx"
 # Hello World!
 
 <p className="lead">This is an introductory paragraph for the article.</p>
@@ -25,7 +25,7 @@ This is a standard markdown paragraph.
 
 Will produce the following HTML markup:
 
-```html
+```html title="hello-world.html"
 <h1>Hello World!</h1>
 <p class="lead">This is an introductory paragraph for the article.</p>
 <p>This is a standard markdown paragraph.</p>
@@ -41,7 +41,7 @@ However, MDX expects JSX-only elements to be inline (i.e. with their opening and
 
 In this example, the JSX `<p>` element has been wrapped by Prettier:
 
-```mdx
+```mdx title="hello-world.mdx"
 # Hello World!
 
 <p className="lead">
@@ -52,7 +52,7 @@ In this example, the JSX `<p>` element has been wrapped by Prettier:
 
 The resulting HTML markup created by MDX is invalid, as nested `<p>` tags are not allowed.
 
-```html
+```html title="hello-world.html"
 <h1>Hello World!</h1>
 <p class="lead">
   <p>This is a longer introductory paragraph that is automatically wrapped by
@@ -73,7 +73,7 @@ Using [JavaScript expressions](https://mdxjs.com/docs/what-is-mdx/#expressions) 
 You can either wrap the entire JSX block as an expression by surrounding it with curly brackets:
 
 {/* prettier-ignore */}
-```mdx
+```mdx title="hello-world.mdx"
 # Hello World!
 
 {
@@ -87,7 +87,7 @@ You can either wrap the entire JSX block as an expression by surrounding it with
 Or, wrap just the contents of the element so that MDX treats it as plain text:
 
 {/* prettier-ignore */}
-```mdx
+```mdx title="hello-world.mdx"
 # Hello World!
 
 <p className="lead">
@@ -102,14 +102,14 @@ An alternative approach is to keep your JSX elements inline by disabling automat
 
 If you're using Prettier, prevent code formatting of all files with an `.mdx` extension by adding this line to your `.prettierignore` file:
 
-```sh
-# .prettierignore
+```sh title=".prettierignore"
+# Ignore all MDX files to prevent unwanted JSX line wrapping
 *.mdx
 ```
 
 Or use the inline syntax before any JSX elements that exceed the configured print width:
 
-```mdx
+```mdx title="hello-world.mdx"
 # Hello World!
 
 {/* prettier-ignore */}
@@ -122,8 +122,7 @@ The inline syntax may be preferable as it allows you to retain automatic formatt
 
 The final option is to extract your multi-line JSX elements into custom components, like so:
 
-```jsx
-// /components/MyCustomComponent.jsx
+```jsx title="MyCustomComponent.jsx"
 export function MyCustomComponent() {
   return (
     <p className="lead">
@@ -136,7 +135,7 @@ export function MyCustomComponent() {
 
 You can then reference the component within your MDX files without worrying about unwanted `<p>` tags being added by MDX.
 
-```mdx
+```mdx title="hello-world.mdx"
 # Hello World!
 
 <MyCustomComponent />

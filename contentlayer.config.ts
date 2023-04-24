@@ -11,6 +11,17 @@ export default makeSource({
   documentTypes: [BlogPost, CoolThing],
   mdx: {
     remarkPlugins: [remarkGfm],
-    rehypePlugins: [rehypeSlug, [rehypePrettyCode, { theme: 'one-dark-pro' }]],
+    rehypePlugins: [
+      rehypeSlug,
+      [
+        rehypePrettyCode,
+        {
+          theme: {
+            dark: 'one-dark-pro',
+            light: 'github-light',
+          },
+        },
+      ],
+    ],
   },
 })

@@ -17,7 +17,7 @@ export function Tag({
   return (
     <div
       className={clsx(
-        'inline-flex items-center gap-1 rounded-md bg-gray-200/30 px-2 py-1.5 text-sm font-medium text-gray-600 dark:bg-gray-700/30 dark:text-gray-400',
+        'inline-flex items-center gap-1 rounded-md border border-gray-100 bg-gray-50/30 px-2 py-1.5 text-sm font-medium text-gray-600 dark:border-gray-800 dark:bg-gray-800/20 dark:text-gray-400',
         className
       )}
       title={accessibleLabel}
