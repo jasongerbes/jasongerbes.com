@@ -6,10 +6,10 @@ isPublished: true
 ---
 
 <p className="lead">
-  There are those who love Tailwind CSS, and those who haven't tried it yet.
-  Though I was initially skeptical about ditching semantic naming, using 
-  Tailwind in a recent project has me convinced that it's the most 
-  efficient way to write CSS.
+  {`There are those who love Tailwind CSS, and those who haven't tried it yet.
+    Though I was initially skeptical about ditching semantic naming, using
+    Tailwind in a recent project has me convinced that it's the most efficient way
+    to write CSS.`}
 </p>
 
 ## What is Tailwind CSS?
@@ -24,6 +24,7 @@ The designs you can create with Tailwind CSS are limited only by your imaginatio
 
 Tailwind CSS styles are applied directly to elements by combining relevant classes. Here's an example of a responsive grid layout using Tailwind CSS:
 
+{/* prettier-ignore */}
 ```html
 <div class="grid grid-cols-1 gap-4 font-bold md:grid-cols-2 lg:grid-cols-3">
   <div class="rounded bg-red-100 p-4 text-red-700 dark:bg-red-800/50 dark:text-red-100">Column 1</div>
@@ -35,6 +36,7 @@ Tailwind CSS styles are applied directly to elements by combining relevant class
 </div>
 ```
 
+{/* prettier-ignore */}
 <div className="grid grid-cols-1 gap-4 font-bold md:grid-cols-2 lg:grid-cols-3">
   <div className="rounded bg-red-100 p-4 text-red-700 dark:bg-red-800/50 dark:text-red-100">Column 1</div>
   <div className="rounded bg-orange-100 p-4 text-orange-700 dark:bg-orange-800/50 dark:text-orange-100">Column 2</div>
@@ -66,6 +68,7 @@ For comparison, here's the eqivellent responsive grid layout written in plain HT
 
 Sure, this markup _seems_ like it should be better because every element has a 'meaningful' semantic name, but how about the CSS?
 
+{/* prettier-ignore */}
 ```css
 .grid {
   display: grid;
