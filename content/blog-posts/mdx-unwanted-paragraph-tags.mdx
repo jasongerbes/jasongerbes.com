@@ -1,5 +1,5 @@
 ---
-title: 'MDX & JSX: Removing Unwanted Paragraph Tags From Your JSX'
+title: 'MDX & JSX: Remove Unwanted Paragraph Tags From Your HTML'
 description: Avoid invalid HTML markup by eliminating extra <p> tags in your multi-line JSX elements. Learn how to fully leveraging the power of MDX and JSX.
 publishDate: 2023-04-24
 isPublished: true
@@ -68,7 +68,7 @@ To prevent JSX content from being automatically wrapped as markdown paragraphs, 
 
 ### Use a JavaScript Expression
 
-Using [JavaScript expressions](https://mdxjs.com/docs/what-is-mdx/#expressions) within your content acts as an 'escape hatch' that can prevent JSX elements from being treated as regular markdown.
+The recommended approach is to use [JavaScript expressions](https://mdxjs.com/docs/what-is-mdx/#expressions) within your content as an 'escape hatch' to prevent JSX elements from being treated as regular markdown.
 
 You can either wrap the entire JSX block as an expression by surrounding it with curly brackets:
 
@@ -107,7 +107,7 @@ If you're using Prettier, prevent code formatting of all files with an `.mdx` ex
 *.mdx
 ```
 
-Or use the inline syntax before any JSX elements that exceed the configured print width:
+Or by using the inline syntax before any JSX elements that exceed the configured print width:
 
 ```mdx title="hello-world.mdx"
 # Hello World!
