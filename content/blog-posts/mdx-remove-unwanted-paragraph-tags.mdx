@@ -68,7 +68,7 @@ To prevent JSX content from being automatically wrapped as markdown paragraphs, 
 
 ### Use a JavaScript Expression
 
-The recommended approach is to use [JavaScript expressions](https://mdxjs.com/docs/what-is-mdx/#expressions) within your content as an 'escape hatch' to prevent JSX elements from being treated as regular markdown.
+The recommended approach is to use JavsScript expressions (`{}`) within your content as an 'escape hatch' to prevent JSX elements from being treated as regular markdown.
 
 You can either wrap the entire JSX block as an expression by surrounding it with curly brackets:
 
@@ -96,7 +96,7 @@ Or, wrap just the contents of the element so that MDX treats it as plain text:
 </p>
 ```
 
-See the [Prettier docs](https://prettier.io/docs/en/ignore.html) for more details about excluding code from formatting.
+See the [MDX docs](https://mdxjs.com/docs/what-is-mdx/#expressions) for more details about using JavaScript expressions within MDX.
 
 ### Disable Automatic Wrapping
 
@@ -118,7 +118,9 @@ Or by using the inline syntax before any JSX elements that exceed the configured
 <p className="lead">This is a longer introductory paragraph that is automatically wrapped by , or other code formatters.</p>
 ```
 
-The inline syntax may be preferable as it allows you to retain automatic formatting for the rest of your MDX content.
+The inline `prettier-ignore` syntax may be preferable as it allows you to retain automatic formatting for the rest of your MDX content.
+
+See the [Prettier docs](https://prettier.io/docs/en/ignore.html) for more details about excluding code from formatting.
 
 ### Create a Custom Component
 
