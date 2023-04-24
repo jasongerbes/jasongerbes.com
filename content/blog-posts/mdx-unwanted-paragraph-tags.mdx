@@ -1,0 +1,151 @@
+---
+title: 'MDX & JSX: Remove Unwanted Paragraph Tags From Your JSX'
+description: Avoid invalid HTML markup by eliminating extra <p> tags in your multi-line JSX elements. Learn how to fully leveraging the power of MDX and JSX.
+publishDate: 2023-04-24
+isPublished: true
+---
+
+<p className="lead">
+  {`With the introduction of MDX version 2, multi-line JSX elements may 
+  now result in invalid HTML markup. Find out how to address this issue to
+  maintain clean, compliant content.`}
+</p>
+
+## What is MDX?
+
+[MDX](https://mdxjs.com) is a powerful syntax that enables you to incorporate JSX elements, including standard HTML and custom components, within your markdown content. For instance, this MDX input:
+
+```mdx
+# Hello World!
+
+<p className="lead">This is an introductory paragraph for the article.</p>
+
+This is a standard markdown paragraph.
+```
+
+Will produce the following HTML markup:
+
+```html
+<h1>Hello World!</h1>
+<p class="lead">This is an introductory paragraph for the article.</p>
+<p>This is a standard markdown paragraph.</p>
+```
+
+MDX facilitates a seamless [interleaving of JSX and markdown](https://mdxjs.com/docs/what-is-mdx/#interleaving), offering the ultimate authoring experience.
+
+## The Problem with JSX in MDX
+
+Using tools such as [Prettier](https://prettier.io) to ensure consistent code formatting is common practice. Code formatters like Prettier enforce maximum line lengths by wrapping any JSX elements that exceed the configured print width.
+
+However, MDX expects JSX-only elements to be inline (i.e. with their opening and closing tags on the same line), rather than blocks spanning multiple lines. If your JSX elements are wrapped into blocks, MDX will treat their content as regular markdown.
+
+In this example, the JSX `<p>` element has been wrapped by Prettier:
+
+```mdx
+# Hello World!
+
+<p className="lead">
+  This is a longer introductory paragraph that is automatically wrapped by
+  Prettier, or other code formatters.
+</p>
+```
+
+The resulting HTML markup created by MDX is invalid, as nested `<p>` tags are not allowed.
+
+```html
+<h1>Hello World!</h1>
+<p class="lead">
+  <p>This is a longer introductory paragraph that is automatically wrapped by
+  Prettier, or other code formatters.</p>
+</p>
+```
+
+This behaviour was introduced in MDX version 2. It is addressed in the [migration guide](https://mdxjs.com/migrating/v2/#jsx) and [related GitHub issue](https://github.com/mdx-js/mdx/issues/1798).
+
+## How to Prevent Unwanted Paragraph Tags
+
+To prevent JSX content from being automatically wrapped as markdown paragraphs, you have a few options:
+
+### Use a JavaScript Expression
+
+Using [JavaScript expressions](https://mdxjs.com/docs/what-is-mdx/#expressions) within your content acts as an 'escape hatch' that can prevent JSX elements from being treated as regular markdown.
+
+You can either wrap the entire JSX block as an expression by surrounding it with curly brackets:
+
+{/* prettier-ignore */}
+```mdx
+# Hello World!
+
+{
+  <p className="lead">
+    This is a longer introductory paragraph that is automatically wrapped by
+    Prettier, or other code formatters.
+  </p>
+}
+```
+
+Or, wrap just the contents of the element so that MDX treats it as plain text:
+
+{/* prettier-ignore */}
+```mdx
+# Hello World!
+
+<p className="lead">
+  {`This is a longer introductory paragraph that is automatically wrapped by
+  Prettier, or other code formatters.`}
+</p>
+```
+
+### Disable Automatic Wrapping
+
+An alternative approach is to keep your JSX elements inline by disabling automatic line wrapping in your MDX content, effectively avoiding the creation of multi-line blocks.
+
+If you're using Prettier, prevent code formatting of all files with an `.mdx` extension by adding this line to your `.prettierignore` file:
+
+```sh
+# .prettierignore
+*.mdx
+```
+
+Or use the inline syntax before any JSX elements that exceed the configured print width:
+
+```mdx
+# Hello World!
+
+{/* prettier-ignore */}
+<p className="lead">This is a longer introductory paragraph that is automatically wrapped by , or other code formatters.</p>
+```
+
+The inline syntax may be preferable as it allows you to retain automatic formatting for the rest of your MDX content.
+
+### Create a Custom Component
+
+The final option is to extract your multi-line JSX elements into custom components, like so:
+
+```jsx
+// /components/MyCustomComponent.jsx
+export function MyCustomComponent() {
+  return (
+    <p className="lead">
+      This is a longer introductory paragraph that is automatically wrapped by
+      Prettier or other code formatters.
+    </p>
+  )
+}
+```
+
+You can then reference the component within your MDX files without worrying about unwanted `<p>` tags being added by MDX.
+
+```mdx
+# Hello World!
+
+<MyCustomComponent />
+```
+
+This solution is well-suited for complex or reusable components. However, for simpler JSX elements, it may disrupt the flow of authoring MDX content.
+
+## Wrapping Up
+
+Working with MDX and JSX can significantly improve your content creation process. However, it's important to be mindful of potential issues in the resulting HTML markup. By using JavaScript expressions, disabling automatic wrapping, or extracting custom components, you can effectively prevent invalid markup and keep your content clean and compliant.
+
+With these strategies, you can fully leverage the potent combination of MDX and JSX to create engaging, rich, and well-structured content for your audience.
