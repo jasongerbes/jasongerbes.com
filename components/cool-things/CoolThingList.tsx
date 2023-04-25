@@ -8,6 +8,7 @@ import Link from 'next/link'
 import { CoolThingBadges } from './CoolThingBadges'
 import { useState } from 'react'
 import { CoolThingListFilter, CoolThingFilter } from './CoolThingListFilter'
+import { AnimatePresence, motion } from 'framer-motion'
 
 export interface CoolThingListProps
   extends React.HTMLAttributes<HTMLUListElement> {
@@ -33,13 +34,21 @@ export function CoolThingList({
     <div className={className}>
       <CoolThingListFilter value={filter} onChange={setFilter} />
 
-      <ul className={'mt-8 grid gap-x-12 gap-y-8 md:grid-cols-2'} {...props}>
-        {things.map((thing) => (
-          <li key={thing.id}>
-            <CoolThing thing={thing} headingLevel={headingLevel} />
-          </li>
-        ))}
-      </ul>
+      <AnimatePresence>
+        <ul className={'mt-8 grid gap-x-12 gap-y-8 md:grid-cols-2'} {...props}>
+          {things.map((thing) => (
+            <motion.li
+              key={thing.id}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              layout
+            >
+              <CoolThing thing={thing} headingLevel={headingLevel} />
+            </motion.li>
+          ))}
+        </ul>
+      </AnimatePresence>
     </div>
   )
 }

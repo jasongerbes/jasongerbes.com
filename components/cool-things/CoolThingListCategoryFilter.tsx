@@ -1,6 +1,6 @@
 import { allCoolThings } from '@/.contentlayer/generated'
 import { Badge } from '../Badge'
-import { Checkbox } from '../input/checkbox'
+import { Checkbox } from '../input/Checkbox'
 
 export interface CoolThingListCategoryFilterProps {
   value: string[]

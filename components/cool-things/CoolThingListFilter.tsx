@@ -1,5 +1,5 @@
 import { Input } from '../input/Input'
-import { Checkbox } from '../input/checkbox'
+import { Checkbox } from '../input/Checkbox'
 import { CoolThingListCategoryFilter } from './CoolThingListCategoryFilter'
 
 export interface CoolThingFilter {
