@@ -18,8 +18,6 @@ export default function Home() {
           </p>
         </Prose>
 
-        <BadgeExample />
-
         <h2 className="text-md mt-16 font-semibold uppercase tracking-tight text-primary-800 dark:text-primary-600">
           Latest Posts
         </h2>

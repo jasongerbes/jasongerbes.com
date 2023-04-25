@@ -6,6 +6,7 @@ export type BadgeColor =
   | 'red'
   | 'yellow'
   | 'green'
+  | 'teal'
   | 'blue'
   | 'indigo'
   | 'purple'
@@ -30,6 +31,7 @@ const badge = cva(
           'bg-yellow-50 text-yellow-800 ring-yellow-600/20 dark:ring-yellow-400/20 dark:bg-yellow-400/10 dark:text-yellow-400',
         green:
           'bg-green-50 text-green-700 ring-green-600/20 dark:ring-green-400/20 dark:bg-green-400/10 dark:text-green-400',
+        teal: 'bg-teal-50 text-teal-700 ring-teal-600/20 dark:ring-teal-400/20 dark:bg-teal-400/10 dark:text-teal-400',
         blue: 'bg-blue-50 text-blue-700 ring-blue-700/10 dark:ring-blue-400/20 dark:bg-blue-400/10 dark:text-blue-400',
         indigo:
           'bg-indigo-50 text-indigo-700 ring-indigo-700/10 dark:ring-indigo-400/20 dark:bg-indigo-400/10 dark:text-indigo-400',
@@ -75,6 +77,9 @@ export function BadgeExample() {
         Badge
       </Badge>
       <Badge color="green" aria-label="test">
+        Badge
+      </Badge>
+      <Badge color="teal" aria-label="test">
         Badge
       </Badge>
       <Badge color="blue" aria-label="test">
