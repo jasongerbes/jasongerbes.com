@@ -1,3 +1,4 @@
+import { Badge, BadgeExample } from '@/components/Badge'
 import { BlogPostList } from '@/components/blog-posts/BlogPostList'
 import { Prose } from '@/components/Prose'
 import { Title } from '@/components/Title'
@@ -16,6 +17,8 @@ export default function Home() {
             design, and sustainability. <Link href="/about">About Jason</Link>
           </p>
         </Prose>
+
+        <BadgeExample />
 
         <h2 className="text-md mt-16 font-semibold uppercase tracking-tight text-primary-800 dark:text-primary-600">
           Latest Posts
