@@ -3,7 +3,7 @@ import { Title } from '@/components/Title'
 import { Metadata } from 'next'
 import { Markdown } from '@/components/Markdown'
 import { getBlogPost } from '../utils'
-import { BlogPostTags } from '@/components/blog-posts/BlogPostTags'
+import { BlogPostBadges } from '@/components/blog-posts/BlogPostBadges'
 import { formatDate } from '@/utils/format-date'
 import { PencilSimple } from '@/assets/phosphor-icons'
 import { isSameDay } from 'date-fns'
@@ -52,7 +52,7 @@ export default function BlogPost({ params }: { params: Params }) {
       <article className="mx-auto max-w-3xl">
         <header className="flex flex-col">
           <Title>{post.title}</Title>
-          <BlogPostTags className="mt-6" post={post} />
+          <BlogPostBadges className="mt-6" post={post} size="medium" />
         </header>
         <Markdown className="mt-8" code={post.body.code} />
 

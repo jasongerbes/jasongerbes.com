@@ -2,7 +2,7 @@ import { BlogPost, allBlogPosts } from '@/.contentlayer/generated'
 import { Heading, HeadingLevel } from '../Heading'
 import clsx from 'clsx'
 import Link from 'next/link'
-import { BlogPostTags } from './BlogPostTags'
+import { BlogPostBadges } from './BlogPostBadges'
 
 export interface BlogPostListProps
   extends React.HTMLAttributes<HTMLUListElement> {
@@ -48,11 +48,11 @@ function BlogPost({ post, headingLevel }: BlogPostProps) {
           {post.title}
         </Heading>
 
-        <BlogPostTags className="mt-3" post={post} />
-
         <p className="mt-3 text-base text-gray-700 dark:text-gray-300">
           {post.description}
         </p>
+
+        <BlogPostBadges className="mt-3" post={post} size="small" />
 
         <div
           aria-hidden="true"

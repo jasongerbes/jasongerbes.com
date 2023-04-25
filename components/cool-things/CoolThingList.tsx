@@ -3,6 +3,7 @@ import { Heading, HeadingLevel } from '../Heading'
 import clsx from 'clsx'
 import { CoolThingIcon } from './CoolThingIcon'
 import Link from 'next/link'
+import { CoolThingBadges } from './CoolThingBadges'
 
 export interface CoolThingListProps
   extends React.HTMLAttributes<HTMLUListElement> {
@@ -43,7 +44,7 @@ function CoolThing({ thing, headingLevel }: CoolThingProps) {
       className="-mx-4 flex h-full flex-col items-start p-4 transition-colors hover:bg-primary-500/10 dark:hover:bg-primary-950/30 sm:rounded-xl"
       href={thing.url}
     >
-      <CoolThingIcon thing={thing} size="normal" />
+      <CoolThingIcon thing={thing} size="medium" />
 
       <Heading level={headingLevel} className="mt-5 text-lg font-semibold">
         {thing.title}
@@ -52,6 +53,8 @@ function CoolThing({ thing, headingLevel }: CoolThingProps) {
       <p className="mt-3 text-base text-gray-700 dark:text-gray-300">
         {thing.description}
       </p>
+
+      <CoolThingBadges className="mt-3" thing={thing} size="small" />
 
       <div
         aria-hidden="true"

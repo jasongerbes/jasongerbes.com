@@ -1,6 +1,23 @@
 import { defineDocumentType } from 'contentlayer/source-files'
 import { Image } from '../nested-types/Image'
 
+const categories: string[] = [
+  'React',
+  'JavaScript',
+  'TypeScript',
+  'CSS',
+  'Icons',
+  'Accessibility',
+  'Animations',
+  'Products',
+  'Websites',
+  'Learning',
+  'AI',
+  'MDX',
+  'Security',
+  'Tools',
+]
+
 export const CoolThing = defineDocumentType(() => ({
   name: 'CoolThing',
   filePathPattern: `cool-things/**/*.mdx`,
@@ -33,22 +50,7 @@ export const CoolThing = defineDocumentType(() => ({
       required: true,
       of: {
         type: 'enum',
-        options: [
-          'React',
-          'JavaScript',
-          'TypeScript',
-          'CSS',
-          'Icons',
-          'Accessibility',
-          'Animations',
-          'Products',
-          'Websites',
-          'Learning',
-          'AI',
-          'MDX',
-          'Security',
-          'Tools',
-        ],
+        options: categories,
       },
     },
     onThisSite: {

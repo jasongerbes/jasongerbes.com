@@ -1,34 +1,37 @@
 import { formatDate } from '@/utils/format-date'
-import { Tag } from '../Tag'
 import { CalendarBlank, ClockCountdown } from '@/assets/phosphor-icons'
 import { BlogPost } from '@/.contentlayer/generated'
 import clsx from 'clsx'
+import { Badge, BadgeSize } from '../Badge'
 
-export interface BlogPostTagsProps {
+export interface BlogPostBadgesProps {
   className?: string
   post: BlogPost
+  size: BadgeSize
 }
 
-export function BlogPostTags({ className, post }: BlogPostTagsProps) {
+export function BlogPostBadges({ className, post, size }: BlogPostBadgesProps) {
   const publishDate = formatDate(post.publishDate)
 
   return (
     <div className={clsx('flex flex-wrap gap-2', className)}>
-      <Tag
-        accessibleLabel={`This post was published on ${publishDate}`}
+      <Badge
+        aria-label={`This post was published on ${publishDate}`}
         icon={CalendarBlank}
+        size={size}
       >
         <time dateTime={post.publishDate}>{publishDate}</time>
-      </Tag>
+      </Badge>
 
-      <Tag
-        accessibleLabel={`This post takes about ${Math.floor(
+      <Badge
+        aria-label={`This post takes about ${Math.floor(
           post.readingTime.minutes
         )} minutes to read`}
         icon={ClockCountdown}
+        size={size}
       >
         {post.readingTime.text}
-      </Tag>
+      </Badge>
     </div>
   )
 }
