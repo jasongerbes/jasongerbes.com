@@ -38,4 +38,4 @@ next-env.d.ts
 .contentlayer
 
 # example content
-content/**/example/*
+content/**/example-*.mdx

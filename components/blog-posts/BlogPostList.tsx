@@ -48,11 +48,11 @@ function BlogPost({ post, headingLevel }: BlogPostProps) {
           {post.title}
         </Heading>
 
-        <BlogPostBadges className="mt-3" post={post} />
-
         <p className="mt-3 text-base text-gray-700 dark:text-gray-300">
           {post.description}
         </p>
+
+        <BlogPostBadges className="mt-3" post={post} size="small" />
 
         <div
           aria-hidden="true"

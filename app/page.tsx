@@ -1,4 +1,3 @@
-import { Badge, BadgeExample } from '@/components/Badge'
 import { BlogPostList } from '@/components/blog-posts/BlogPostList'
 import { Prose } from '@/components/Prose'
 import { Title } from '@/components/Title'

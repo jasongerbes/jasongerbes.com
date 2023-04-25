@@ -52,7 +52,7 @@ export default function BlogPost({ params }: { params: Params }) {
       <article className="mx-auto max-w-3xl">
         <header className="flex flex-col">
           <Title>{post.title}</Title>
-          <BlogPostBadges className="mt-6" post={post} />
+          <BlogPostBadges className="mt-6" post={post} size="medium" />
         </header>
         <Markdown className="mt-8" code={post.body.code} />
 

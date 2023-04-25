@@ -5,12 +5,12 @@ import Image from 'next/image'
 export interface CoolThingIconProps {
   className?: string
   thing: CoolThing
-  size: 'normal' | 'large'
+  size: 'medium' | 'large'
 }
 
 export function CoolThingIcon({ className, thing, size }: CoolThingIconProps) {
   const { logoImage } = thing
-  const imgSize = size === 'normal' ? 36 : 80
+  const imgSize = size === 'medium' ? 36 : 80
 
   return (
     <div
@@ -22,7 +22,7 @@ export function CoolThingIcon({ className, thing, size }: CoolThingIconProps) {
           'bg-gray-800': logoImage.theme === 'dark',
         },
         {
-          'rounded-lg p-2': size === 'normal',
+          'rounded-lg p-2': size === 'medium',
           'rounded-2xl p-6': size === 'large',
         },
         className
@@ -30,7 +30,7 @@ export function CoolThingIcon({ className, thing, size }: CoolThingIconProps) {
     >
       <Image
         className={clsx('shrink-0', {
-          'h-9 w-9': size === 'normal',
+          'h-9 w-9': size === 'medium',
           'h-20 w-20': size === 'large',
         })}
         src={logoImage.src}
