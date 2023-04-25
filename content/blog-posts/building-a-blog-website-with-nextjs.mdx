@@ -92,18 +92,6 @@ Install Contentlayer, the `next-contentlayer` plugin, and the MDX TypeScript typ
 npm install contentlayer next-contentlayer @types/mdx
 ```
 
-**Note:** At the time of writing, the latest version of Contentlayer has a peer dependency conflict with the latest version of Next.js - see the [GitHub pull request](https://github.com/contentlayerdev/contentlayer/pull/407).
-
-As a workaround, add the following dependency to your `package.json` to override the conflicting dependency version:
-
-```json
-{
-  "dependencies": {
-    "@opentelemetry/api": "^1.4.0"
-  }
-}
-```
-
 ### 2. Update the Next.js Configuration
 
 Your Next.js configuration file needs to be updated to use the `withContentlayer` wrapper function. Here's an example `next.config.js` file with Contentlayer configured:
@@ -119,19 +107,6 @@ const nextConfig = {
 }
 
 module.exports = withContentlayer(nextConfig)
-```
-
-**Note:** At the time of writing, the latest version of Contentlayer is not fully compatible with the latest version of Next.js - see the [GitHub issue](https://github.com/contentlayerdev/contentlayer/issues/415).
-
-As a workaround, install [concurrently](https://github.com/open-cli-tools/concurrently) and update the `dev` and `build` scripts in your `package.json` file to use the Contentlayer CLI to generate the `.contentlayer` folder:
-
-```json
-{
-  "scripts": {
-    "dev": "concurrently \"contentlayer dev\" \"next dev\"",
-    "build": "contentlayer build && next build"
-  }
-}
 ```
 
 ### 3. Update the TypeScript Configuration
