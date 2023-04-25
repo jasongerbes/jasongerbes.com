@@ -20,7 +20,7 @@ export function CoolThingBadges({
         <Badge
           color="green"
           size={size}
-          aria-label={`${thing.title} is used on this site`}
+          aria-label={`${thing.title} was used to build this site`}
           icon={CheckCircle}
         >
           On This Site
