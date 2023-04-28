@@ -15,6 +15,10 @@ module.exports = {
       colors: ({ colors }) => ({
         gray: colors.neutral,
         primary: colors.teal,
+        body: {
+          light: colors.white,
+          dark: "#121212"
+        }
       }),
       fontSize: {
         base: ['1rem', { lineHeight: '1.75rem' }],

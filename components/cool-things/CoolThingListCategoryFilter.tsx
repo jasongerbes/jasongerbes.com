@@ -1,5 +1,5 @@
 import { cva } from 'class-variance-authority'
-import clsx from 'clsx'
+import { HorizontalScrollContainer } from '../HorizontalScrollContainer'
 
 export interface CoolThingListCategoryFilterProps {
   categories: string[]
@@ -17,8 +17,8 @@ export function CoolThingListCategoryFilter({
   }
 
   return (
-    <div
-      className="flex flex-wrap gap-2"
+    <HorizontalScrollContainer
+      className="flex gap-2 lg:flex-wrap"
       aria-label="Filter things by category"
       role="radiogroup"
       aria-orientation="horizontal"
@@ -39,7 +39,7 @@ export function CoolThingListCategoryFilter({
           onChange={handleChange}
         />
       ))}
-    </div>
+    </HorizontalScrollContainer>
   )
 }
 

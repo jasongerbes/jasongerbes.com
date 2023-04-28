@@ -44,7 +44,7 @@ export function CoolThingList({
       />
 
       {things.length > 0 ? (
-        <ul className={'mt-8 grid gap-x-12 gap-y-8 md:grid-cols-2'} {...props}>
+        <ul className={'mt-6 grid gap-x-12 gap-y-8 md:grid-cols-2'} {...props}>
           {things.map((thing) => (
             <li key={thing.id}>
               <CoolThing thing={thing} headingLevel={headingLevel} />
@@ -62,7 +62,7 @@ export function CoolThingList({
 
 function NoResultsMessage({ onClear }: { onClear: VoidFunction }) {
   return (
-    <div className="flex flex-col items-center px-4 py-24 text-center">
+    <div className="flex flex-col items-center px-4 py-8 text-center lg:py-24">
       <div
         className="rounded-full bg-primary-500/10 p-8 text-primary-700 dark:bg-primary-400/10 dark:text-primary-600"
         aria-hidden={true}
@@ -84,7 +84,7 @@ function NoResultsMessage({ onClear }: { onClear: VoidFunction }) {
       </Prose>
 
       <Button
-        className="mt-12"
+        className="mt-8 lg:mt-12"
         trailingIcon={ArrowsCounterClockwise}
         size="large"
         onClick={onClear}

@@ -18,7 +18,7 @@ export function CoolThingListFilter({
   }
 
   return (
-    <div className="flex w-full flex-col gap-6">
+    <div className="flex w-full flex-col gap-4 lg:gap-6">
       <SearchInput
         className="w-full"
         label="Search cool things"
