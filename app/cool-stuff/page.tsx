@@ -22,7 +22,7 @@ export default function CoolStuff() {
           </p>
         </Prose>
 
-        <CoolThingList className="mt-12" headingLevel="h2" />
+        <CoolThingList className="mt-8 lg:mt-12" headingLevel="h2" />
       </div>
     </div>
   )

@@ -1,26 +1,11 @@
 import Link from 'next/link'
 
 const links: FooterNavLinkProps[] = [
-  {
-    href: '/',
-    label: 'Home',
-  },
-  {
-    href: '/about',
-    label: 'About',
-  },
-  {
-    href: '/blog',
-    label: 'Blog',
-  },
-  {
-    href: '/cool-stuff',
-    label: 'Cool Stuff',
-  },
-  {
-    href: '/contact',
-    label: 'Contact',
-  },
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'About' },
+  { href: '/blog', label: 'Blog' },
+  { href: '/cool-stuff', label: 'Cool Stuff' },
+  { href: '/contact', label: 'Contact' },
 ]
 
 export function Footer() {

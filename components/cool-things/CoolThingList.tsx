@@ -1,9 +1,21 @@
+'use client'
+
 import { CoolThing, allCoolThings } from '@/.contentlayer/generated'
 import { Heading, HeadingLevel } from '../Heading'
-import clsx from 'clsx'
 import { CoolThingIcon } from './CoolThingIcon'
 import Link from 'next/link'
 import { CoolThingBadges } from './CoolThingBadges'
+import { useMemo, useState } from 'react'
+import { CoolThingListFilter } from './CoolThingListFilter'
+import {
+  CoolThingFilterValue,
+  defaultCoolThingFilterValue,
+  getCoolThingCategories,
+  getFilteredCoolThings,
+} from './filter-utils'
+import { Button } from '../Button'
+import { ArrowsCounterClockwise, BracketsCurly } from '@/assets/phosphor-icons'
+import { Prose } from '../Prose'
 
 export interface CoolThingListProps
   extends React.HTMLAttributes<HTMLUListElement> {
@@ -17,23 +29,73 @@ export function CoolThingList({
   headingLevel,
   ...props
 }: CoolThingListProps) {
-  const things = sortThingsDescending(allCoolThings, limit)
+  const [filter, setFilter] = useState<CoolThingFilterValue>(
+    defaultCoolThingFilterValue
+  )
+  const things = getFilteredCoolThings(allCoolThings, filter)
+  const categories = useMemo(() => getCoolThingCategories(allCoolThings), [])
 
   return (
-    <ul
-      className={clsx('grid gap-x-12 gap-y-8 md:grid-cols-2', className)}
-      {...props}
-    >
-      {things.map((thing) => (
-        <li key={thing.id}>
-          <CoolThing thing={thing} headingLevel={headingLevel} />
-        </li>
-      ))}
-    </ul>
+    <div className={className}>
+      <CoolThingListFilter
+        categories={categories}
+        value={filter}
+        onChange={setFilter}
+      />
+
+      {things.length > 0 ? (
+        <ul className={'mt-6 grid gap-x-12 gap-y-8 md:grid-cols-2'} {...props}>
+          {things.map((thing) => (
+            <li key={thing.id}>
+              <CoolThing thing={thing} headingLevel={headingLevel} />
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <NoResultsMessage
+          onClear={() => setFilter(defaultCoolThingFilterValue)}
+        />
+      )}
+    </div>
   )
 }
 
-export interface CoolThingProps {
+function NoResultsMessage({ onClear }: { onClear: VoidFunction }) {
+  return (
+    <div className="flex flex-col items-center px-4 py-8 text-center lg:py-24">
+      <div
+        className="rounded-full bg-primary-500/10 p-8 text-primary-700 dark:bg-primary-400/10 dark:text-primary-600"
+        aria-hidden={true}
+      >
+        <BracketsCurly aria-hidden={true} width={48} height={48} />
+      </div>
+      <Prose className="mt-8">
+        <h2>Nothing to See Here</h2>
+        <p>
+          Maybe I’m missing something cool?{' '}
+          <a
+            className="font-semibold"
+            href="mailto:hello@jasongerbes.com?subject=Cool Stuff Suggestion"
+          >
+            Send a suggestion
+          </a>{' '}
+          or start over.
+        </p>
+      </Prose>
+
+      <Button
+        className="mt-8 lg:mt-12"
+        trailingIcon={ArrowsCounterClockwise}
+        size="large"
+        onClick={onClear}
+      >
+        Clear Filters
+      </Button>
+    </div>
+  )
+}
+
+interface CoolThingProps {
   thing: CoolThing
   headingLevel: HeadingLevel
 }
@@ -64,28 +126,4 @@ function CoolThing({ thing, headingLevel }: CoolThingProps) {
       </div>
     </Link>
   )
-}
-
-function sortThingsDescending(
-  things: CoolThing[],
-  limit?: number
-): CoolThing[] {
-  const sortedThings = things
-    .filter((thing) => !thing.isArchived)
-    .sort((a, b) => {
-      if (a.coolFactor !== b.coolFactor) {
-        return b.coolFactor - a.coolFactor
-      }
-
-      const dateA = new Date(a.addedDate).getTime()
-      const dateB = new Date(b.addedDate).getTime()
-
-      if (dateA !== dateB) {
-        return dateB - dateA
-      }
-
-      return a.title.localeCompare(b.title)
-    })
-
-  return limit ? sortedThings.slice(0, limit) : sortedThings
 }
