@@ -1,62 +1,79 @@
-import { allCoolThings } from '@/.contentlayer/generated'
-import { Badge } from '../Badge'
-import { Checkbox } from '../input/Checkbox'
+import clsx from 'clsx'
 
 export interface CoolThingListCategoryFilterProps {
-  value: string[]
-  onChange: (categories: string[]) => void
+  categories: string[]
+  value: string | undefined
+  onChange: (value: string | undefined) => void
 }
 
 export function CoolThingListCategoryFilter({
+  categories,
   value,
   onChange,
 }: CoolThingListCategoryFilterProps) {
-  const isCategoryChecked = (category: string) => {
-    return value.includes(category)
-  }
-
-  const handleCategoryChanged = (category: string, checked: boolean) => {
-    if (checked) {
-      onChange([...value, category])
-    } else {
-      onChange(value.filter((c) => c !== category))
-    }
+  const handleChange = (category: string | undefined, checked: boolean) => {
+    if (checked) onChange(category)
   }
 
   return (
-    <fieldset className="flex flex-col gap-2">
-      <legend className="mb-4 font-semibold">Category</legend>
+    <div
+      className="flex flex-wrap gap-2"
+      aria-label="Filter things by category"
+      role="radiogroup"
+      aria-orientation="horizontal"
+    >
+      <CategoryFilterOption
+        label="All"
+        value={undefined}
+        checked={value === undefined}
+        onChange={handleChange}
+      />
 
-      {categories.map(([category, count]) => (
-        <div
-          className="mt-2 inline-flex items-center justify-between gap-6"
+      {categories.map((category) => (
+        <CategoryFilterOption
           key={category}
-        >
-          <Checkbox
-            label={category}
-            value={category}
-            checked={isCategoryChecked(category)}
-            onChange={(checked) => handleCategoryChanged(category, checked)}
-          />
-          <Badge size="small" aria-label={`${count} things`}>
-            {count}
-          </Badge>
-        </div>
+          label={category}
+          value={category}
+          checked={value === category}
+          onChange={handleChange}
+        />
       ))}
-    </fieldset>
+    </div>
   )
 }
 
-const categoryMap = allCoolThings.reduce((acc, thing) => {
-  thing.categories.forEach((category) => {
-    const existingCount = acc.get(category) || 0
-    acc.set(category, existingCount + 1)
-  })
-  return acc
-}, new Map<string, number>())
+interface CategoryFilterOptionProps {
+  label: string
+  value: string | undefined
+  checked: boolean
+  onChange: (value: string | undefined, checked: boolean) => void
+}
 
-const categories = Array.from(categoryMap.entries()).sort(
-  ([_a, countA], [_b, countB]) => {
-    return countB - countA
-  }
-)
+function CategoryFilterOption({
+  label,
+  value,
+  checked,
+  onChange,
+}: CategoryFilterOptionProps) {
+  return (
+    <label
+      className={clsx(
+        'cursor-pointer rounded-full border border-gray-500/20 px-4 py-1.5 text-sm font-medium shadow-sm transition-colors',
+        checked &&
+          'border-primary-600 bg-primary-600/10 text-primary-800 dark:border-primary-500 dark:bg-primary-500/10 dark:text-primary-500'
+      )}
+    >
+      <div className="sr-only">
+        <input
+          aria-label={label}
+          tabIndex={0}
+          type="radio"
+          checked={checked}
+          value={value}
+          onChange={(event) => onChange(value, event.target.checked)}
+        />
+      </div>
+      <span>{label}</span>
+    </label>
+  )
+}

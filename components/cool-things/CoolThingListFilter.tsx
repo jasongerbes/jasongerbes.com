@@ -1,44 +1,35 @@
-import { Input } from '../input/Input'
-import { Checkbox } from '../input/Checkbox'
 import { CoolThingListCategoryFilter } from './CoolThingListCategoryFilter'
-
-export interface CoolThingFilter {
-  searchQuery: string
-  onThisSite: boolean
-  categories: string[]
-}
+import { SearchInput } from '../input/SearchInput'
+import { CoolThingFilterValue } from './filter-utils'
 
 export interface CoolThingListFilterProps {
-  value: CoolThingFilter
-  onChange: (search: CoolThingFilter) => void
+  categories: string[]
+  value: CoolThingFilterValue
+  onChange: (search: CoolThingFilterValue) => void
 }
 
 export function CoolThingListFilter({
+  categories,
   value,
   onChange,
 }: CoolThingListFilterProps) {
-  const updateSearch = (newValue: Partial<CoolThingFilter>) => {
+  const updateFilter = (newValue: Partial<CoolThingFilterValue>) => {
     onChange({ ...value, ...newValue })
   }
 
   return (
-    <div className="flex max-w-xs flex-col gap-6">
-      <Input
-        label="Search"
+    <div className="flex w-full flex-col gap-6">
+      <SearchInput
+        className="w-full"
+        label="Search things..."
         value={value.searchQuery}
-        onChange={(searchQuery) => updateSearch({ searchQuery })}
-      />
-
-      <Checkbox
-        label="On This Site"
-        value="onThisSite"
-        checked={value.onThisSite}
-        onChange={(checked) => updateSearch({ onThisSite: checked })}
+        onChange={(searchQuery) => updateFilter({ searchQuery })}
       />
 
       <CoolThingListCategoryFilter
-        value={value.categories}
-        onChange={(categories) => updateSearch({ categories })}
+        categories={categories}
+        value={value.category}
+        onChange={(category) => updateFilter({ category })}
       />
     </div>
   )
