@@ -14,6 +14,7 @@ export function HorizontalScrollContainer({
     <div className="relative -mx-4 overflow-hidden">
       <div
         className={clsx('overflow-x-auto pb-4 pl-4 pr-5', className)}
+        aria-orientation="horizontal"
         {...props}
       >
         {children}

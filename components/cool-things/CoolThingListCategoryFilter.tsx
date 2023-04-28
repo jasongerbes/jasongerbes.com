@@ -21,7 +21,6 @@ export function CoolThingListCategoryFilter({
       className="flex gap-2 lg:flex-wrap"
       aria-label="Filter things by category"
       role="radiogroup"
-      aria-orientation="horizontal"
     >
       <CategoryFilterOption
         label="All"
