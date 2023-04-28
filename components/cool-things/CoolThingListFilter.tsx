@@ -1,5 +1,5 @@
 import { CoolThingListCategoryFilter } from './CoolThingListCategoryFilter'
-import { SearchInput } from '../input/SearchInput'
+import { SearchInput } from '../SearchInput'
 import { CoolThingFilterValue } from './filter-utils'
 
 export interface CoolThingListFilterProps {
