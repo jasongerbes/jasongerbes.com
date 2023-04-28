@@ -9,9 +9,13 @@ import { useMemo, useState } from 'react'
 import { CoolThingListFilter } from './CoolThingListFilter'
 import {
   CoolThingFilterValue,
+  defaultCoolThingFilterValue,
   getCoolThingCategories,
   getFilteredCoolThings,
 } from './filter-utils'
+import { Button } from '../Button'
+import { ArrowsCounterClockwise, BracketsCurly } from '@/assets/phosphor-icons'
+import { Prose } from '../Prose'
 
 export interface CoolThingListProps
   extends React.HTMLAttributes<HTMLUListElement> {
@@ -25,11 +29,9 @@ export function CoolThingList({
   headingLevel,
   ...props
 }: CoolThingListProps) {
-  const [filter, setFilter] = useState<CoolThingFilterValue>({
-    searchQuery: '',
-    category: undefined,
-  })
-
+  const [filter, setFilter] = useState<CoolThingFilterValue>(
+    defaultCoolThingFilterValue
+  )
   const things = getFilteredCoolThings(allCoolThings, filter)
   const categories = useMemo(() => getCoolThingCategories(allCoolThings), [])
 
@@ -41,18 +43,59 @@ export function CoolThingList({
         onChange={setFilter}
       />
 
-      <ul className={'mt-8 grid gap-x-12 gap-y-8 md:grid-cols-2'} {...props}>
-        {things.map((thing) => (
-          <li key={thing.id}>
-            <CoolThing thing={thing} headingLevel={headingLevel} />
-          </li>
-        ))}
-      </ul>
+      {things.length > 0 ? (
+        <ul className={'mt-8 grid gap-x-12 gap-y-8 md:grid-cols-2'} {...props}>
+          {things.map((thing) => (
+            <li key={thing.id}>
+              <CoolThing thing={thing} headingLevel={headingLevel} />
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <NoResultsMessage
+          onClear={() => setFilter(defaultCoolThingFilterValue)}
+        />
+      )}
     </div>
   )
 }
 
-export interface CoolThingProps {
+function NoResultsMessage({ onClear }: { onClear: VoidFunction }) {
+  return (
+    <div className="flex flex-col items-center px-4 py-24 text-center">
+      <div
+        className="rounded-full bg-primary-500/10 p-8 text-primary-700 dark:bg-primary-400/10 dark:text-primary-600"
+        aria-hidden={true}
+      >
+        <BracketsCurly aria-hidden={true} width={48} height={48} />
+      </div>
+      <Prose className="mt-8">
+        <h2>Nothing to See Here</h2>
+        <p>
+          Maybe I’m missing something cool?{' '}
+          <a
+            className="font-semibold"
+            href="mailto:hello@jasongerbes.com?subject=Cool Stuff Suggestion"
+          >
+            Send a suggestion
+          </a>{' '}
+          or start over.
+        </p>
+      </Prose>
+
+      <Button
+        className="mt-12"
+        trailingIcon={ArrowsCounterClockwise}
+        size="large"
+        onClick={onClear}
+      >
+        Clear Filters
+      </Button>
+    </div>
+  )
+}
+
+interface CoolThingProps {
   thing: CoolThing
   headingLevel: HeadingLevel
 }

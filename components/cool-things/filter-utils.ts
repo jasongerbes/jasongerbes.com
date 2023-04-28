@@ -15,6 +15,11 @@ export interface CoolThingFilterValue {
   category: string | undefined
 }
 
+export const defaultCoolThingFilterValue: CoolThingFilterValue = {
+  searchQuery: '',
+  category: undefined,
+}
+
 export function getFilteredCoolThings(
   things: CoolThing[],
   filter: CoolThingFilterValue

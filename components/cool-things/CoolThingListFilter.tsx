@@ -21,7 +21,7 @@ export function CoolThingListFilter({
     <div className="flex w-full flex-col gap-6">
       <SearchInput
         className="w-full"
-        label="Search things..."
+        label="Search cool things"
         value={value.searchQuery}
         onChange={(searchQuery) => updateFilter({ searchQuery })}
       />
