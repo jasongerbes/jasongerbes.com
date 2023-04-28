@@ -1,3 +1,4 @@
+import { cva } from 'class-variance-authority'
 import clsx from 'clsx'
 
 export interface CoolThingListCategoryFilterProps {
@@ -49,6 +50,18 @@ interface CategoryFilterOptionProps {
   onChange: (value: string | undefined, checked: boolean) => void
 }
 
+const option = cva(
+  'cursor-pointer rounded-full border px-4 py-1.5 text-sm font-medium shadow-sm transition-colors',
+  {
+    variants: {
+      checked: {
+        true: 'border-primary-600 bg-primary-600/10 text-primary-800 dark:border-primary-500 dark:bg-primary-500/10 dark:text-primary-500',
+        false: 'border-gray-500/20 dark:border-gray-400/20',
+      },
+    },
+  }
+)
+
 function CategoryFilterOption({
   label,
   value,
@@ -56,13 +69,7 @@ function CategoryFilterOption({
   onChange,
 }: CategoryFilterOptionProps) {
   return (
-    <label
-      className={clsx(
-        'cursor-pointer rounded-full border border-gray-500/20 px-4 py-1.5 text-sm font-medium shadow-sm transition-colors',
-        checked &&
-          'border-primary-600 bg-primary-600/10 text-primary-800 dark:border-primary-500 dark:bg-primary-500/10 dark:text-primary-500'
-      )}
-    >
+    <label className={option({ checked })}>
       <div className="sr-only">
         <input
           aria-label={label}
