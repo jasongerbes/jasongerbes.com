@@ -8,21 +8,22 @@ import { contentDirPath } from './config/contentlayer/utils'
 import { BlogPost } from './config/contentlayer/document-types/BlogPost'
 import { CoolThing } from './config/contentlayer/document-types/CoolThing'
 
-const rehypePrettyCodeOptions: Partial<RehypePrettyCodeOptions> = {
-  theme: { dark: 'one-dark-pro', light: 'github-light' },
-  onVisitLine(node) {
-    // Allow empty lines to be copied to the clipboard
-    if (node.children.length === 0) {
-      node.children = [{ type: 'text', value: ' ' }]
-    }
-  },
-}
-
 export default makeSource({
   contentDirPath,
   documentTypes: [BlogPost, CoolThing],
   mdx: {
     remarkPlugins: [remarkGfm],
-    rehypePlugins: [rehypeSlug, [rehypePrettyCode, rehypePrettyCodeOptions]],
+    rehypePlugins: [
+      rehypeSlug,
+      [
+        rehypePrettyCode,
+        {
+          theme: {
+            dark: 'one-dark-pro',
+            light: 'github-light',
+          },
+        } as Partial<RehypePrettyCodeOptions>,
+      ],
+    ],
   },
 })

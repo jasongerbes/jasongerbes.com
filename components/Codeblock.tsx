@@ -33,7 +33,7 @@ export function Codeblock({ children, ...props }: CodeblockProps) {
   return (
     <>
       <LanguageIcon
-        className="text-foreground absolute left-4 top-[15px] z-20 hidden lg:top-[19px]"
+        className="text-foreground absolute left-4 top-[15px] hidden lg:top-[19px]"
         aria-hidden={true}
         data-language-icon
         data-theme={theme}

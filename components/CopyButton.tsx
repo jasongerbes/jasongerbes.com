@@ -19,13 +19,7 @@ export function CopyButton({
   const copyToClipboard = () => {
     if (typeof window === 'undefined' || !elementRef.current) return
     const text = elementRef.current.innerText
-
-    if ('clipboard' in navigator) {
-      navigator.clipboard.writeText(text)
-    } else {
-      document.execCommand('copy', true, text)
-    }
-
+    window.navigator.clipboard.writeText(text)
     setIsCopied(true)
     setTimeout(() => setIsCopied(false), 1500)
   }
@@ -37,8 +31,8 @@ export function CopyButton({
         className
       )}
       aria-label="Copy to Clipboard"
+      title="Copy to Clipboard"
       onClick={copyToClipboard}
-      title={isCopied ? 'Copied to Clipboard' : 'Copy to Clipboard'}
       {...props}
     >
       <div className="relative h-full w-full p-1">
