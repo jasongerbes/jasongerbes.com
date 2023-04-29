@@ -9,9 +9,24 @@ import {
 } from '@/components/social-icons'
 import { Metadata } from 'next'
 
+const title = 'Contact'
+const description = 'Want to connect with me? You’ve come to the right place.'
+
 export const metadata: Metadata = {
-  title: 'Contact',
-  description: 'Want to connect with me? You’ve come to the right place.',
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    type: 'website',
+    url: '/contact',
+  },
+  twitter: {
+    title,
+    description,
+    card: 'summary_large_image',
+    creator: '@jasongerbes',
+  },
 }
 
 const contactLinks: ContactLinkProps[] = [

@@ -36,6 +36,7 @@ export function generateMetadata({ params }: { params: Params }): Metadata {
       title,
       description,
       card: 'summary_large_image',
+      creator: '@jasongerbes',
     },
   }
 }
