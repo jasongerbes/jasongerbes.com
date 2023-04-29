@@ -3,9 +3,24 @@ import { Title } from '@/components/Title'
 import { Metadata } from 'next'
 import Link from 'next/link'
 
+const title = 'About'
+const description = 'Everything you need to know about Jason Gerbes'
+
 export const metadata: Metadata = {
-  title: 'About',
-  description: 'Everything you need to know about Jason Gerbes',
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    type: 'website',
+    url: '/about',
+  },
+  twitter: {
+    title,
+    description,
+    card: 'summary_large_image',
+    creator: '@jasongerbes',
+  },
 }
 
 export default function About() {

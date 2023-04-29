@@ -3,9 +3,24 @@ import { Prose } from '@/components/Prose'
 import { Title } from '@/components/Title'
 import { Metadata } from 'next'
 
+const title = 'Blog'
+const description = 'My thoughts on software engineering and other topics'
+
 export const metadata: Metadata = {
-  title: 'Blog',
-  description: 'My thoughts on software engineering and other topics',
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    type: 'website',
+    url: '/blog',
+  },
+  twitter: {
+    title,
+    description,
+    card: 'summary_large_image',
+    creator: '@jasongerbes',
+  },
 }
 
 export default function Blog() {
