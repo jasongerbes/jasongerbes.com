@@ -1,5 +1,4 @@
 import clsx from 'clsx'
-import './Prose.css'
 
 export interface ProseProps {
   className?: string

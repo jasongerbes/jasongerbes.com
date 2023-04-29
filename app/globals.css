@@ -1,3 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  [data-rehype-pretty-code-fragment] {
+    @apply relative;
+  }
+
+  [data-rehype-pretty-code-title] ~ pre {
+    @apply mt-0 rounded-t-none border-t-0;
+  }
+
+  [data-rehype-pretty-code-title] {
+    @apply py-3.5 pl-12 pr-6;
+    @apply border border-gray-200/50 bg-gray-100/50 text-gray-600 dark:border-gray-800/50 dark:bg-gray-800/50 dark:text-gray-300;
+    @apply rounded-t-lg font-mono text-sm font-semibold lg:py-[18px];
+  }
+
+  [data-rehype-pretty-code-title] ~ [data-language-icon] {
+    @apply block;
+  }
+
+  [data-theme='light'] {
+    @apply block dark:hidden;
+  }
+
+  [data-theme='dark'] {
+    @apply hidden dark:block;
+  }
+}
