@@ -33,7 +33,7 @@ export function CopyButton({
   return (
     <button
       className={clsx(
-        'h-8 w-8 cursor-pointer rounded-md text-primary-600 ring-1 ring-inset ring-gray-500/20 transition-colors hover:bg-gray-100 hover:text-primary-500 dark:hover:bg-gray-800',
+        'h-8 w-8 cursor-pointer rounded-md text-primary-600 ring-1 ring-inset ring-gray-500/20 backdrop-blur-md transition-colors hover:bg-gray-100 hover:text-primary-500 dark:hover:bg-gray-800',
         className
       )}
       aria-label="Copy to Clipboard"
