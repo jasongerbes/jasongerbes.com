@@ -1,6 +1,8 @@
 import { makeSource } from 'contentlayer/source-files'
 import remarkGfm from 'remark-gfm'
-import rehypePrettyCode from 'rehype-pretty-code'
+import rehypePrettyCode, {
+  Options as RehypePrettyCodeOptions,
+} from 'rehype-pretty-code'
 import rehypeSlug from 'rehype-slug'
 import { contentDirPath } from './config/contentlayer/utils'
 import { BlogPost } from './config/contentlayer/document-types/BlogPost'
@@ -20,7 +22,7 @@ export default makeSource({
             dark: 'one-dark-pro',
             light: 'github-light',
           },
-        },
+        } as Partial<RehypePrettyCodeOptions>,
       ],
     ],
   },

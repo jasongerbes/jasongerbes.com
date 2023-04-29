@@ -3,7 +3,7 @@
   "typescript.tsdk": "node_modules/typescript/lib",
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "editor.tabSize": 2,
-  "cSpell.words": ["clsx", "contentlayer", "Gerbes"],
+  "cSpell.words": ["clsx", "contentlayer", "Gerbes", "rehype"],
   "tailwindCSS.experimental.classRegex": [
     ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
   ]

@@ -68,7 +68,7 @@ npm install @tailwindcss/typography
 
 Then, add it to your `tailwind.config.js` file:
 
-```js
+```js title="tailwind.config.js"
 module.exports = {
   theme: {
     // ...
@@ -96,7 +96,7 @@ npm install contentlayer next-contentlayer @types/mdx
 
 Your Next.js configuration file needs to be updated to use the `withContentlayer` wrapper function. Here's an example `next.config.js` file with Contentlayer configured:
 
-```js
+```js title="next.config.js"
 const { withContentlayer } = require('next-contentlayer')
 
 /** @type {import('next').NextConfig} */
@@ -113,7 +113,7 @@ module.exports = withContentlayer(nextConfig)
 
 Update your `tsconfig.json` file to include the following lines.
 
-```jsonc
+```jsonc title="tsconfig.json"
 {
   "compilerOptions": {
     "baseUrl": ".",
@@ -132,7 +132,7 @@ Update your `tsconfig.json` file to include the following lines.
 
 Add the root of your project, add a `contentlayer.config.ts` file with the following starter configuration:
 
-```ts
+```ts title="contentlayer.config.ts"
 import { defineDocumentType, makeSource } from 'contentlayer/source-files'
 
 export const Post = defineDocumentType(() => ({
@@ -179,7 +179,7 @@ The above Contentlayer configuration looks for `.mdx` files located within the r
 
 Create a `posts` folder, and add the following to `posts/post-01.mdx`:
 
-```mdx
+```mdx title="posts/post-01.mdx"
 ---
 title: Lorem Ipsum
 date: 2021-12-24
@@ -200,9 +200,9 @@ labore exercitation irure laborum.
 
 ### 6. Add the Posts Page
 
-Add a post list page by creating a file named `/app/posts/page.tsx` and adding the following contents:
+Add a post list page by creating a file named `app/posts/page.tsx` and adding the following contents:
 
-```tsx
+```tsx title="app/posts/page.tsx"
 import Link from 'next/link'
 import { Post, allPosts } from 'contentlayer/generated'
 
@@ -246,9 +246,9 @@ function PostCard({ post }: { post: Post }) {
 
 ### 7. Add the Post Details Page
 
-Add a post details page by creating a file named `/app/posts/[slug]/page.tsx` and adding the following contents:
+Add a post details page by creating a file named `app/posts/[slug]/page.tsx` and adding the following contents:
 
-```tsx
+```tsx title="app/posts/[slug]/page.tsx"
 import { Post, allPosts } from '@/.contentlayer/generated'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
