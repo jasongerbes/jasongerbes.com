@@ -73,6 +73,11 @@ export const CoolThing = defineDocumentType(() => ({
       description: 'Indicates whether the thing is no longer cool :(',
       required: true,
     },
+    archiveReason: {
+      type: 'string',
+      description: 'The reason the thing was archived',
+      required: false,
+    },
   },
   computedFields: {
     id: {

@@ -1,9 +1,9 @@
 import { CoolThingListCategoryFilter } from './CoolThingListCategoryFilter'
 import { SearchInput } from '../SearchInput'
-import { CoolThingFilterValue } from './filter-utils'
+import { CoolThingCategory, CoolThingFilterValue } from './filter-utils'
 
 export interface CoolThingListFilterProps {
-  categories: string[]
+  categories: CoolThingCategory[]
   value: CoolThingFilterValue
   onChange: (search: CoolThingFilterValue) => void
 }

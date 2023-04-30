@@ -1,10 +1,11 @@
 import { cva } from 'class-variance-authority'
 import { HorizontalScrollContainer } from '../HorizontalScrollContainer'
+import { CoolThingCategory } from './filter-utils'
 
 export interface CoolThingListCategoryFilterProps {
-  categories: string[]
-  value: string | undefined
-  onChange: (value: string | undefined) => void
+  categories: CoolThingCategory[]
+  value: CoolThingCategory | undefined
+  onChange: (value: CoolThingCategory | undefined) => void
 }
 
 export function CoolThingListCategoryFilter({
@@ -12,7 +13,10 @@ export function CoolThingListCategoryFilter({
   value,
   onChange,
 }: CoolThingListCategoryFilterProps) {
-  const handleChange = (category: string | undefined, checked: boolean) => {
+  const handleChange = (
+    category: CoolThingCategory | undefined,
+    checked: boolean
+  ) => {
     if (checked) onChange(category)
   }
 
@@ -44,9 +48,9 @@ export function CoolThingListCategoryFilter({
 
 interface CategoryFilterOptionProps {
   label: string
-  value: string | undefined
+  value: CoolThingCategory | undefined
   checked: boolean
-  onChange: (value: string | undefined, checked: boolean) => void
+  onChange: (value: CoolThingCategory | undefined, checked: boolean) => void
 }
 
 const option = cva(
