@@ -30,6 +30,9 @@ export function getFilteredCoolThings(
 ): CoolThing[] {
   const filters: CoolThingFilter[] = []
 
+  // filter out archived things
+  filters.push((thing) => !thing.isArchived)
+
   // filter based on the selected category
   if (category) {
     filters.push((thing) => thing.categories.includes(category))
@@ -55,22 +58,20 @@ function sortThingsDescending(
   things: CoolThing[],
   limit?: number
 ): CoolThing[] {
-  const sortedThings = things
-    .filter((thing) => !thing.isArchived)
-    .sort((a, b) => {
-      if (a.coolFactor !== b.coolFactor) {
-        return b.coolFactor - a.coolFactor
-      }
+  const sortedThings = things.sort((a, b) => {
+    if (a.coolFactor !== b.coolFactor) {
+      return b.coolFactor - a.coolFactor
+    }
 
-      const dateA = new Date(a.addedDate).getTime()
-      const dateB = new Date(b.addedDate).getTime()
+    const dateA = new Date(a.addedDate).getTime()
+    const dateB = new Date(b.addedDate).getTime()
 
-      if (dateA !== dateB) {
-        return dateB - dateA
-      }
+    if (dateA !== dateB) {
+      return dateB - dateA
+    }
 
-      return a.title.localeCompare(b.title)
-    })
+    return a.title.localeCompare(b.title)
+  })
 
   return limit ? sortedThings.slice(0, limit) : sortedThings
 }
