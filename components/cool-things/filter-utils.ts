@@ -5,14 +5,16 @@ export function getCoolThingCategories(things: CoolThing[]) {
   const categorySet = things.reduce((acc, thing) => {
     thing.categories.forEach((category) => acc.add(category))
     return acc
-  }, new Set<string>())
+  }, new Set<CoolThingCategory>())
 
   return Array.from(categorySet)
 }
 
+export type CoolThingCategory = CoolThing['categories'][number]
+
 export interface CoolThingFilterValue {
   searchQuery: string
-  category: string | undefined
+  category: CoolThingCategory | undefined
 }
 
 export const defaultCoolThingFilterValue: CoolThingFilterValue = {
@@ -20,35 +22,33 @@ export const defaultCoolThingFilterValue: CoolThingFilterValue = {
   category: undefined,
 }
 
+type CoolThingFilter = (thing: CoolThing) => boolean
+
 export function getFilteredCoolThings(
   things: CoolThing[],
-  filter: CoolThingFilterValue
+  { searchQuery, category }: CoolThingFilterValue
 ): CoolThing[] {
-  const expressions: Fuse.Expression[] = []
-
-  // fuzzy match the search query to the title or description of the things
-  if (filter.searchQuery !== '') {
-    expressions.push({
-      $or: [{ title: filter.searchQuery }, { description: filter.searchQuery }],
-    })
-  }
+  const filters: CoolThingFilter[] = []
 
   // filter based on the selected category
-  if (filter.category) {
-    expressions.push({ categories: `'${filter.category}` })
+  if (category) {
+    filters.push((thing) => thing.categories.includes(category))
   }
 
-  // no need to search, return all things
-  if (expressions.length === 0) {
-    return sortThingsDescending(things)
+  // apply all filters
+  const filteredThings = things.filter((thing) =>
+    filters.every((filter) => filter(thing))
+  )
+
+  // no need to search, return filteredThings
+  if (searchQuery === '') {
+    return sortThingsDescending(filteredThings)
   }
 
-  const fuse = new Fuse(things, {
-    keys: ['title', 'description', 'onThisSite', 'categories'],
-  })
+  const fuse = new Fuse(filteredThings, { keys: ['title', 'description'] })
+  const searchResults = fuse.search(searchQuery)
 
-  const results = fuse.search({ $and: expressions })
-  return results.map((result) => result.item)
+  return searchResults.map((result) => result.item)
 }
 
 function sortThingsDescending(
