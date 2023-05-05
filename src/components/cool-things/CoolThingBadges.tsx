@@ -1,5 +1,5 @@
 import { CheckCircle } from '@/assets/phosphor-icons'
-import { CoolThing } from '@/.contentlayer/generated'
+import { CoolThing } from 'contentlayer/generated'
 import clsx from 'clsx'
 import { Badge, BadgeSize } from '../Badge'
 

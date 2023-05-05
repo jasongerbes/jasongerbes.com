@@ -1,4 +1,4 @@
-import { BlogPost, allBlogPosts } from '@/.contentlayer/generated'
+import { BlogPost, allBlogPosts } from 'contentlayer/generated'
 import { Title } from '@/components/Title'
 import { Metadata } from 'next'
 import { Markdown } from '@/components/Markdown'

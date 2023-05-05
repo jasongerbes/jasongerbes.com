@@ -1,4 +1,4 @@
-import { BlogPost, allBlogPosts } from '@/.contentlayer/generated'
+import { BlogPost, allBlogPosts } from 'contentlayer/generated'
 import { notFound } from 'next/navigation'
 
 export function getBlogPost(id: string): BlogPost {

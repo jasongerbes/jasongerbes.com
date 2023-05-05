@@ -1,5 +1,5 @@
 import Fuse from 'fuse.js'
-import { CoolThing } from '@/.contentlayer/generated'
+import { CoolThing } from 'contentlayer/generated'
 
 export function getCoolThingCategories(things: CoolThing[]) {
   const categorySet = things.reduce((acc, thing) => {

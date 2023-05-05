@@ -1,4 +1,4 @@
-import { BlogPost } from '@/.contentlayer/generated'
+import { BlogPost } from 'contentlayer/generated'
 import { MetadataImage } from './MetadataImage'
 
 export function BlogPostMetadataImage({ post }: { post: BlogPost }) {
