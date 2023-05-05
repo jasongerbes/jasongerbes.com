@@ -1,4 +1,4 @@
-import { Image } from '@/.contentlayer/generated'
+import { Image } from 'contentlayer/generated'
 
 export interface MetadataImage {
   title: string

@@ -249,7 +249,7 @@ function PostCard({ post }: { post: Post }) {
 Add a post details page by creating a file named `app/posts/[slug]/page.tsx` and adding the following contents:
 
 ```tsx title="app/posts/[slug]/page.tsx"
-import { Post, allPosts } from '@/.contentlayer/generated'
+import { Post, allPosts } from 'contentlayer/generated'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { useMDXComponent } from 'next-contentlayer/hooks'

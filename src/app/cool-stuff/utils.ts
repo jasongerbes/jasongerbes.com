@@ -1,4 +1,4 @@
-import { CoolThing, allCoolThings } from '@/.contentlayer/generated'
+import { CoolThing, allCoolThings } from 'contentlayer/generated'
 import { notFound } from 'next/navigation'
 
 export function getCoolThing(id: string): CoolThing {

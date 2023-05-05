@@ -1,4 +1,4 @@
-import { CoolThing } from '@/.contentlayer/generated'
+import { CoolThing } from 'contentlayer/generated'
 import { MetadataImage } from './MetadataImage'
 
 export function CoolThingMetadataImage({ thing }: { thing: CoolThing }) {

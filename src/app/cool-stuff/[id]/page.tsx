@@ -1,4 +1,4 @@
-import { CoolThing, allCoolThings } from '@/.contentlayer/generated'
+import { CoolThing, allCoolThings } from 'contentlayer/generated'
 import { Title } from '@/components/Title'
 import { Metadata } from 'next'
 import { formatDate } from '@/utils/format-date'

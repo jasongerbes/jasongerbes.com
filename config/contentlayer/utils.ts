@@ -3,7 +3,7 @@ import readingTime, { ReadTimeResults } from 'reading-time'
 import * as fs from 'node:fs/promises'
 import path from 'node:path'
 
-export const contentDirPath = 'content'
+export const contentDirPath = 'src/content'
 
 export const getReadingTime = (doc: DocumentGen): ReadTimeResults => {
   return readingTime(doc.body.raw)

@@ -1,6 +1,6 @@
 import { formatDate } from '@/utils/format-date'
 import { CalendarBlank, ClockCountdown } from '@/assets/phosphor-icons'
-import { BlogPost } from '@/.contentlayer/generated'
+import { BlogPost } from 'contentlayer/generated'
 import clsx from 'clsx'
 import { Badge, BadgeSize } from '../Badge'
 
