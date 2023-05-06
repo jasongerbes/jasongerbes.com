@@ -15,7 +15,7 @@ export function Title({ className, headingLevel, children }: TitleProps) {
         className
       )}
       level={headingLevel || 'h1'}
-      balanceText={true}
+      balanced={true}
     >
       {children}
     </Heading>

@@ -7,16 +7,16 @@ export type HeadingLevel = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
 
 export type HeadingProps = React.HTMLAttributes<HTMLHeadingElement> & {
   level: HeadingLevel
-  balanceText?: boolean
+  balanced?: boolean
 }
 
 export function Heading({
   level: Tag,
   children,
-  balanceText,
+  balanced,
   ...props
 }: HeadingProps) {
-  const Wrapper = balanceText ? Balancer : Fragment
+  const Wrapper = balanced ? Balancer : Fragment
 
   return (
     <Tag {...props} className={clsx(props.className, props.id && 'group')}>
