@@ -24,24 +24,25 @@ export function Modal({ children, show, onClose }: ModalProps) {
 
   return (
     <dialog
-      className="m-auto w-full max-w-full bg-transparent p-0 text-inherit backdrop:bg-gray-300/30 backdrop:backdrop-blur-md dark:backdrop:bg-gray-700/30 sm:w-fit sm:p-5"
+      className="fixed inset-0 flex h-full max-h-full w-full max-w-full flex-col overflow-visible bg-transparent p-0 text-inherit backdrop:bg-gray-300/30 backdrop:backdrop-blur-md dark:backdrop:bg-gray-700/20 sm:max-h-none sm:overflow-y-scroll sm:p-5"
       ref={dialogRef}
       onClose={onClose}
       onClick={onClose}
     >
       <div
-        className="relative w-full rounded-lg bg-body-light p-10 px-5 py-6 dark:bg-body-dark sm:w-fit sm:p-12"
+        className="h-full w-full overflow-y-scroll bg-body-light shadow-xl dark:bg-body-dark sm:m-auto sm:h-fit sm:w-fit sm:overflow-y-visible sm:rounded-lg"
         onClick={(event) => event.stopPropagation()}
       >
-        <IconButton
-          className="absolute right-3 top-3.5 sm:right-4 sm:top-4"
-          label="Close modal"
-          icon={X}
-          onClick={onClose}
-          autoFocus={true}
-        />
+        <header className="sticky top-0 flex justify-end px-5 py-4 sm:px-8 sm:py-8">
+          <IconButton
+            label="Close modal"
+            icon={X}
+            onClick={onClose}
+            autoFocus={true}
+          />
+        </header>
 
-        {children}
+        <div className="px-5 pb-16 sm:px-12 sm:pb-24">{children}</div>
       </div>
     </dialog>
   )
