@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  html:has(dialog[open]) {
+    @apply overflow-hidden;
+  }
+}
+
 @layer components {
   [data-rehype-pretty-code-fragment] {
     @apply relative;

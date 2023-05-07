@@ -54,7 +54,7 @@ interface CategoryFilterOptionProps {
 }
 
 const option = cva(
-  'cursor-pointer rounded-full border px-4 py-1.5 text-sm font-medium shadow-sm transition-colors',
+  'cursor-pointer rounded-full border px-4 py-1.5 text-sm font-medium shadow-sm transition-colors select-none',
   {
     variants: {
       checked: {

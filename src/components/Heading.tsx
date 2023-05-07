@@ -1,17 +1,27 @@
 import { Link as LinkIcon } from '@/assets/phosphor-icons'
 import clsx from 'clsx'
+import { Fragment } from 'react'
+import Balancer from 'react-wrap-balancer'
 
 export type HeadingLevel = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
 
 export type HeadingProps = React.HTMLAttributes<HTMLHeadingElement> & {
   level: HeadingLevel
+  balanced?: boolean
 }
 
-export function Heading({ level: Tag, children, ...props }: HeadingProps) {
+export function Heading({
+  level: Tag,
+  children,
+  balanced,
+  ...props
+}: HeadingProps) {
+  const Wrapper = balanced ? Balancer : Fragment
+
   return (
     <Tag {...props} className={clsx(props.className, props.id && 'group')}>
       {props.id && <HeadingAnchorLink id={props.id} />}
-      {children}
+      <Wrapper>{children}</Wrapper>
     </Tag>
   )
 }

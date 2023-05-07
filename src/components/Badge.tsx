@@ -25,7 +25,7 @@ export interface BadgeProps {
 }
 
 const badge = cva(
-  'inline-flex items-center rounded-md font-medium ring-1 ring-inset',
+  'inline-flex items-center rounded-md font-medium ring-1 ring-inset select-none',
   {
     variants: {
       color: {
