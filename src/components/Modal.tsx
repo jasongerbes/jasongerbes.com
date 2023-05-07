@@ -33,7 +33,7 @@ export function Modal({ children, show, onClose }: ModalProps) {
         className="h-full w-full overflow-y-scroll bg-body-light shadow-xl dark:bg-body-dark sm:m-auto sm:h-fit sm:w-fit sm:overflow-y-visible sm:rounded-lg"
         onClick={(event) => event.stopPropagation()}
       >
-        <header className="sticky top-0 flex justify-end px-5 py-4 sm:px-8 sm:py-8">
+        <header className="sticky top-0 flex justify-end px-5 py-4 sm:px-8 sm:pt-8">
           <IconButton
             label="Close modal"
             icon={X}
@@ -42,7 +42,7 @@ export function Modal({ children, show, onClose }: ModalProps) {
           />
         </header>
 
-        <div className="px-5 pb-16 sm:px-12 sm:pb-24">{children}</div>
+        <div className="px-5 pb-16 sm:px-12">{children}</div>
       </div>
     </dialog>
   )
