@@ -62,7 +62,7 @@ export default function BlogPost({ params }: { params: Params }) {
           <BlogPostComments post={post} />
 
           {hasBeenUpdated && (
-            <p className="mt-12 inline-flex w-full items-center gap-1.5 text-base text-gray-500 dark:text-gray-400">
+            <p className="mt-8 inline-flex w-full items-center gap-1.5 text-base text-gray-500 dark:text-gray-400">
               <ClockCounterClockwise aria-hidden={true} weight="regular" />
               <span>Last updated on {formatDate(post.lastUpdatedDate)}</span>
             </p>
