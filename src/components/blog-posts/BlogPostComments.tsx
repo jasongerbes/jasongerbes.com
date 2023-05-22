@@ -24,7 +24,7 @@ export function BlogPostComments({ className, post }: BlogPostCommentsProps) {
         term={post.url}
         reactionsEnabled="1"
         emitMetadata="0"
-        inputPosition="top"
+        inputPosition="bottom"
         theme={theme}
         lang="en"
         loading="lazy"
