@@ -33,7 +33,7 @@ export function Codeblock({ children, ...props }: CodeblockProps) {
   return (
     <>
       <LanguageIcon
-        className="text-foreground absolute left-4 top-[15px] hidden lg:top-[19px]"
+        className="text-foreground absolute left-4 top-[13px] hidden"
         aria-hidden={true}
         data-language-icon
         data-theme={theme}
@@ -46,7 +46,7 @@ export function Codeblock({ children, ...props }: CodeblockProps) {
       </pre>
 
       <CopyButton
-        className="absolute right-2.5 top-[9px] lg:right-[13px] lg:top-[13px]"
+        className="absolute right-2.5 top-[9px] opacity-0 transition-opacity focus:opacity-100 lg:right-[13px] lg:top-[13px] [[data-rehype-pretty-code-title]~&]:right-[9px] [[data-rehype-pretty-code-title]~&]:top-[7px] [div:hover>&]:opacity-100"
         elementRef={ref}
         data-theme={theme}
       />
