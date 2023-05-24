@@ -18,9 +18,9 @@
   }
 
   [data-rehype-pretty-code-title] {
-    @apply py-3.5 pl-12 pr-6;
+    @apply py-3 pl-12 pr-6;
     @apply border border-gray-200/50 bg-gray-100/50 text-gray-600 dark:border-gray-800/50 dark:bg-gray-800/50 dark:text-gray-300;
-    @apply rounded-t-lg font-mono text-sm font-semibold lg:py-[18px];
+    @apply rounded-t-xl font-mono text-sm font-semibold;
   }
 
   [data-rehype-pretty-code-title] ~ [data-language-icon] {
