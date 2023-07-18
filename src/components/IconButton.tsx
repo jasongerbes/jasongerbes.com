@@ -1,5 +1,5 @@
 import { IconProps } from '@/assets/phosphor-icons'
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 
 export interface IconButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -20,7 +20,7 @@ export function IconButton({
     <button
       className={clsx(
         'group flex h-8 w-8 items-center justify-center rounded-full bg-white/70 shadow-md shadow-gray-800/5 ring-1 ring-gray-900/5 backdrop-blur-md transition dark:border dark:border-gray-700/50 dark:bg-gray-800/70 dark:ring-0 dark:ring-white/10 dark:hover:border-gray-700 dark:hover:ring-white/20',
-        className
+        className,
       )}
       aria-label={label}
       onClick={onClick}

@@ -30,7 +30,7 @@ export function CoolThingList({
   ...props
 }: CoolThingListProps) {
   const [filter, setFilter] = useState<CoolThingFilterValue>(
-    defaultCoolThingFilterValue
+    defaultCoolThingFilterValue,
   )
   const things = getFilteredCoolThings(allCoolThings, filter)
   const categories = useMemo(() => getCoolThingCategories(allCoolThings), [])

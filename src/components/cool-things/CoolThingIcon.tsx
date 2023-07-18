@@ -22,7 +22,7 @@ const icon = cva(
         large: 'rounded-2xl p-6',
       },
     },
-  }
+  },
 )
 
 const image = cva('shrink-0', {

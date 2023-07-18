@@ -46,7 +46,7 @@ export default function BlogPost({ params }: { params: Params }) {
   const post = getBlogPost(params.id)
   const hasBeenUpdated = !isSameDay(
     new Date(post.publishDate),
-    new Date(post.lastUpdatedDate)
+    new Date(post.lastUpdatedDate),
   )
 
   return (

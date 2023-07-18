@@ -1,5 +1,5 @@
 import { Link as LinkIcon } from '@/assets/phosphor-icons'
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 import { Fragment } from 'react'
 import Balancer from 'react-wrap-balancer'
 

@@ -42,7 +42,7 @@ const button = cva(
       color: 'primary',
       size: 'medium',
     },
-  }
+  },
 )
 
 export function Button({

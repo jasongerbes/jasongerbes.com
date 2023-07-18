@@ -1,6 +1,6 @@
 'use client'
 
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -78,7 +78,7 @@ function HeaderNavLink(props: HeaderNavLinkProps) {
           'flex items-center gap-3 rounded-xl px-3 py-3 text-lg/none font-medium text-primary-800 transition-colors [-webkit-tap-highlight-color:transparent] dark:text-primary-500',
           isActive
             ? '[-webkit-tap-highlight-color:transparent]'
-            : 'hover:bg-primary-500/10 dark:hover:bg-primary-950/50'
+            : 'hover:bg-primary-500/10 dark:hover:bg-primary-950/50',
         )}
         aria-current={isCurrent ? 'page' : undefined}
         aria-label={label}
