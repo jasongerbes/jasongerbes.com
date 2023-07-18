@@ -55,7 +55,7 @@ const badge = cva(
       color: 'gray',
       size: 'medium',
     },
-  }
+  },
 )
 
 export function Badge(props: BadgeProps) {

@@ -15,7 +15,7 @@ export function CoolThingListCategoryFilter({
 }: CoolThingListCategoryFilterProps) {
   const handleChange = (
     category: CoolThingCategory | undefined,
-    checked: boolean
+    checked: boolean,
   ) => {
     if (checked) onChange(category)
   }
@@ -62,7 +62,7 @@ const option = cva(
         false: 'border-gray-500/20 dark:border-gray-400/20',
       },
     },
-  }
+  },
 )
 
 function CategoryFilterOption({

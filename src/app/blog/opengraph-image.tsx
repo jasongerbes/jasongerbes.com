@@ -16,6 +16,6 @@ export default function ogImage() {
     {
       ...size,
       debug: false,
-    }
+    },
   )
 }

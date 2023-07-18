@@ -1,4 +1,4 @@
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 
 export interface ProseProps {
   className?: string
@@ -15,7 +15,7 @@ export function Prose({ className, children }: ProseProps) {
         'prose-p:text-gray-700 dark:prose-p:text-gray-300',
         'prose-th:font-semibold',
         'prose-pre:rounded-xl prose-pre:border prose-pre:border-gray-200/50 prose-pre:bg-gray-50/30 dark:prose-pre:border-gray-800/50 dark:prose-pre:bg-gray-900',
-        className
+        className,
       )}
     >
       {children}

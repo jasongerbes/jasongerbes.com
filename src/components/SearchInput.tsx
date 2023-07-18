@@ -1,5 +1,5 @@
 import { MagnifyingGlass } from '@/assets/phosphor-icons'
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 
 export interface SearchInputProps {
   className?: string

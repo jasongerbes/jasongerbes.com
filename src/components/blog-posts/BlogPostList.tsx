@@ -1,6 +1,6 @@
 import { allBlogPosts, BlogPost } from 'contentlayer/generated'
 import { Heading, HeadingLevel } from '../Heading'
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 import Link from 'next/link'
 import { BlogPostBadges } from './BlogPostBadges'
 
