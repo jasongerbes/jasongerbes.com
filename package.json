@@ -38,7 +38,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-use": "^17.4.0",
-    "react-wrap-balancer": "^0.4.1",
+    "react-wrap-balancer": "^1.0.0",
     "reading-time": "^1.5.0",
     "rehype-pretty-code": "^0.9.5",
     "rehype-slug": "^5.1.0",
