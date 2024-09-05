@@ -1,4 +1,4 @@
-import { ImageResponse } from 'next/server'
+import { ImageResponse } from 'next/og'
 import { MetadataImage } from '@/components/metadata-images/MetadataImage'
 
 export const alt = 'My thoughts on software engineering and other topics'
