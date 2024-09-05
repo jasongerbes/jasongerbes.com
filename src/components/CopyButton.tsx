@@ -28,7 +28,7 @@ export function CopyButton({
     <button
       className={clsx(
         'h-8 w-8 cursor-pointer rounded-md text-primary-600 ring-1 ring-inset ring-gray-500/20 backdrop-blur-md transition-colors hover:bg-gray-100 hover:text-primary-500 dark:hover:bg-gray-800',
-        className
+        className,
       )}
       aria-label="Copy to Clipboard"
       title="Copy to Clipboard"
@@ -39,7 +39,7 @@ export function CopyButton({
         <Copy
           className={clsx(
             'absolute transition-transform',
-            isCopied ? 'scale-0' : 'scale-100'
+            isCopied ? 'scale-0' : 'scale-100',
           )}
           width={24}
           height={24}
@@ -47,7 +47,7 @@ export function CopyButton({
         <Check
           className={clsx(
             'absolute transition-transform',
-            isCopied ? 'scale-100' : 'scale-0'
+            isCopied ? 'scale-100' : 'scale-0',
           )}
           width={24}
           height={24}

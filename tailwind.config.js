@@ -5,10 +5,7 @@ module.exports = {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/content/**/*.mdx',
   ],
-  plugins: [
-    require('@tailwindcss/forms'),
-    require('@tailwindcss/typography'),
-  ],
+  plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
   theme: {
     extend: {
       colors: ({ colors }) => ({
@@ -16,8 +13,8 @@ module.exports = {
         primary: colors.teal,
         body: {
           light: colors.white,
-          dark: "#121212"
-        }
+          dark: '#121212',
+        },
       }),
       fontSize: {
         base: ['1rem', { lineHeight: '1.75rem' }],

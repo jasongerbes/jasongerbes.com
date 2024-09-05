@@ -46,7 +46,7 @@ export function Codeblock({ children, ...props }: CodeblockProps) {
       </pre>
 
       <CopyButton
-        className="absolute right-2.5 top-[9px] opacity-0 transition-opacity focus:opacity-100 lg:right-[13px] lg:top-[13px] [[data-rehype-pretty-code-title]~&]:right-[9px] [[data-rehype-pretty-code-title]~&]:top-[7px] [div:hover>&]:opacity-100"
+        className="absolute right-2.5 top-[9px] opacity-0 transition-opacity focus:opacity-100 lg:right-[13px] lg:top-[13px] [[data-rehype-pretty-code-title]~&]:right-[9px] [[data-rehype-pretty-code-title]~&]:top-[7px] [figure:hover>&]:opacity-100"
         elementRef={ref}
         data-theme={theme}
       />

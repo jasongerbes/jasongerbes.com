@@ -1,4 +1,4 @@
-import { makeSource } from 'contentlayer/source-files'
+import { makeSource } from 'contentlayer2/source-files'
 import remarkGfm from 'remark-gfm'
 import rehypePrettyCode, {
   Options as RehypePrettyCodeOptions,

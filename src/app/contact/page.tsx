@@ -4,8 +4,7 @@ import {
   EmailIcon,
   GitHubIcon,
   LinkedInIcon,
-  SocialIconProps,
-  TwitterIcon,
+  XIcon,
 } from '@/components/social-icons'
 import { Metadata } from 'next'
 
@@ -46,9 +45,9 @@ const contactLinks: ContactLinkProps[] = [
     icon: LinkedInIcon,
   },
   {
-    href: 'https://twitter.com/JasonGerbes',
-    label: 'Follow on Twitter',
-    icon: TwitterIcon,
+    href: 'https://x.com/JasonGerbes',
+    label: 'Follow on X',
+    icon: XIcon,
   },
 ]
 
@@ -81,7 +80,7 @@ export default function Contact() {
 interface ContactLinkProps {
   href: string
   label: string
-  icon: React.ComponentType<SocialIconProps>
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>
 }
 
 function ContactLink({ href, label, icon: Icon }: ContactLinkProps) {

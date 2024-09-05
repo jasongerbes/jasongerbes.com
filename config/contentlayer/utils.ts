@@ -1,4 +1,4 @@
-import { DocumentGen } from 'contentlayer/core'
+import { DocumentGen } from 'contentlayer2/core'
 import readingTime, { ReadTimeResults } from 'reading-time'
 import * as fs from 'node:fs/promises'
 import path from 'node:path'
@@ -11,7 +11,7 @@ export const getReadingTime = (doc: DocumentGen): ReadTimeResults => {
 
 export const getLastUpdatedDate = async (doc: DocumentGen): Promise<Date> => {
   const stats = await fs.stat(
-    path.join(contentDirPath, doc._raw.sourceFilePath)
+    path.join(contentDirPath, doc._raw.sourceFilePath),
   )
   return stats.mtime
 }

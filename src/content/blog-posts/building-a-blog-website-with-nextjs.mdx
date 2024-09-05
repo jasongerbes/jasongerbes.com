@@ -119,12 +119,17 @@ Update your `tsconfig.json` file to include the following lines.
     "baseUrl": ".",
     // ^^^^^^^^^^^
     "paths": {
-      "contentlayer/generated": ["./.contentlayer/generated"]
+      "contentlayer/generated": ["./.contentlayer/generated"],
       // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    }
+    },
   },
-  "include": ["next-env.d.ts", "**/*.tsx", "**/*.ts", ".contentlayer/generated"]
-  //                                                   ^^^^^^^^^^^^^^^^^^^^^^^^
+  "include": [
+    "next-env.d.ts",
+    "**/*.tsx",
+    "**/*.ts",
+    ".contentlayer/generated",
+    // ^^^^^^^^^^^^^^^^^^^^^^
+  ],
 }
 ```
 

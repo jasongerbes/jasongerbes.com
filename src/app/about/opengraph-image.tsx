@@ -1,4 +1,4 @@
-import { ImageResponse } from 'next/server'
+import { ImageResponse } from 'next/og'
 import { MetadataImage } from '@/components/metadata-images/MetadataImage'
 
 export const alt = 'About Jason'
@@ -11,6 +11,6 @@ export default function ogImage() {
     {
       ...size,
       debug: false,
-    }
+    },
   )
 }

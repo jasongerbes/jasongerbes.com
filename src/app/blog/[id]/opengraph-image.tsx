@@ -1,4 +1,4 @@
-import { ImageResponse } from 'next/server'
+import { ImageResponse } from 'next/og'
 import { getBlogPost } from '../utils'
 import { BlogPostMetadataImage } from '@/components/metadata-images/BlogPostMetadataImage'
 

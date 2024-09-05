@@ -1,6 +1,4 @@
-import { SocialIconProps } from './types'
-
-export function GitHubIcon(props: SocialIconProps) {
+export function GitHubIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor" {...props}>
       <path

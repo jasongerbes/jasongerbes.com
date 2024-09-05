@@ -12,7 +12,7 @@ export function Title({ className, headingLevel, children }: TitleProps) {
     <Heading
       className={clsx(
         'text-4xl font-semibold tracking-tight sm:text-5xl',
-        className
+        className,
       )}
       level={headingLevel || 'h1'}
       balanced={true}

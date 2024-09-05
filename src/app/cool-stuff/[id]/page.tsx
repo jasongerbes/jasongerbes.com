@@ -1,4 +1,4 @@
-import { CoolThing, allCoolThings } from 'contentlayer/generated'
+import { allCoolThings } from 'contentlayer/generated'
 import { Metadata } from 'next'
 import { getCoolThing } from '../utils'
 import { CoolThingDetails } from '@/components/cool-things/CoolThingDetails'
