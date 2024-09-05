@@ -44,10 +44,7 @@ export function generateMetadata({ params }: { params: Params }): Metadata {
 
 export default function BlogPost({ params }: { params: Params }) {
   const post = getBlogPost(params.id)
-  const hasBeenUpdated = !isSameDay(
-    new Date(post.publishDate),
-    new Date(post.lastUpdatedDate)
-  )
+  const hasBeenUpdated = !isSameDay(post.publishDate, post.lastUpdatedDate)
 
   return (
     <div className="px-4 py-16 sm:px-8 sm:py-20 xl:py-24">
