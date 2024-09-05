@@ -1,6 +1,6 @@
 'use client'
 
-import { CoolThing, allCoolThings } from 'contentlayer/generated'
+import { CoolThing as CoolThingType, allCoolThings } from 'contentlayer/generated'
 import { Heading, HeadingLevel } from '../Heading'
 import { CoolThingIcon } from './CoolThingIcon'
 import Link from 'next/link'
@@ -96,7 +96,7 @@ function NoResultsMessage({ onClear }: { onClear: VoidFunction }) {
 }
 
 interface CoolThingProps {
-  thing: CoolThing
+  thing: CoolThingType
   headingLevel: HeadingLevel
 }
 

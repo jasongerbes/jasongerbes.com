@@ -1,4 +1,4 @@
-import { allBlogPosts, BlogPost } from 'contentlayer/generated'
+import { allBlogPosts, BlogPost as BlogPostType } from 'contentlayer/generated'
 import { Heading, HeadingLevel } from '../Heading'
 import clsx from 'clsx'
 import Link from 'next/link'
@@ -30,7 +30,7 @@ export function BlogPostList({
 }
 
 export interface BlogPostProps {
-  post: BlogPost
+  post: BlogPostType
   headingLevel: HeadingLevel
 }
 
@@ -65,7 +65,7 @@ function BlogPost({ post, headingLevel }: BlogPostProps) {
   )
 }
 
-function sortPostsDescending(posts: BlogPost[], limit?: number): BlogPost[] {
+function sortPostsDescending(posts: BlogPostType[], limit?: number): BlogPostType[] {
   const sortedPosts = posts
     .filter((post) => post.isPublished)
     .sort((a, b) => {
