@@ -1,4 +1,4 @@
-import { DocumentGen } from 'contentlayer/core'
+import { DocumentGen } from 'contentlayer2/core'
 import readingTime, { ReadTimeResults } from 'reading-time'
 import * as fs from 'node:fs/promises'
 import path from 'node:path'

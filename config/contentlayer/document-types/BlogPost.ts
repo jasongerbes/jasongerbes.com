@@ -1,4 +1,4 @@
-import { defineDocumentType } from 'contentlayer/source-files'
+import { defineDocumentType } from 'contentlayer2/source-files'
 import { getLastUpdatedDate, getReadingTime } from '../utils'
 
 export const BlogPost = defineDocumentType(() => ({
