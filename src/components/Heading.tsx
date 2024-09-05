@@ -15,7 +15,14 @@ export function Heading({
   ...props
 }: HeadingProps) {
   return (
-    <Tag {...props} className={clsx(props.className, props.id && 'group', balanced && 'text-balance')}>
+    <Tag
+      {...props}
+      className={clsx(
+        props.className,
+        props.id && 'group',
+        balanced && 'text-balance',
+      )}
+    >
       {props.id && <HeadingAnchorLink id={props.id} />}
       {children}
     </Tag>

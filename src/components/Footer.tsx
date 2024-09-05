@@ -12,7 +12,7 @@ export function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="border-t border-primary-600/10 bg-primary-50/50 px-8 pb-16 pt-16 dark:border-primary-900/30 dark:bg-primary-900/20 sm:px-8 lg:border-none lg:bg-transparent lg:pt-0">
+    <footer className="border-t border-primary-600/10 bg-primary-50/50 px-8 pb-16 pt-16 sm:px-8 lg:border-none lg:bg-transparent lg:pt-0 dark:border-primary-900/30 dark:bg-primary-900/20">
       <div className="mx-auto flex max-w-7xl flex-col justify-between gap-16 sm:items-center lg:justify-center">
         <nav className="lg:hidden">
           <ul className="flex flex-col gap-6 text-base font-semibold sm:flex-row sm:gap-8">
@@ -21,7 +21,7 @@ export function Footer() {
             ))}
           </ul>
         </nav>
-        <p className="text-center text-sm text-primary-800 dark:text-primary-500 lg:text-gray-500 dark:lg:text-gray-400">
+        <p className="text-center text-sm text-primary-800 lg:text-gray-500 dark:text-primary-500 dark:lg:text-gray-400">
           &copy; {year} Jason Gerbes. All rights reserved.
         </p>
       </div>

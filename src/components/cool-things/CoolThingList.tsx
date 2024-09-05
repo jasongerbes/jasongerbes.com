@@ -1,6 +1,9 @@
 'use client'
 
-import { CoolThing as CoolThingType, allCoolThings } from 'contentlayer/generated'
+import {
+  CoolThing as CoolThingType,
+  allCoolThings,
+} from 'contentlayer/generated'
 import { Heading, HeadingLevel } from '../Heading'
 import { CoolThingIcon } from './CoolThingIcon'
 import Link from 'next/link'
@@ -30,7 +33,7 @@ export function CoolThingList({
   ...props
 }: CoolThingListProps) {
   const [filter, setFilter] = useState<CoolThingFilterValue>(
-    defaultCoolThingFilterValue
+    defaultCoolThingFilterValue,
   )
   const things = getFilteredCoolThings(allCoolThings, filter)
   const categories = useMemo(() => getCoolThingCategories(allCoolThings), [])
@@ -103,7 +106,7 @@ interface CoolThingProps {
 function CoolThing({ thing, headingLevel }: CoolThingProps) {
   return (
     <Link
-      className="-mx-4 flex h-full flex-col items-start p-4 transition-colors hover:bg-primary-500/10 dark:hover:bg-primary-950/30 sm:rounded-xl"
+      className="-mx-4 flex h-full flex-col items-start p-4 transition-colors hover:bg-primary-500/10 sm:rounded-xl dark:hover:bg-primary-950/30"
       href={thing.url}
     >
       <CoolThingIcon thing={thing} size="medium" />

@@ -10,20 +10,24 @@
 
 @layer components {
   .prose {
-    code[data-theme*=" "],
-    code[data-theme*=" "] span {
+    code[data-theme*=' '],
+    code[data-theme*=' '] span {
       color: var(--shiki-light);
+      font-style: var(--shiki-light-font-style);
       font-weight: var(--shiki-light-font-weight);
+      text-decoration: var(--shiki-light-text-decoration);
     }
-    
+
     @media (prefers-color-scheme: dark) {
-      code[data-theme*=" "],
-      code[data-theme*=" "] span {
+      code[data-theme*=' '],
+      code[data-theme*=' '] span {
         color: var(--shiki-dark);
+        font-style: var(--shiki-dark-font-style);
         font-weight: var(--shiki-dark-font-weight);
+        text-decoration: var(--shiki-dark-text-decoration);
       }
     }
-    
+
     [data-rehype-pretty-code-figure] {
       @apply relative mt-0;
     }

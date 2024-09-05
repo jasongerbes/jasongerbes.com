@@ -38,7 +38,7 @@ function BlogPost({ post, headingLevel }: BlogPostProps) {
   return (
     <article>
       <Link
-        className="-mx-4 flex flex-col p-4 transition-colors hover:bg-primary-500/10 dark:hover:bg-primary-950/30 sm:rounded-xl"
+        className="-mx-4 flex flex-col p-4 transition-colors hover:bg-primary-500/10 sm:rounded-xl dark:hover:bg-primary-950/30"
         href={post.url}
       >
         <Heading
@@ -65,7 +65,10 @@ function BlogPost({ post, headingLevel }: BlogPostProps) {
   )
 }
 
-function sortPostsDescending(posts: BlogPostType[], limit?: number): BlogPostType[] {
+function sortPostsDescending(
+  posts: BlogPostType[],
+  limit?: number,
+): BlogPostType[] {
   const sortedPosts = posts
     .filter((post) => post.isPublished)
     .sort((a, b) => {

@@ -26,7 +26,7 @@ type CoolThingFilter = (thing: CoolThing) => boolean
 
 export function getFilteredCoolThings(
   things: CoolThing[],
-  { searchQuery, category }: CoolThingFilterValue
+  { searchQuery, category }: CoolThingFilterValue,
 ): CoolThing[] {
   const filters: CoolThingFilter[] = []
 
@@ -40,7 +40,7 @@ export function getFilteredCoolThings(
 
   // apply all filters
   const filteredThings = things.filter((thing) =>
-    filters.every((filter) => filter(thing))
+    filters.every((filter) => filter(thing)),
   )
 
   // no need to search, return filteredThings
@@ -56,7 +56,7 @@ export function getFilteredCoolThings(
 
 function sortThingsDescending(
   things: CoolThing[],
-  limit?: number
+  limit?: number,
 ): CoolThing[] {
   const sortedThings = things.sort((a, b) => {
     if (a.coolFactor !== b.coolFactor) {

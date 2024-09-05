@@ -24,7 +24,7 @@ const links: HeaderNavLinkProps[] = [
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-50 select-none border-b border-primary-600/10 bg-primary-50/70 backdrop-blur-lg backdrop-filter dark:border-primary-900/30 dark:bg-primary-900/20 lg:static lg:row-span-2 lg:border-b-0 lg:border-r lg:backdrop-blur-none lg:backdrop-filter-none">
+    <header className="sticky top-0 z-50 select-none border-b border-primary-600/10 bg-primary-50/70 backdrop-blur-lg backdrop-filter lg:static lg:row-span-2 lg:border-b-0 lg:border-r lg:backdrop-blur-none lg:backdrop-filter-none dark:border-primary-900/30 dark:bg-primary-900/20">
       <div className="mx-auto flex max-h-[100dvh] items-center justify-center px-4 py-2.5 xs:justify-between lg:sticky lg:top-0 lg:flex-col lg:overflow-y-auto lg:px-0 lg:py-12">
         <Link
           className="lg:dark:border-primary-900/300 hidden text-center xs:block lg:w-full lg:border-b-2 lg:border-primary-600/10"
@@ -78,7 +78,7 @@ function HeaderNavLink(props: HeaderNavLinkProps) {
           'flex items-center gap-3 rounded-xl px-3 py-3 text-lg/none font-medium text-primary-800 transition-colors [-webkit-tap-highlight-color:transparent] dark:text-primary-500',
           isActive
             ? '[-webkit-tap-highlight-color:transparent]'
-            : 'hover:bg-primary-500/10 dark:hover:bg-primary-950/50'
+            : 'hover:bg-primary-500/10 dark:hover:bg-primary-950/50',
         )}
         aria-current={isCurrent ? 'page' : undefined}
         aria-label={label}

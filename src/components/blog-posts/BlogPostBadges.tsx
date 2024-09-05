@@ -25,7 +25,7 @@ export function BlogPostBadges({ className, post, size }: BlogPostBadgesProps) {
 
       <Badge
         aria-label={`This post takes about ${Math.floor(
-          post.readingTime.minutes
+          post.readingTime.minutes,
         )} minutes to read`}
         icon={ClockCountdown}
         size={size}

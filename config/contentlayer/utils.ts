@@ -11,7 +11,7 @@ export const getReadingTime = (doc: DocumentGen): ReadTimeResults => {
 
 export const getLastUpdatedDate = async (doc: DocumentGen): Promise<Date> => {
   const stats = await fs.stat(
-    path.join(contentDirPath, doc._raw.sourceFilePath)
+    path.join(contentDirPath, doc._raw.sourceFilePath),
   )
   return stats.mtime
 }
