@@ -47,11 +47,16 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en-NZ" className="scroll-smooth motion-reduce:scroll-auto">
+    <html
+      lang="en-NZ"
+      className="overscroll-none scroll-smooth motion-reduce:scroll-auto"
+    >
       <body className="flex min-h-[100svh] flex-col bg-body-light text-gray-800 antialiased selection:bg-primary-500/30 dark:bg-body-dark dark:text-gray-50 lg:grid lg:grid-cols-[270px_1fr] lg:grid-rows-[1fr_auto] xl:grid-cols-[320px_1fr]">
         <Header />
-        <main className="min-w-0 grow">{children}</main>
-        <Footer />
+        <div className="flex min-w-0 grow flex-col overflow-y-scroll overscroll-contain">
+          <main className="grow">{children}</main>
+          <Footer />
+        </div>
         <Analytics />
       </body>
     </html>
